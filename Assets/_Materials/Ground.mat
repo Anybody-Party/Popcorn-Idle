@@ -23,10 +23,10 @@ Material:
   m_Name: Ground
   m_Shader: {fileID: 4800000, guid: bee44b4a58655ee4cbff107302a3e131, type: 3}
   m_ValidKeywords:
-  - _CELPRIMARYMODE_SINGLE
   - _TEXTUREBLENDINGMODE_MULTIPLY
   - _UNITYSHADOWMODE_MULTIPLY
   m_InvalidKeywords:
+  - _CELPRIMARYMODE_NONE
   - _FLAT_SHADOWS_ENABLED
   - _FLAT_SPECULAR_ENABLED
   m_LightmapFlags: 4
@@ -96,7 +96,7 @@ Material:
     - _CelExtraEnabled: 0
     - _CelNumSteps: 7
     - _CelPrimaryEnabled: 0
-    - _CelPrimaryMode: 1
+    - _CelPrimaryMode: 0
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -144,7 +144,7 @@ Material:
     - _RimEnabled: 0
     - _SecondaryColor: 1
     - _SecondaryColorEnabled: 1
-    - _SelfShadingSize: 0.976
+    - _SelfShadingSize: 0
     - _SelfShadingSizeExtra: 0.821
     - _ShadowEdgeSize: 0
     - _ShadowEdgeSizeExtra: 0.222
@@ -165,10 +165,10 @@ Material:
     - _VertexColorsEnabled: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
+    - _BaseColor: {r: 0.44313726, g: 0.3529412, b: 0.39694345, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorCelShadow: {r: 0.49056602, g: 0.34478462, b: 0.4476891, a: 1}
-    - _ColorDim: {r: 0.1764706, g: 0.18431373, b: 0.2392157, a: 1}
+    - _ColorDim: {r: 0.5283019, g: 0.14204343, b: 0.14204343, a: 1}
     - _ColorDimCurve: {r: 0.85, g: 0.85, b: 0.85, a: 0.85}
     - _ColorDimExtra: {r: 0.1764706, g: 0.18823531, b: 0.23529413, a: 0.85}
     - _ColorDimSteps: {r: 0.29690358, g: 0.38679248, b: 0.24265754, a: 0.85}
