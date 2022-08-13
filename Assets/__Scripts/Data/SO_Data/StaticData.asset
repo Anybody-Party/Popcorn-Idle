@@ -13,9 +13,17 @@ MonoBehaviour:
   m_Name: StaticData
   m_EditorClassIdentifier: 
   IsVibrationOn: 1
-  PopcornPrefab: {fileID: 0}
-  EmptyPrefab: {fileID: 0}
+  PopcornPrefab: {fileID: 3536651797395635328, guid: be1e27d37da86824ca6e5958f37cc0e2, type: 3}
+  EmptyPrefab: {fileID: 4726771855065635164, guid: 3ff7e0a8cbe349a4ca5f1e5ceddf5046, type: 3}
   StartMoney: 0
-  PopcornSpeed: 0
-  DespawnTag: 
+  PopcornSpeed: 0.005
+  SpawnPopTime: 10
+  CookingTime: 5
+  LaunchPopcornForce: 4
+  PopingPopcornForce: 5
+  JumpPopcornForce: 2.5
+  DespawnTag: DespawnZone
+  CookingZoneTag: CookingZone
+  SellZoneTag: SellZone
   GroundTag: Ground
+  ConveyorTag: Conveyor

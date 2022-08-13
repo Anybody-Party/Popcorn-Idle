@@ -15,14 +15,20 @@ public class StaticData : BaseDataSO
     public GameObject EmptyPrefab;
 
     [Header("Balance")]
-    public int StartMoney;
-    public int PopcornSpeed;
-    public int MakingPopcornTime;
-    public int HeatingSpeed;
+    public double StartMoney;
+    public float PopcornSpeed;
+    public float SpawnPopTime;
+    public float CookingTime;
+    public float LaunchPopcornForce;
+    public float PopingPopcornForce;
+    public float JumpPopcornForce;
 
     [Header("Tags")]
     [BoxGroup("Tags")] [Tag] public string DespawnTag;
+    [BoxGroup("Tags")] [Tag] public string CookingZoneTag;
+    [BoxGroup("Tags")] [Tag] public string SellZoneTag;
     [BoxGroup("Tags")] [Tag] public string GroundTag;
+    [BoxGroup("Tags")] [Tag] public string ConveyorTag;
 
     public override void ResetData()
     {

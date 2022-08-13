@@ -34,19 +34,20 @@ namespace Client
 
             EcsSystems inputSystems = InputSystems();
             EcsSystems spawnSystems = SpawnSystems();
-            EcsSystems movabelSystems = MovableSystems();
-            EcsSystems characterSystems = CharacterSystems();
-
+            EcsSystems moveSystems = MoveSystems();
+            EcsSystems popSystems = PopSystems();
+            
+            //.Add(characterSystems)
             _updateSystems
                 .Add(new InitGameSystem())
-                .Add(inputSystems)
-                .Add(spawnSystems)
-                .Add(characterSystems)
 
-                .Add(new CharacterAnimationSystem())
+                .Add(new ConveyorInitSystem())
+                .Add(spawnSystems)
+                .Add(inputSystems)
+                .Add(popSystems)
 
                 .Add(new LevelProgressSystem())
-                .Add(new TimeSystem())
+                .Add(new TimerSystem())
                 .Add(new GameVibrationSystem())
                 .Add(new MoneyCounterSystem())
 
@@ -59,7 +60,7 @@ namespace Client
                 .Init();
 
             _fixedUpdateSystems
-                .Add(movabelSystems)
+                .Add(moveSystems)
 
                 .Inject(_gameData)
 
@@ -99,8 +100,7 @@ namespace Client
         {
             return new EcsSystems(_ecsWorld, "SpawnSystems")
             .Add(new DestroyGameObjectSystem())
-            .Add(new SpawnPopcornSystem())
-            .OneFrame<CreateNewCharacterRequest>()
+            .Add(new PopSpawnSystem())
             .Add(new SpawnSystem());
         }
 
@@ -111,21 +111,30 @@ namespace Client
             .Add(new InputJoystickSystem());
         }
 
-        private EcsSystems MovableSystems()
+        private EcsSystems MoveSystems()
         {
             return new EcsSystems(_ecsWorld, "MovableSystems")
-            .Add(new MovingSystem())
-            .Add(new LookAtSystem())
+            .Add(new VelocityMovingSystem())
+            .Add(new TransformMovingSystem())
+            .Add(new LookingAtSystem())
             .Add(new PhysicForceAddSystem())
             .Add(new LandingSystem());
         }
 
-        private EcsSystems CharacterSystems()
+        private EcsSystems PopSystems()
         {
-            return new EcsSystems(_ecsWorld, "CharacterSystems")
-                .Add(new CharacterInitSystem())
-                .Add(new CharacterNavigationSystem())
-                .Add(new CharacterOnTriggerEnterSystem());
+            return new EcsSystems(_ecsWorld, "PopSystems")
+
+                .Add(new PopInitSystem())
+                .Add(new PopLaunchSystem())
+                .Add(new PopCookingSystem())
+                .Add(new PopPopingSystem())
+                .Add(new PopGoToJumpSystem())
+                .Add(new PopPrepareToJumpSystem())
+                .Add(new PopJumpSystem())
+
+                .Add(new PopTriggerSystem())
+                .Add(new PopAnimationSystem());
         }
 
         private EcsSystems CoreGameplaySystems()

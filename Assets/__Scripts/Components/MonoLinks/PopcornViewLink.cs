@@ -5,6 +5,17 @@ using UnityEngine;
 [Serializable]
 public struct PopcornViewLink
 {
-    public GameObject Raw;
-    public GameObject Done;
+    [Header("Bodies")]
+    public GameObject RawBody;
+    public GameObject DoneBody;
+
+    [Header("Emotions")]
+    public GameObject HappyEmotion;
+    public GameObject ScaryEmotion;
+
+    [Header("Additions")]
+    public GameObject Chocolate;
+    public GameObject Salt;
+    public GameObject Caramel;
+    public GameObject Wasabi;
 }

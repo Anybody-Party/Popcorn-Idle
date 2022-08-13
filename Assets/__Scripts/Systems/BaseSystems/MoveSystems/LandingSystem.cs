@@ -19,11 +19,11 @@ namespace Client
                 ref OnCollisionEnterEvent landingCollision = ref landingEntity.Get<OnCollisionEnterEvent>();
 
                 if (landingCollision.Collision != null)
-                    if (landingCollision.Collision.gameObject.CompareTag(_gameData.StaticData.GroundTag))
+                    if (landingCollision.Collision.gameObject.CompareTag(_gameData.StaticData.GroundTag) || landingCollision.Collision.gameObject.CompareTag(_gameData.StaticData.ConveyorTag))
                     {
-                        foreach (var ps in landingPs.ParticleSystems)
-                            if (ps.ParticleSystemName == "LandingPS")
-                                ps.ParticleSystem.Play();
+                        //foreach (var ps in landingPs.ParticleSystems)
+                        //    if (ps.ParticleSystemName == "LandingPS")
+                        //        ps.ParticleSystem.Play();
                         _gameData.SceneData.CameraController.Shake();
                         landingEntity.Del<Landing>();
                         landingCollision.Collision = null;
@@ -37,11 +37,11 @@ namespace Client
                 ref OnTriggerEnterEvent landingCollision = ref landingEntity.Get<OnTriggerEnterEvent>();
 
                 if (landingCollision.Collider)
-                    if (landingCollision.Collider.CompareTag(_gameData.StaticData.GroundTag))
+                    if (landingCollision.Collider.CompareTag(_gameData.StaticData.GroundTag) || landingCollision.Collider.CompareTag(_gameData.StaticData.ConveyorTag))
                     {
-                        foreach (var ps in landingPs.ParticleSystems)
-                            if (ps.ParticleSystemName == "LandingPS")
-                                ps.ParticleSystem.Play();
+                        //foreach (var ps in landingPs.ParticleSystems)
+                        //    if (ps.ParticleSystemName == "LandingPS")
+                        //        ps.ParticleSystem.Play();
 
                         landingEntity.Del<Landing>();
                     }

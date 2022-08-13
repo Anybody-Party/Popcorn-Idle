@@ -7,9 +7,6 @@ public partial class SceneData : MonoBehaviour
     [Header("Camera")]
     public CameraController CameraController;
 
-    [Header("PrefabSpawnPoints")]
-    public List<ConveyorLink> Conveyors;
-
     [Header("MonoEntities")]
     public List<MonoEntity> MonoEntities;
 

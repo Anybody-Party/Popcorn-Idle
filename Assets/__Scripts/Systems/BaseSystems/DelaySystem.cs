@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace Client
 {
-    public partial class TimeSystem : IEcsRunSystem
+    public partial class TimerSystem : IEcsRunSystem
     {
         private EcsFilter<DelayTimer> _delaysFilter;
+        private EcsFilter<DoneTimer> _doneFilter;
 
         public void Run()
         {
@@ -16,6 +17,12 @@ namespace Client
                 delayTimer.Value -= Time.deltaTime;
                 if (delayTimer.Value < 0.01f)
                     delayTimerEntity.Del<DelayTimer>();
+            }
+
+            foreach (var done in _doneFilter)
+            {
+                
+
             }
         }
     }

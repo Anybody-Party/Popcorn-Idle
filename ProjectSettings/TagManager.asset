@@ -6,6 +6,10 @@ TagManager:
   tags:
   - BossHand
   - Ground
+  - CookingZone
+  - SellZone
+  - DespawnZone
+  - Conveyor
   layers:
   - Default
   - TransparentFX

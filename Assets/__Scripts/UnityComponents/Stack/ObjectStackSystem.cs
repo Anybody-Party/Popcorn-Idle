@@ -36,9 +36,9 @@ public class ObjectStackSystem : IEcsInitSystem, IEcsRunSystem
             entity.Get<StackObject>();
 
             entityStack.Stack.Objects.Add(entity);
-            entity.Get<Moving>().Target = entityStack.Stack.GridPoints[entityStack.Stack.Objects.Count].position;
-            entity.Get<Moving>().Speed = 1;
-            entity.Get<Moving>().Accuracy = 1;
+            entity.Get<VelocityMoving>().Target = entityStack.Stack.GridPoints[entityStack.Stack.Objects.Count].position;
+            entity.Get<VelocityMoving>().Speed = 1;
+            entity.Get<VelocityMoving>().Accuracy = 1;
 
             //entityGo.Value.transform.DOScale(Vector3.one, 0.1f).ChangeStartValue(Vector3.zero).SetEase(Ease.OutCubic); //del
             //entityGo.Value.transform.DOLocalRotate(Vector3.zero, 0.1f).SetEase(Ease.OutCubic); //del
@@ -55,9 +55,9 @@ public class ObjectStackSystem : IEcsInitSystem, IEcsRunSystem
             entity.Get<StackObject>();
 
             entityStack.Stack.Objects.Remove(entity);
-            entity.Get<Moving>().Target = goFromStack.To.position;
-            entity.Get<Moving>().Speed = 5;
-            entity.Get<Moving>().Accuracy = 0.1f;
+            entity.Get<VelocityMoving>().Target = goFromStack.To.position;
+            entity.Get<VelocityMoving>().Speed = 5;
+            entity.Get<VelocityMoving>().Accuracy = 0.1f;
 
             //entityGo.Value.transform.DOScale(Vector3.one, 0.1f).ChangeStartValue(Vector3.zero).SetEase(Ease.OutCubic); //del
             //entityGo.Value.transform.DOLocalRotate(Vector3.zero, 0.1f).SetEase(Ease.OutCubic); //del
