@@ -33,6 +33,8 @@ namespace Client
                     Parent = conveyorGo.Value.transform,
                     Entity = popEntity
                 };
+
+                _world.NewEntity().Get<AddPopEvent>();
             }
         }
     }

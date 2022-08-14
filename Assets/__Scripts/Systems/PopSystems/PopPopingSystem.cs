@@ -22,6 +22,7 @@ namespace Client
                 ref RigidbodyLink entityRb = ref entity.Get<RigidbodyLink>();
 
                 popView.DoneBody.SetActive(true);
+                //popView.RawBody.SetActive(true);
                 entityGo.Value.transform.rotation = Quaternion.identity;
                 entityRb.Value.freezeRotation = true;
 
@@ -35,7 +36,7 @@ namespace Client
 
                 entity.Del<Poping>();
                 entity.Get<Landing>();
-                entity.Get<DelayTimer>().Value = 3.0f;
+                entity.Get<DelayTimer>().Value = 0.5f;
                 entity.Get<GoToJump>();
             }
         }

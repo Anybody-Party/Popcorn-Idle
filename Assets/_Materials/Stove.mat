@@ -197,7 +197,7 @@ Material:
     - _ColorSecondary: {r: 1, g: 0.55879205, b: 0, a: 1}
     - _ColorShadow: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _ColorShadows: {r: 0.37835297, g: 0.4602353, b: 0.72, a: 1}
-    - _EmissionColor: {r: 0.0073179067, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.627451, g: 0, b: 0, a: 1}
     - _FlatRimColor: {r: 0.3207547, g: 0.037824843, b: 0.11974363, a: 1}
     - _FlatSpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}

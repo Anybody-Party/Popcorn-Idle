@@ -134,6 +134,7 @@ namespace Client
                 .Add(new PopJumpSystem())
 
                 .Add(new PopTriggerSystem())
+                .Add(new PopCounterSystem())
                 .Add(new PopAnimationSystem());
         }
 

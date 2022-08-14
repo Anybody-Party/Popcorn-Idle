@@ -19,10 +19,6 @@ public abstract class BaseScreen : UIElement
     public void Init(EcsWorld ecsWorld)
     {
         EcsWorld = ecsWorld;
-    }
-
-    private void Start()
-    {
         ScreenIsShow = false;
     }
 

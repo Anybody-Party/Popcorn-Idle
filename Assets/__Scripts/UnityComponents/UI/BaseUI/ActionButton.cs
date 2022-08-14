@@ -9,7 +9,7 @@ public class ActionButton : UIElement
 {
     [HideInInspector] public UnityEvent OnClickEvent;
 
-    private Button unityButton;
+    protected Button unityButton;
 
     private const string onClickTriggerName = "OnClick";
 

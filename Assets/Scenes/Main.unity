@@ -699,14 +699,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321022198}
-  m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.02631978, y: -0.70661676, z: -0.02631978, w: 0.7066168}
   m_LocalPosition: {x: 0.1895, y: 0.58500004, z: -1.858}
   m_LocalScale: {x: 0.08573958, y: 1, z: 0.7006945}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 714346919}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -4.266}
 --- !u!65 &321022200
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1416,6 +1416,8 @@ MonoBehaviour:
     CurrentLevelProgress: 0
     ConveyorLevels: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
     Money: 0
+    GoldPopcornAmount: 0
+    PopcornAmount: 0
 --- !u!114 &678094782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3430,7 +3432,7 @@ Camera:
   far clip plane: 300
   field of view: 26.991467
   orthographic: 1
-  orthographic size: 2.5
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3453,7 +3455,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.29357782, y: -0.20642203, z: 0.0650846, w: 0.9311101}
+  m_LocalRotation: {x: 0.33391288, y: -0.20338663, z: 0.07402667, w: 0.91741824}
   m_LocalPosition: {x: 1.13, y: 3.5, z: -3.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4753,7 +4755,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 26.991467
-    OrthographicSize: 2.5
+    OrthographicSize: 2
     NearClipPlane: 0.01
     FarClipPlane: 300
     Dutch: 0
@@ -4776,7 +4778,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2084367545}
-  m_LocalRotation: {x: 0.29357782, y: -0.20642203, z: 0.0650846, w: 0.9311101}
+  m_LocalRotation: {x: 0.33391288, y: -0.20338663, z: 0.07402667, w: 0.91741824}
   m_LocalPosition: {x: 1.13, y: 3.5, z: -3.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4784,7 +4786,7 @@ Transform:
   - {fileID: 1581869732}
   m_Father: {fileID: 1350251732}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 35, y: -25, z: 0}
+  m_LocalEulerAnglesHint: {x: 40, y: -25, z: 0}
 --- !u!114 &2084367548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4974,10 +4976,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1224970839403955570, guid: 3ef978bc01e1cdc44a73ab7f5b228791, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.000022888184
-      objectReference: {fileID: 0}
     - target: {fileID: 8480860159630091431, guid: 3ef978bc01e1cdc44a73ab7f5b228791, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5065,18 +5063,6 @@ PrefabInstance:
     - target: {fileID: 8480860159630091435, guid: 3ef978bc01e1cdc44a73ab7f5b228791, type: 3}
       propertyPath: m_Name
       value: GameUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 8480860159630091435, guid: 3ef978bc01e1cdc44a73ab7f5b228791, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8480860160735101700, guid: 3ef978bc01e1cdc44a73ab7f5b228791, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8480860160735101703, guid: 3ef978bc01e1cdc44a73ab7f5b228791, type: 3}
-      propertyPath: m_Controller
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ef978bc01e1cdc44a73ab7f5b228791, type: 3}
