@@ -23,7 +23,7 @@ namespace Client
                 entity.Get<LookingAt>().Target = new Vector3(point.position.x, entityGo.Value.transform.position.y, point.position.z);
 
                 entity.Get<ReadyToJump>();
-                entity.Get<DelayTimer>().Value = 0.2f;
+                entity.Get<DelayTimer>().Value = 0.1f;
                 entity.Del<GoToJump>();
             }
         }

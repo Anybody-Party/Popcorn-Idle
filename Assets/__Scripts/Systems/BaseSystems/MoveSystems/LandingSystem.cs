@@ -26,7 +26,6 @@ namespace Client
                         //        ps.ParticleSystem.Play();
                         _gameData.SceneData.CameraController.Shake();
                         landingEntity.Del<Landing>();
-                        landingCollision.Collision = null;
                     }
             }
 
@@ -37,6 +36,7 @@ namespace Client
                 ref OnTriggerEnterEvent landingCollision = ref landingEntity.Get<OnTriggerEnterEvent>();
 
                 if (landingCollision.Collider)
+                {
                     if (landingCollision.Collider.CompareTag(_gameData.StaticData.GroundTag) || landingCollision.Collider.CompareTag(_gameData.StaticData.ConveyorTag))
                     {
                         //foreach (var ps in landingPs.ParticleSystems)
@@ -45,6 +45,7 @@ namespace Client
 
                         landingEntity.Del<Landing>();
                     }
+                }
             }
         }
     }

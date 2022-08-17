@@ -17,10 +17,10 @@ MonoBehaviour:
   EmptyPrefab: {fileID: 4726771855065635164, guid: 3ff7e0a8cbe349a4ca5f1e5ceddf5046, type: 3}
   StartMoney: 0
   PopcornSpeed: 0.005
-  SpawnPopTime: 0.1
+  SpawnPopTime: 5.89
   CookingTime: 5
-  LaunchPopcornForce: 3.99
-  PopingPopcornForce: 5
+  LaunchPopcornForce: 3
+  PopingPopcornForce: 3
   JumpPopcornForce: 2.5
   DespawnTag: DespawnZone
   CookingZoneTag: CookingZone

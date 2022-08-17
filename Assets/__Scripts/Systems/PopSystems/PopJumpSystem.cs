@@ -27,6 +27,7 @@ namespace Client
                 };
                 entity.Get<LookingAt>().Target = point.position;
                 entity.Del<ReadyToJump>();
+                entity.Get<SetAnimationEvent>();
             }
         }
     }
@@ -37,24 +38,16 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<Pop, ReadyToSell> _filter;
+        private EcsFilter<Pop, ReadyToSellTag> _filter;
 
         public void Run()
         {
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
-                ref Pop pop = ref entity.Get<Pop>();
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                ref RigidbodyLink entityRb = ref entity.Get<RigidbodyLink>();
 
-                Transform point = pop.Conveyor.JumpPoints[Random.Range(0, pop.Conveyor.JumpPoints.Count)];
-                entity.Get<AddingForce>() = new AddingForce
-                {
-                    Direction = (point.position - entityGo.Value.transform.position).normalized * _gameData.StaticData.JumpPopcornForce,
-                    ForceMode = ForceMode.Impulse
-                };
-                entity.Get<LookingAt>().Target = point.position;
-                entity.Del<ReadyToJump>();
+                entityRb.Value.isKinematic = true;
             }
         }
     }
@@ -65,27 +58,34 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<Pop, ReadyToSell> _filter;
+        private EcsFilter<Pop, ReadyToSellTag> _filter;
 
         public void Run()
         {
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
-                ref Pop pop = ref entity.Get<Pop>();
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
-                ref RigidbodyLink entityRb = ref entity.Get<RigidbodyLink>();
+            }
+        }
+    }
 
-                entityRb.Value.freezeRotation = false;
+    public class PopEmotionsHandlerSystem : IEcsRunSystem
+    {
+        private GameData _gameData;
+        private GameUI _gameUi;
+        private EcsWorld _world;
 
-                Transform point = pop.Conveyor.JumpPoints[Random.Range(0, pop.Conveyor.JumpPoints.Count)];
-                entity.Get<AddingForce>() = new AddingForce
-                {
-                    Direction = (point.position - entityGo.Value.transform.position).normalized * _gameData.StaticData.JumpPopcornForce,
-                    ForceMode = ForceMode.Impulse
-                };
-                entity.Get<LookingAt>().Target = point.position;
-                entity.Del<ReadyToJump>();
+        private EcsFilter<Pop, PopCookingDoneEvent> _doneFilter;
+
+        public void Run()
+        {
+            foreach (var idx in _doneFilter)
+            {
+                ref EcsEntity entity = ref _doneFilter.GetEntity(idx);
+                ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
+
+                popView.DoneBody.SetActive(true);
+                popView.RawBody.SetActive(false);
             }
         }
     }

@@ -1,6 +1,8 @@
-﻿namespace Client
+﻿using Leopotam.Ecs;
+
+namespace Client
 {
-    internal struct Done
+    internal struct Done : IEcsIgnoreInFilter
     {
     }
 }

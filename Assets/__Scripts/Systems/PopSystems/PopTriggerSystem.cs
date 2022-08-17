@@ -19,27 +19,30 @@ namespace Client
                 ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
                 //ref ParticleSystemLink entityPs = ref entity.Get<ParticleSystemLink>();
                 ref OnTriggerEnterEvent entityCollision = ref entity.Get<OnTriggerEnterEvent>();
+                ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
 
                 //Despawn
-                if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.DespawnTag))
+                if (entity.Has<PoolObject>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.DespawnTag))
                 {
                     //heroPs.ParticleSystems[0].ParticleSystem.Play();
+                    popView.DoneBody.SetActive(false);
+                    popView.RawBody.SetActive(true);
 
                     entity.Del<VelocityMoving>();
                     entity.Del<TransformMoving>();
                     entity.Del<LookingAt>();
-                    entity.Get<DestroyTag>();
+                    entity.Get<DespawnTag>();
                 }
-                
+
                 if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.CookingZoneTag))
                     entity.Get<Cooking>();
 
-                if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.SellZoneTag))
+                if (!entity.Has<ReadyToSellTag>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.SellZoneTag))
                 {
-                    entity.Get<ReadyToSell>();
-
                     EcsEntity eventEntity = _world.NewEntity();
                     eventEntity.Get<GetMoneyForPopInSellZone>().PopEntity = entity;
+
+                    entity.Get<ReadyToSellTag>();
                 }
             }
 

@@ -17,20 +17,16 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref Pop pop = ref entity.Get<Pop>();
-                ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
                 ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
                 ref RigidbodyLink entityRb = ref entity.Get<RigidbodyLink>();
 
-                popView.DoneBody.SetActive(true);
-                //popView.RawBody.SetActive(true);
                 entityGo.Value.transform.rotation = Quaternion.identity;
                 entityRb.Value.freezeRotation = true;
 
                 Vector3 randomDirection = Random.onUnitSphere;
-                Debug.Log(randomDirection);
                 entity.Get<AddingForce>() = new AddingForce
                 {
-                    Direction = new Vector3(Mathf.Abs(randomDirection.x), Mathf.Abs(randomDirection.y) * _gameData.StaticData.PopingPopcornForce, Mathf.Abs(randomDirection.z)),
+                    Direction = new Vector3(randomDirection.x, 1.0f * _gameData.StaticData.PopingPopcornForce, randomDirection.z),
                     ForceMode = ForceMode.Impulse
                 };
 

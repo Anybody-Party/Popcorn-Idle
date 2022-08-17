@@ -22,10 +22,11 @@ namespace Client
                 entity.Get<TransformMoving>() = new TransformMoving
                 {
                     Target = point.position,
-                    Accuracy = 0.05f,
+                    Accuracy = 0.1f,
                     Speed = _gameData.StaticData.PopcornSpeed
                 };
-                entity.Get<LookingAt>().Target = point.position;
+                entity.Get<LookingAt>().Target = new Vector3(point.position.x, point.position.y + 0.5f, point.position.z) ;
+                entity.Get<SetAnimationEvent>();
             }
         }
     }

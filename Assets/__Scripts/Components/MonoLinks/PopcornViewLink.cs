@@ -8,6 +8,7 @@ public struct PopcornViewLink
     [Header("Bodies")]
     public GameObject RawBody;
     public GameObject DoneBody;
+    public GameObject BaseBody;
 
     [Header("Emotions")]
     public GameObject HappyEmotion;

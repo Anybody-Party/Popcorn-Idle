@@ -8,7 +8,7 @@ namespace Client
         private EcsWorld _world;
         private GameData _gameData;
 
-        private EcsFilter<ConveyorLink, LaunchTimerTag>.Exclude<DelayTimer> _filter;
+        private EcsFilter<ConveyorLink, LaunchPopTimerTag>.Exclude<DelayTimer> _filter;
 
         public void Run()
         {
@@ -33,6 +33,8 @@ namespace Client
                     Parent = conveyorGo.Value.transform,
                     Entity = popEntity
                 };
+
+                popEntity.Get<PoolObjectRequest>();
 
                 _world.NewEntity().Get<AddPopEvent>();
             }

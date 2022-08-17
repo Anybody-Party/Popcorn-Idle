@@ -9,7 +9,7 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<ReadyToLaunchMarker> _filter;
+        private EcsFilter<GameObjectLink, ReadyToLaunchMarker> _filter;
 
         public void Run()
         {
@@ -17,7 +17,9 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                ref RigidbodyLink entityRb = ref entity.Get<RigidbodyLink>();
 
+                Utility.ResetRigibodyVelocity(entityRb.Value);
                 entity.Get<AddingForce>().Direction = entityGo.Value.transform.up * _gameData.StaticData.LaunchPopcornForce;
                 entity.Get<AddingForce>().ForceMode = ForceMode.Impulse;
                 entity.Get<Landing>();

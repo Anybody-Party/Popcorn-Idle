@@ -36,7 +36,7 @@ namespace Client
             EcsSystems spawnSystems = SpawnSystems();
             EcsSystems moveSystems = MoveSystems();
             EcsSystems popSystems = PopSystems();
-            
+
             //.Add(characterSystems)
             _updateSystems
                 .Add(new InitGameSystem())
@@ -51,16 +51,22 @@ namespace Client
                 .Add(new GameVibrationSystem())
                 .Add(new MoneyCounterSystem())
 
-                .Inject(_gameData)
-                .Inject(_gameUi)
-
                 .OneFrame<MovingCompleteEvent>()
                 .OneFrame<ChangeGameStateEvent>()
+                .OneFrame<PopCookingDoneEvent>()
+
+                .Inject(_gameData)
+                .Inject(_gameUi)
 
                 .Init();
 
             _fixedUpdateSystems
+                .Add(new PopTriggerSystem())
                 .Add(moveSystems)
+
+                .OneFrame<OnCollisionEnterEvent>()
+                .OneFrame<OnTriggerEnterEvent>()
+                .OneFrame<OnTriggerExitEvent>()
 
                 .Inject(_gameData)
 
@@ -100,8 +106,12 @@ namespace Client
         {
             return new EcsSystems(_ecsWorld, "SpawnSystems")
             .Add(new DestroyGameObjectSystem())
+
             .Add(new PopSpawnSystem())
-            .Add(new SpawnSystem());
+            .Add(new ObjectPoolSystem())
+            .Add(new DespawnSystem())
+            ;
+            //.Add(new SpawnSystem());
         }
 
 
@@ -133,8 +143,8 @@ namespace Client
                 .Add(new PopPrepareToJumpSystem())
                 .Add(new PopJumpSystem())
 
-                .Add(new PopTriggerSystem())
                 .Add(new PopCounterSystem())
+                .Add(new PopViewHandlerSystem())
                 .Add(new PopAnimationSystem());
         }
 
