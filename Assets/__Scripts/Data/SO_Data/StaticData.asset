@@ -22,6 +22,10 @@ MonoBehaviour:
   LaunchPopcornForce: 3
   PopingPopcornForce: 3
   JumpPopcornForce: 2.5
+  HeatingSpeed: 111
+  ColdingSpeed: 1
+  TemperatureMaxCap: 255
+  TemperatureMinCap: 0
   DespawnTag: DespawnZone
   CookingZoneTag: CookingZone
   SellZoneTag: SellZone

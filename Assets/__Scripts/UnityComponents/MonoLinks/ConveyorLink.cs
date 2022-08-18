@@ -9,7 +9,7 @@ public struct ConveyorLink
     public int Id;
     [HideInInspector] public int Level;
 
-    public GameObject Stove;
+    public BlendMaterialController StoveMaterial;
 
     public List<Transform> SpawnPoints;
     public List<Transform> FirstListPathPoints;

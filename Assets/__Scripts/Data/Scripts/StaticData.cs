@@ -23,6 +23,11 @@ public class StaticData : BaseDataSO
     public float PopingPopcornForce;
     public float JumpPopcornForce;
 
+    public float HeatingSpeed;
+    public float ColdingSpeed;
+    public float TemperatureMaxCap;
+    public float TemperatureMinCap;
+
     [Header("Tags")]
     [BoxGroup("Tags")] [Tag] public string DespawnTag;
     [BoxGroup("Tags")] [Tag] public string CookingZoneTag;

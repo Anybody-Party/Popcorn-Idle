@@ -42,6 +42,8 @@ namespace Client
                 .Add(new InitGameSystem())
 
                 .Add(new ConveyorInitSystem())
+                .Add(new HeatingSystem())
+                .Add(new HeatingViewSystem())
                 .Add(spawnSystems)
                 .Add(inputSystems)
                 .Add(popSystems)
