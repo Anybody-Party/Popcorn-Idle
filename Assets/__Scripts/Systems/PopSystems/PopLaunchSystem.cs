@@ -9,7 +9,7 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<GameObjectLink, ReadyToLaunchMarker> _filter;
+        private EcsFilter<GameObjectLink, ReadyToLaunch> _filter;
 
         public void Run()
         {
@@ -24,7 +24,7 @@ namespace Client
                 entity.Get<AddingForce>().ForceMode = ForceMode.Impulse;
                 entity.Get<Landing>();
 
-                entity.Del<ReadyToLaunchMarker>();
+                entity.Del<ReadyToLaunch>();
             }
         }
     }

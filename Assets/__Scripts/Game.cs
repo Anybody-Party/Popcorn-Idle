@@ -110,8 +110,8 @@ namespace Client
             .Add(new PopSpawnSystem())
             .Add(new ObjectPoolSystem())
             .Add(new DespawnSystem())
-            ;
-            //.Add(new SpawnSystem());
+            
+            .Add(new SpawnSystem());
         }
 
 
@@ -142,6 +142,9 @@ namespace Client
                 .Add(new PopGoToJumpSystem())
                 .Add(new PopPrepareToJumpSystem())
                 .Add(new PopJumpSystem())
+                .Add(new PopPrepareToSellSystem())
+                .Add(new PopSellSystem())
+                .Add(new PopEmotionsHandlerSystem())
 
                 .Add(new PopCounterSystem())
                 .Add(new PopViewHandlerSystem())

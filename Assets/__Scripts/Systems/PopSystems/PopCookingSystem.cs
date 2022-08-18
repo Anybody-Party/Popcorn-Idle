@@ -24,6 +24,7 @@ namespace Client
                     entity.Del<Cooking>();
                     entity.Get<Done>();
                     entity.Get<PopCookingDoneEvent>();
+                    entity.Get<SetPopViewEvent>();
                     entity.Del<DoneTimer>();
                     entity.Get<Poping>();
                 }

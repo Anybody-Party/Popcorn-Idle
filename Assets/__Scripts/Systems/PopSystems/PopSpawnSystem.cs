@@ -22,7 +22,7 @@ namespace Client
 
                 EcsEntity popEntity = _world.NewEntity();
                 popEntity.Get<Pop>().Conveyor = conveyor;
-                popEntity.Get<ReadyToLaunchMarker>();
+                popEntity.Get<ReadyToLaunch>();
 
                 Transform spawnPoint = conveyor.SpawnPoints[Random.Range(0, conveyor.SpawnPoints.Count)];
                 popEntity.Get<SpawnPrefab>() = new SpawnPrefab

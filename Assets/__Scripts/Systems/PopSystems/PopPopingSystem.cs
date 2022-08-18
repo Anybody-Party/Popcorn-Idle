@@ -20,7 +20,7 @@ namespace Client
                 ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
                 ref RigidbodyLink entityRb = ref entity.Get<RigidbodyLink>();
 
-                entityGo.Value.transform.rotation = Quaternion.identity;
+                entityGo.Value.transform.rotation = new Quaternion(0.0f, 180.0f, 0.0f, 0.0f);
                 entityRb.Value.freezeRotation = true;
 
                 Vector3 randomDirection = Random.onUnitSphere;

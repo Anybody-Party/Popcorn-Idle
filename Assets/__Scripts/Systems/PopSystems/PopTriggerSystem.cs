@@ -32,17 +32,19 @@ namespace Client
                     entity.Del<TransformMoving>();
                     entity.Del<LookingAt>();
                     entity.Get<DespawnTag>();
+                    entity.Get<SetPopViewEvent>();
                 }
 
                 if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.CookingZoneTag))
                     entity.Get<Cooking>();
 
-                if (!entity.Has<ReadyToSellTag>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.SellZoneTag))
+                if (!entity.Has<ReadyToSell>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.SellZoneTag))
                 {
                     EcsEntity eventEntity = _world.NewEntity();
                     eventEntity.Get<GetMoneyForPopInSellZone>().PopEntity = entity;
 
-                    entity.Get<ReadyToSellTag>();
+                    entity.Get<ReadyToSell>();
+                    entity.Get<SetPopViewEvent>();
                 }
             }
 
