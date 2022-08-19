@@ -20,7 +20,7 @@ namespace Client
                 ref RigidbodyLink entityRb = ref entity.Get<RigidbodyLink>();
 
                 Utility.ResetRigibodyVelocity(entityRb.Value);
-                entity.Get<AddingForce>().Direction = entityGo.Value.transform.up * _gameData.StaticData.LaunchPopcornForce;
+                entity.Get<AddingForce>().Direction = entityGo.Value.transform.up * Random.Range(_gameData.StaticData.LaunchPopcornForce.x, _gameData.StaticData.LaunchPopcornForce.y);
                 entity.Get<AddingForce>().ForceMode = ForceMode.Impulse;
                 entity.Get<Landing>();
 

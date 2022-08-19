@@ -8,7 +8,7 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<Pop, ReadyToSell> _filter;
+        private EcsFilter<Pop, ReadyToSell>.Exclude<DelayTimer> _filter;
 
         public void Run()
         {

@@ -41,7 +41,7 @@ namespace Client
             _updateSystems
                 .Add(new InitGameSystem())
 
-                .Add(new ConveyorInitSystem())
+                .Add(new ConveyorSystem())
                 .Add(new HeatingSystem())
                 .Add(new HeatingViewSystem())
                 .Add(spawnSystems)
@@ -146,10 +146,10 @@ namespace Client
                 .Add(new PopJumpSystem())
                 .Add(new PopPrepareToSellSystem())
                 .Add(new PopSellSystem())
-                .Add(new PopEmotionsHandlerSystem())
+                .Add(new PopEmotionSystem())
 
                 .Add(new PopCounterSystem())
-                .Add(new PopViewHandlerSystem())
+                .Add(new PopViewSystem())
                 .Add(new PopAnimationSystem());
         }
 
@@ -168,6 +168,12 @@ namespace Client
         private void ProvideMonoEntitiesFromScene()
         {
             foreach (var monoEntity in _gameData.SceneData.MonoEntities)
+            {
+                EcsEntity ecsEntity = _ecsWorld.NewEntity();
+                monoEntity.Make(ref ecsEntity);
+            }
+
+            foreach (var monoEntity in _gameData.SceneData.Conveyors)
             {
                 EcsEntity ecsEntity = _ecsWorld.NewEntity();
                 monoEntity.Make(ref ecsEntity);

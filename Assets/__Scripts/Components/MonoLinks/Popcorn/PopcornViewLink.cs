@@ -11,6 +11,7 @@ public struct PopcornViewLink
     public GameObject BaseBody;
 
     [Header("Emotions")]
+    public GameObject SmileEmotion;
     public GameObject HappyEmotion;
     public GameObject ScaryEmotion;
 

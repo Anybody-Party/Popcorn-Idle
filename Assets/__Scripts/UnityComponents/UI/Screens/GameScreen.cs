@@ -24,9 +24,13 @@ public class GameScreen : BaseScreen
     private void Start()
     {
         heatingButton.OnChangePressState.AddListener((x) =>
-        EcsWorld.NewEntity()
-        .Get<ChangePressHeatingButtonEvent>()
-        .IsPress = x);
+        {
+            EcsEntity eventEntity = EcsWorld.NewEntity();
+            if (x)
+                eventEntity.Get<PressHeatingButtonEvent>();
+            else
+                eventEntity.Get<ReleaseHeatingButtonEvent>();
+        });
     }
 
     public void UpdateLevelText(int _level) => levelText.text = $"WAVE {_level}";
@@ -40,7 +44,7 @@ public class GameScreen : BaseScreen
     public void UpdatePopcornAmountText(double _popcornAmount) => popcornAmountText.text = $"{Utility.FormatEveryThirdPower(_popcornAmount)}";
     public void UpdateGoldPopcornAmountText(int _goldPopcornAmount) => goldPopcornAmountText.text = $"{_goldPopcornAmount}";
 
-    public void UpdateTemperatureText(float _currentTemperature) => temperatureText.text = $"{_currentTemperature:0}";
+    public void UpdateTemperatureText(float _currentTemperature) => temperatureText.text = $"{179 +_currentTemperature:0}";
     public void UpdateTemperatureProgressBar(float _progress) => temperatureProgressBarFillImage.fillAmount = _progress;
 
 }

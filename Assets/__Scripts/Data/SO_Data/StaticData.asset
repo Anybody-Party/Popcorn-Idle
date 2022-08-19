@@ -19,13 +19,12 @@ MonoBehaviour:
   PopcornSpeed: 0.005
   SpawnPopTime: 5.89
   CookingTime: 5
-  LaunchPopcornForce: 3
-  PopingPopcornForce: 3
-  JumpPopcornForce: 2.5
-  HeatingSpeed: 111
-  ColdingSpeed: 1
-  TemperatureMaxCap: 255
-  TemperatureMinCap: 0
+  LaunchPopcornForce: {x: 2.5, y: 4}
+  PopingPopcornForce: {x: 2, y: 3}
+  JumpPopcornForce: {x: 2, y: 3}
+  HeatingSpeed: 0.5
+  ColdingSpeed: 0.5
+  TemperatureCap: {x: 1, y: 15}
   DespawnTag: DespawnZone
   CookingZoneTag: CookingZone
   SellZoneTag: SellZone

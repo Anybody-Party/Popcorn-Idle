@@ -17,7 +17,7 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref DoneTimer doneTimer = ref entity.Get<DoneTimer>();
-                doneTimer.Value += Time.deltaTime;
+                doneTimer.Value += Time.deltaTime * _gameData.RuntimeData.Temperature * 0.1f;
 
                 if (doneTimer.Value > _gameData.StaticData.CookingTime)
                 {

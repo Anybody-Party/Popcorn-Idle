@@ -2,7 +2,7 @@
 
 namespace Client
 {
-    public class PopViewHandlerSystem : IEcsRunSystem
+    public class PopViewSystem : IEcsRunSystem
     {
         private GameData _gameData;
         private GameUI _gameUi;

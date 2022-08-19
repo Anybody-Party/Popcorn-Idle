@@ -23,10 +23,10 @@ namespace Client
                 entityGo.Value.transform.rotation = new Quaternion(0.0f, 180.0f, 0.0f, 0.0f);
                 entityRb.Value.freezeRotation = true;
 
-                Vector3 randomDirection = Random.onUnitSphere;
+                Vector3 randomDirection = Random.onUnitSphere * 0.6f;
                 entity.Get<AddingForce>() = new AddingForce
                 {
-                    Direction = new Vector3(randomDirection.x, 1.0f * _gameData.StaticData.PopingPopcornForce, randomDirection.z),
+                    Direction = new Vector3(randomDirection.x, 1.0f * Random.Range(_gameData.StaticData.PopingPopcornForce.x, _gameData.StaticData.PopingPopcornForce.y) , randomDirection.z),
                     ForceMode = ForceMode.Impulse
                 };
 
@@ -34,6 +34,7 @@ namespace Client
                 entity.Get<Landing>();
                 entity.Get<DelayTimer>().Value = 0.5f;
                 entity.Get<GoToJump>();
+                entity.Get<SetAnimationEvent>();
             }
         }
     }

@@ -19,14 +19,17 @@ public class StaticData : BaseDataSO
     public float PopcornSpeed;
     public float SpawnPopTime;
     public float CookingTime;
-    public float LaunchPopcornForce;
-    public float PopingPopcornForce;
-    public float JumpPopcornForce;
+    [MinMaxSlider(1.0f, 10.0f)]
+    public Vector2 LaunchPopcornForce;
+    [MinMaxSlider(1.0f, 10.0f)]
+    public Vector2 PopingPopcornForce;
+    [MinMaxSlider(1.0f, 10.0f)]
+    public Vector2 JumpPopcornForce;
 
     public float HeatingSpeed;
     public float ColdingSpeed;
-    public float TemperatureMaxCap;
-    public float TemperatureMinCap;
+    [MinMaxSlider(0.0f, 75.0f)]
+    public Vector2 TemperatureCap;
 
     [Header("Tags")]
     [BoxGroup("Tags")] [Tag] public string DespawnTag;

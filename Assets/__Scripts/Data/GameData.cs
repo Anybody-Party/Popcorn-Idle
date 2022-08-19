@@ -18,6 +18,7 @@ public class GameData : MonoBehaviourSingleton<GameData>
 
         RuntimeData = new RuntimeData();
         PlayerData = new PlayerData();
+        PlayerData.Init();
 
         LoadData();
     }
@@ -33,6 +34,7 @@ public class GameData : MonoBehaviourSingleton<GameData>
     }
 
     [NaughtyAttributes.Button]
+    [ExecuteInEditMode]
     public void ResetData()
     {
         PlayerData.ResetData();
@@ -52,7 +54,7 @@ public class GameData : MonoBehaviourSingleton<GameData>
     {
         SaveData();
 #if UNITY_EDITOR
-        //DeleteAllGameData(); // TODO: REMOVE
+        DeleteAllGameData(); // TODO: REMOVE
 #endif
     }
 

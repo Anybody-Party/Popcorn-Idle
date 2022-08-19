@@ -25,10 +25,16 @@ public class BlendMaterialController : MonoBehaviour
     public void UpdateEmmision(float value, float intensity)
     {
         if (_meshRenderer)
+        {
+            _meshRenderer.materials[_materialIndex].EnableKeyword("_EMISSION");
             _meshRenderer.materials[_materialIndex].
                 SetColor("_EmissionColor", _emmisionGradient.Evaluate(0) * Mathf.LinearToGammaSpace(_emmisionCurve.Evaluate(intensity)));
+        }
         else if (_skinnedMeshRenderer)
+        {
+            _skinnedMeshRenderer.materials[_materialIndex].EnableKeyword("_EMISSION");
             _skinnedMeshRenderer.materials[_materialIndex].
                 SetColor("_EmissionColor", _emmisionGradient.Evaluate(0) * Mathf.LinearToGammaSpace(_emmisionCurve.Evaluate(intensity)));
+        }
     }
 }

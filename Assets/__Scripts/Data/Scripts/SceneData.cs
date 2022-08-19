@@ -9,6 +9,7 @@ public partial class SceneData : MonoBehaviour
 
     [Header("MonoEntities")]
     public List<MonoEntity> MonoEntities;
+    public List<MonoEntity> Conveyors;
 
     public PrefabFactory PrefabFactory;
 }

@@ -19,6 +19,7 @@ public class HeatingButton : ActionButton, IPointerDownHandler, IPointerUpHandle
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        Debug.Log("OnPointerUp");
         IsPressed = false;
         OnChangePressState.Invoke(IsPressed);
     }

@@ -31,8 +31,12 @@ namespace Client
                     entity.Del<VelocityMoving>();
                     entity.Del<TransformMoving>();
                     entity.Del<LookingAt>();
+                    entity.Del<GoToJump>();
+
                     entity.Get<DespawnTag>();
                     entity.Get<SetPopViewEvent>();
+                    entity.Get<SetAnimationEvent>();
+                    entity.Get<SetPopEmotionEvent>();
                 }
 
                 if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.CookingZoneTag))
@@ -43,8 +47,15 @@ namespace Client
                     EcsEntity eventEntity = _world.NewEntity();
                     eventEntity.Get<GetMoneyForPopInSellZone>().PopEntity = entity;
 
+                    entity.Del<VelocityMoving>();
+                    entity.Del<TransformMoving>();
+                    entity.Del<LookingAt>();
+                    entity.Del<GoToJump>();
+
                     entity.Get<ReadyToSell>();
+                    entity.Get<DelayTimer>().Value = 3.0f;
                     entity.Get<SetPopViewEvent>();
+                    entity.Get<SetPopEmotionEvent>();
                 }
             }
 
