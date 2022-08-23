@@ -8,7 +8,7 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<Pop, SetPopEmotionEvent> _filter;
+        private EcsFilter<Pop, ChangePopEmotionRequest> _filter;
 
         public void Run()
         {
@@ -16,29 +16,22 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
+                ref ChangePopEmotionRequest changePopEmotionAction = ref entity.Get<ChangePopEmotionRequest>();
 
-                if (entity.Has<PopCookingDoneEvent>())
-                {
+                popView.SmileEmotion.SetActive(false);
+                popView.HappyEmotion.SetActive(false);
+                popView.ScaryEmotion.SetActive(false);
+
+                if (changePopEmotionAction.Emotion == PopEmotions.Smile)
                     popView.SmileEmotion.SetActive(true);
-                    popView.HappyEmotion.SetActive(false);
-                    popView.ScaryEmotion.SetActive(false);
-                }
 
-                if (entity.Has<DespawnTag>())
-                {
-                    popView.SmileEmotion.SetActive(true);
-                    popView.HappyEmotion.SetActive(false);
-                    popView.ScaryEmotion.SetActive(false);
-                }
-
-                if (entity.Has<InJump>())
-                {
-                    popView.SmileEmotion.SetActive(false);
+                if (changePopEmotionAction.Emotion == PopEmotions.Happy)
                     popView.HappyEmotion.SetActive(true);
-                    popView.ScaryEmotion.SetActive(false);
-                }
 
-                entity.Del<SetPopEmotionEvent>();
+                if (changePopEmotionAction.Emotion == PopEmotions.Scary)
+                    popView.ScaryEmotion.SetActive(true);
+
+                entity.Del<ChangePopEmotionRequest>();
             }
         }
     }

@@ -12,7 +12,6 @@ public struct ConveyorLink
     public BlendMaterialController StoveMaterial;
 
     public List<Transform> SpawnPoints;
-    public List<Transform> FirstListPathPoints;
     public List<Transform> PrepareJumpPoints;
     public List<Transform> JumpPoints;
 }

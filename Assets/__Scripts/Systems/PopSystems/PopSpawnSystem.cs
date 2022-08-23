@@ -18,7 +18,7 @@ namespace Client
                 ref ConveyorLink conveyor = ref entity.Get<ConveyorLink>();
                 ref GameObjectLink conveyorGo = ref entity.Get<GameObjectLink>();
 
-                entity.Get<DelayTimer>().Value = _gameData.StaticData.SpawnPopTime;
+                entity.Get<DelayTimer>().Value = _gameData.BalanceData.BaseSpawnPopTime;
 
                 EcsEntity popEntity = _world.NewEntity();
                 popEntity.Get<Pop>().Conveyor = conveyor;

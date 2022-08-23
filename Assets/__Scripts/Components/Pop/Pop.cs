@@ -8,4 +8,32 @@ namespace Client
     {
         public ConveyorLink Conveyor;
     }
+
+    public enum PopAnimations
+    {
+        IsWalking,
+        IsRunning,
+        IsPop,
+        IsPrepareToJump,
+        IsJump,
+        IsMissFalling,
+        IsFalling,
+        WalkingIndex,
+        JumpIndex
+    }
+
+    public enum PopEmotions
+    {
+        Empty,
+        Smile,
+        Happy,
+        Scary
+    }
+
+    public enum PopBodyView
+    {
+        RawCorn,
+        Popcorn,
+        PopcornWithoutLimbs
+    }
 }

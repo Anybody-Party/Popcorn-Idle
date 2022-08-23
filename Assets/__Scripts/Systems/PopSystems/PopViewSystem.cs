@@ -1,4 +1,5 @@
 ﻿using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Client
 {
@@ -8,7 +9,8 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<Pop, SetPopViewEvent> _filter;
+        private EcsFilter<Pop, ChangePopViewRequest> _filter;
+        private EcsFilter<PopcornViewLink, RandomizePopRotationViewRequest> _rotationfilter;
 
         public void Run()
         {
@@ -16,26 +18,39 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
+                ref ChangePopViewRequest changePopViewRequest = ref entity.Get<ChangePopViewRequest>();
 
-                if (entity.Has<PopCookingDoneEvent>())
+                if (changePopViewRequest.PopBodyView ==  PopBodyView.Popcorn)
                 {
                     popView.DoneBody.SetActive(true);
                     popView.BaseBody.SetActive(true);
                     popView.RawBody.SetActive(false);
                 }
 
-                if (entity.Has<DespawnTag>())
+                if (changePopViewRequest.PopBodyView == PopBodyView.PopcornWithoutLimbs)
+                {
+                    popView.DoneBody.SetActive(true);
+                    popView.BaseBody.SetActive(false);
+                    popView.RawBody.SetActive(false);
+                }
+
+                if (changePopViewRequest.PopBodyView == PopBodyView.RawCorn)
                 {
                     popView.DoneBody.SetActive(false);
+                    popView.BaseBody.SetActive(false);
                     popView.RawBody.SetActive(true);
                 }
 
-                if (entity.Has<ReadyToSell>())
-                {
-                    popView.BaseBody.SetActive(false);
-                }
+                entity.Del<ChangePopViewRequest>();
+            }
 
-                entity.Del<SetPopViewEvent>();
+            foreach (var idx in _rotationfilter)
+            {
+                ref EcsEntity entity = ref _rotationfilter.GetEntity(idx);
+                
+                _rotationfilter.Get1(idx).DoneBody.transform.Rotate(new Vector3(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f)), Random.Range(0, 360.0f));
+
+                entity.Del<RandomizePopRotationViewRequest>();
             }
         }
     }

@@ -22,12 +22,12 @@ namespace Client
                 Transform point = pop.Conveyor.JumpPoints[Random.Range(0, pop.Conveyor.JumpPoints.Count)];
                 entity.Get<AddingForce>() = new AddingForce
                 {
-                    Direction = (point.position - entityGo.Value.transform.position).normalized * Random.Range(_gameData.StaticData.JumpPopcornForce.x, _gameData.StaticData.JumpPopcornForce.y),
+                    Direction = (point.position - entityGo.Value.transform.position).normalized * Random.Range(_gameData.BalanceData.JumpPopcornForce.x, _gameData.BalanceData.JumpPopcornForce.y),
                     ForceMode = ForceMode.Impulse
                 };
                 entity.Get<LookingAt>().Target = point.position;
                 entity.Get<InJump>();
-                entity.Get<SetAnimationEvent>();
+                entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Happy;
                 entity.Del<ReadyToJump>();
             }
         }

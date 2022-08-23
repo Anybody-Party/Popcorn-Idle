@@ -8,6 +8,7 @@ using UnityEditor;
 public class GameData : MonoBehaviourSingleton<GameData>
 {
     public StaticData StaticData;
+    public BalanceData BalanceData;
     public SceneData SceneData;
     public RuntimeData RuntimeData;
     public PlayerData PlayerData;

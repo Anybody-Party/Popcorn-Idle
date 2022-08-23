@@ -4,6 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Leopotam.Ecs;
 
-public struct PopcornPoolTagLink
+public struct PopcornPoolTagLink : IEcsIgnoreInFilter
 {
 }

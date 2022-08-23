@@ -14,7 +14,7 @@ namespace Client
             _gameUi.SetShowStateVirationButtonScreen(true);
 
             EcsEntity gameStateEntity = _world.NewEntity();
-            gameStateEntity.Get<ChangeGameStateEvent>().NewGameState = GameState.Playing;
+            gameStateEntity.Get<ChangeGameStateRequest>().NewGameState = GameState.Playing;
         }
     }
 }

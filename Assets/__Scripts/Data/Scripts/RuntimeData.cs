@@ -5,7 +5,8 @@ public class RuntimeData : BaseData
 {
     public float Temperature;
 
-    public bool HeatButtonPointerDown;
+    public bool IsHeatButtonPressed;
+    public bool IsTapSpeedUpWorking;
 
     public override void ResetData()
     {

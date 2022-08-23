@@ -9,7 +9,7 @@ namespace Client
         private GameData _gameData;
 
         private EcsFilter<Pop, OnTriggerEnterEvent> _enterFilter;
-        //private EcsFilter<Pop, OnTriggerExitEvent> _filter;
+        private EcsFilter<Pop, OnTriggerExitEvent> _exitfilter;
 
         public void Run()
         {
@@ -25,8 +25,6 @@ namespace Client
                 if (entity.Has<PoolObject>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.DespawnTag))
                 {
                     //heroPs.ParticleSystems[0].ParticleSystem.Play();
-                    popView.DoneBody.SetActive(false);
-                    popView.RawBody.SetActive(true);
 
                     entity.Del<VelocityMoving>();
                     entity.Del<TransformMoving>();
@@ -34,9 +32,8 @@ namespace Client
                     entity.Del<GoToJump>();
 
                     entity.Get<DespawnTag>();
-                    entity.Get<SetPopViewEvent>();
-                    entity.Get<SetAnimationEvent>();
-                    entity.Get<SetPopEmotionEvent>();
+                    entity.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.RawCorn;
+                    entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Smile;
                 }
 
                 if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.CookingZoneTag))
@@ -44,30 +41,28 @@ namespace Client
 
                 if (!entity.Has<ReadyToSell>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.SellZoneTag))
                 {
-                    EcsEntity eventEntity = _world.NewEntity();
-                    eventEntity.Get<GetMoneyForPopInSellZone>().PopEntity = entity;
+                    entity.Get<GetMoneyForPopInSellZone>().PopEntity = entity;
 
                     entity.Del<VelocityMoving>();
                     entity.Del<TransformMoving>();
                     entity.Del<LookingAt>();
                     entity.Del<GoToJump>();
 
-                    entity.Get<ReadyToSell>();
                     entity.Get<DelayTimer>().Value = 3.0f;
-                    entity.Get<SetPopViewEvent>();
-                    entity.Get<SetPopEmotionEvent>();
+                    entity.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.PopcornWithoutLimbs;
+                    entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Empty;
                 }
             }
 
-            //foreach (var idx in _enterFilter)
-            //{
-            //    ref EcsEntity entity = ref _enterFilter.GetEntity(idx);
-            //    ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
-            //    ref OnTriggerExitEvent entityCollision = ref entity.Get<OnTriggerExitEvent>();
+            foreach (var idx in _exitfilter)
+            {
+                ref EcsEntity entity = ref _exitfilter.GetEntity(idx);
+                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                ref OnTriggerExitEvent entityCollision = ref entity.Get<OnTriggerExitEvent>();
 
-            //    if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.CookingZoneTag))
-            //        entity.Del<Cooking>();
-            //}
+                if (entity.Has<Cooking>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.CookingZoneTag))
+                    entity.Del<Cooking>();
+            }
         }
     }
 }

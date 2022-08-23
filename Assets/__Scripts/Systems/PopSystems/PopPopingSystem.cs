@@ -26,7 +26,7 @@ namespace Client
                 Vector3 randomDirection = Random.onUnitSphere * 0.6f;
                 entity.Get<AddingForce>() = new AddingForce
                 {
-                    Direction = new Vector3(randomDirection.x, 1.0f * Random.Range(_gameData.StaticData.PopingPopcornForce.x, _gameData.StaticData.PopingPopcornForce.y) , randomDirection.z),
+                    Direction = new Vector3(randomDirection.x, 1.0f * Random.Range(_gameData.BalanceData.PopingPopcornForce.x, _gameData.BalanceData.PopingPopcornForce.y) , randomDirection.z),
                     ForceMode = ForceMode.Impulse
                 };
 
@@ -34,7 +34,11 @@ namespace Client
                 entity.Get<Landing>();
                 entity.Get<DelayTimer>().Value = 0.5f;
                 entity.Get<GoToJump>();
-                entity.Get<SetAnimationEvent>();
+                entity.Get<ChangeAnimationRequest>().Animation = PopAnimations.IsPop;
+                entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Smile;
+                entity.Get<RandomizePopRotationViewRequest>();
+
+                _world.NewEntity().Get<VibrationRequest>().HapticType = MoreMountains.NiceVibrations.HapticTypes.LightImpact;
             }
         }
     }

@@ -23,10 +23,10 @@ namespace Client
                 {
                     Target = point.position,
                     Accuracy = 0.1f,
-                    Speed = _gameData.StaticData.PopcornSpeed
+                    Speed = _gameData.BalanceData.BasePopcornSpeed
                 };
                 entity.Get<LookingAt>().Target = new Vector3(point.position.x, point.position.y + 0.5f, point.position.z) ;
-                entity.Get<SetAnimationEvent>();
+                entity.Get<ChangeAnimationRequest>().Animation = PopAnimations.IsWalking;
             }
         }
     }

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7a529b5b6e0454a98f18e36d2cef78, type: 3}
+  m_Name: BalanceData
+  m_EditorClassIdentifier: 
+  BasePopcornSpeed: 0.005
+  BaseSpawnPopTime: 5
+  BaseCookingTime: 5
+  BaseHeatingSpeed: 9.27
+  BaseColdingSpeed: 0.5
+  CurrentTemperatureCap: {x: 1, y: 15}
+  MaxTemperature: 75
+  StartMoney: 0
+  BasePopSellReward: 1
+  PopSellRewardMultiplier: 1
+  LaunchPopcornForce: {x: 2.75, y: 3.75}
+  PopingPopcornForce: {x: 2, y: 3}
+  JumpPopcornForce: {x: 2, y: 2.5}

@@ -14,17 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsVibrationOn: 1
   PopcornPrefab: {fileID: 3536651797395635328, guid: be1e27d37da86824ca6e5958f37cc0e2, type: 3}
+  EarnInfoPrefab: {fileID: 558157366606395816, guid: b9bb2250986d2ed43ad7e76dc1f1f7e6, type: 3}
   EmptyPrefab: {fileID: 4726771855065635164, guid: 3ff7e0a8cbe349a4ca5f1e5ceddf5046, type: 3}
+  BasePopcornSpeed: 0.005
+  BaseSpawnPopTime: 5
+  BaseCookingTime: 5
+  BaseHeatingSpeed: 9.27
+  BaseColdingSpeed: 0.5
+  CurrentTemperatureCap: {x: 1, y: 15}
+  MaxTemperature: 75
   StartMoney: 0
-  PopcornSpeed: 0.005
-  SpawnPopTime: 5.89
-  CookingTime: 5
-  LaunchPopcornForce: {x: 2.5, y: 4}
+  BasePopSellReward: 1
+  PopSellRewardMultiplier: 1
+  LaunchPopcornForce: {x: 2.75, y: 3.75}
   PopingPopcornForce: {x: 2, y: 3}
-  JumpPopcornForce: {x: 2, y: 3}
-  HeatingSpeed: 0.5
-  ColdingSpeed: 0.5
-  TemperatureCap: {x: 1, y: 15}
+  JumpPopcornForce: {x: 2, y: 2.5}
   DespawnTag: DespawnZone
   CookingZoneTag: CookingZone
   SellZoneTag: SellZone

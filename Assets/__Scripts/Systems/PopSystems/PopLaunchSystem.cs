@@ -18,9 +18,12 @@ namespace Client
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
                 ref RigidbodyLink entityRb = ref entity.Get<RigidbodyLink>();
+                ref PopcornViewLink entityView = ref entity.Get<PopcornViewLink>();
+
+                entityView.RawBody.transform.Rotate(Vector3.up, Random.Range(0, 360.0f));
 
                 Utility.ResetRigibodyVelocity(entityRb.Value);
-                entity.Get<AddingForce>().Direction = entityGo.Value.transform.up * Random.Range(_gameData.StaticData.LaunchPopcornForce.x, _gameData.StaticData.LaunchPopcornForce.y);
+                entity.Get<AddingForce>().Direction = entityGo.Value.transform.up * Random.Range(_gameData.BalanceData.LaunchPopcornForce.x, _gameData.BalanceData.LaunchPopcornForce.y);
                 entity.Get<AddingForce>().ForceMode = ForceMode.Impulse;
                 entity.Get<Landing>();
 

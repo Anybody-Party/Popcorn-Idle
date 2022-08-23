@@ -48,13 +48,14 @@ namespace Client
                 .Add(inputSystems)
                 .Add(popSystems)
 
+                .Add(new EarningViewSystem())
                 .Add(new LevelProgressSystem())
                 .Add(new TimerSystem())
                 .Add(new GameVibrationSystem())
                 .Add(new MoneyCounterSystem())
 
                 .OneFrame<MovingCompleteEvent>()
-                .OneFrame<ChangeGameStateEvent>()
+                .OneFrame<ChangeGameStateRequest>()
                 .OneFrame<PopCookingDoneEvent>()
 
                 .Inject(_gameData)
@@ -112,7 +113,7 @@ namespace Client
             .Add(new PopSpawnSystem())
             .Add(new ObjectPoolSystem())
             .Add(new DespawnSystem())
-            
+
             .Add(new SpawnSystem());
         }
 
@@ -146,11 +147,13 @@ namespace Client
                 .Add(new PopJumpSystem())
                 .Add(new PopPrepareToSellSystem())
                 .Add(new PopSellSystem())
+
                 .Add(new PopEmotionSystem())
+                .Add(new PopViewSystem())
+                .Add(new PopAnimationSystem())
 
                 .Add(new PopCounterSystem())
-                .Add(new PopViewSystem())
-                .Add(new PopAnimationSystem());
+                .Add(new PopEarningSystem());
         }
 
         private EcsSystems CoreGameplaySystems()

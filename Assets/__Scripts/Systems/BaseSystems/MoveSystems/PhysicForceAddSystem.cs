@@ -18,7 +18,6 @@ namespace Client
                 entityRb.Value.AddForce(force.Direction, force.ForceMode);
 
                 entity.Get<Landing>();
-                entity.Get<SetAnimationEvent>();
                 entity.Del<AddingForce>();
             }
         }
