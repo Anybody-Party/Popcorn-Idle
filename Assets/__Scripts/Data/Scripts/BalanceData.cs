@@ -35,6 +35,14 @@ public class BalanceData : BaseDataSO
     public Vector2 PopingPopcornForce;
     [MinMaxSlider(1.0f, 10.0f)]
     public Vector2 JumpPopcornForce;
+    [MinMaxSlider(0.0f, 3.0f)]
+    public Vector2 CookingShakePopcornForce;
+
+    [Header("Common Upgrade Data")]
+    public List<UpgradeData> CommonUpgradeData;
+
+    [Header("Epic Upgrade Data")]
+    public List<UpgradeData> EpicUpgradeData;
 
     public override void ResetData()
     {

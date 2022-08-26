@@ -621,7 +621,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2138677393}
-  - {fileID: 1841385569}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -657,17 +656,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StaticData: {fileID: 11400000, guid: be1f1cb92b18c5a40926aedd9e2e9919, type: 2}
   BalanceData: {fileID: 11400000, guid: c231198ccab6833459fae29cce73ddf1, type: 2}
+  PlayerData: {fileID: 11400000, guid: 3e159f7086f875945b0116f8a79aaf9b, type: 2}
   SceneData: {fileID: 110706285}
   RuntimeData:
     Temperature: 0
-    HeatButtonPointerDown: 0
-  PlayerData:
-    Money: 0
-    GoldPopcornAmount: 0
-    PopcornAmount: 0
-    CurrentLevelIndex: 0
-    CurrentLevelProgress: 0
-    ConveyorLevels: 01000000000000000000000000000000000000000000000000000000000000000000000000000000
+    IsHeatButtonPressed: 0
+    IsTapSpeedUpWorking: 0
 --- !u!114 &678094782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1850,6 +1844,7 @@ GameObject:
   - component: {fileID: 1687258588}
   - component: {fileID: 1687258587}
   - component: {fileID: 1687258590}
+  - component: {fileID: 1687258591}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -2083,55 +2078,20 @@ MonoBehaviour:
   boundMaxX: 150
   boundMinY: -150
   boundMaxY: 150
---- !u!1 &1841385568
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1841385569}
-  - component: {fileID: 1841385570}
-  m_Layer: 0
-  m_Name: Global Volume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1841385569
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1841385568}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 665423900}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1841385570
+--- !u!114 &1687258591
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1841385568}
+  m_GameObject: {fileID: 1687258581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Script: {fileID: 11500000, guid: f06c7fb06de43a247893cf4f28cc41e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 10fc4df2da32a41aaa32d77bc913491c, type: 2}
+  zoomOutMin: 1
+  zoomOutMax: 8
 --- !u!1001 &1941347809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2457,7 +2417,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 4
-    m_SensorSize: {x: 0.5625, y: 1}
+    m_SensorSize: {x: 0.45, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2543,7 +2503,7 @@ Light:
     m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.5
+    m_Strength: 0.621
     m_Bias: 0.02
     m_NormalBias: 0.1
     m_NearPlane: 0.1
@@ -3720,10 +3680,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2361712332924952565, guid: 3ef978bc01e1cdc44a73ab7f5b228791, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6daea916a2a8c184bb0fde7a2f1478cc, type: 2}
     - target: {fileID: 8480860159630091431, guid: 3ef978bc01e1cdc44a73ab7f5b228791, type: 3}
       propertyPath: m_Pivot.x
       value: 0

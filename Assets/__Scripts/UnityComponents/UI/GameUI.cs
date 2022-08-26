@@ -6,8 +6,9 @@ using UnityEngine;
 public class GameUI : MonoBehaviour
 {
     [SerializeField] public LevelCompleteScreen LevelCompleteScreen;
-    [SerializeField] public LevelFailedScreen LevelFailedScreen;
+    [SerializeField] public OfflineBonusScreen OfflineBonusScreen;
     [SerializeField] public GameScreen GameScreen;
+    [SerializeField] public UpgradeScreen UpgradeScreen;
     [SerializeField] public VibrationButtonScreen VibrationButtonScreen;
 
     private List<BaseScreen> screens;
@@ -25,13 +26,8 @@ public class GameUI : MonoBehaviour
     }
 
     public void SetShowStateLevelCompleteScreen(bool isShow) => LevelCompleteScreen.SetShowState(isShow);
-    public void SetShowStateLevelFailedScreen(bool isShow) => LevelFailedScreen.SetShowState(isShow);
+    public void SetShowStateOfflineBonusScreen(bool isShow) => OfflineBonusScreen.SetShowState(isShow);
     public void SetShowStateGameScreen(bool isShow) => GameScreen.SetShowState(isShow);
+    public void SetShowStateUpgradeScreen(bool isShow) => UpgradeScreen.SetShowState(isShow);
     public void SetShowStateVirationButtonScreen(bool isShow) => VibrationButtonScreen.SetShowState(isShow);
-
-    [NaughtyAttributes.Button]
-    public void TestShowLevelComplete()
-    {
-        LevelCompleteScreen.SetShowState(true);
-    }
 }

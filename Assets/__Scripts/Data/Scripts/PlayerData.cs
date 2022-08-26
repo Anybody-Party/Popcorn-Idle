@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class PlayerData : BaseData
+[CreateAssetMenu(menuName = "GameData/PlayerData", fileName = "PlayerData")]
+public class PlayerData : BaseDataSO
 {
     public double Money;
     public double MoneyInSec;
@@ -14,9 +14,9 @@ public class PlayerData : BaseData
     public float CurrentLevelProgress;
 
     [Header("Heating Upgrades")]
-    public int HeatingMaxTemperatureUpgradeLevel;
+    public UpgradeLevel HeatingMaxTemperatureUpgrade;
+    public int HeatingMinTemperatureUpgradeLevel;
     public int HeatingSpeedUpgradeLevel;
-    public int HeatingAreaUpgradeLevel;
 
     [Header("Conveyor Upgrades")]
     public int LaunchSpeedUpgradeLevel;
@@ -28,10 +28,14 @@ public class PlayerData : BaseData
     public int EarnForBagUpgradeLevel;
     public int EarnOfflineUpgradeLevel;
 
+    [Header("Level Upgardes")]
+    public List<UpgradeLevel> CommonUpgradeLevels;
+    public List<UpgradeLevel> EpicUpgradeLevels;
+
     //[Header("Boosters")] // save it for reload
 
-    public List<int> ConveyorLevels;
-    public List<int> ProductLineLevels;
+    public List<bool> ConveyorBuyed;
+    public List<bool> ProductLineBuyed;
 
     public override void ResetData()
     {
@@ -42,9 +46,8 @@ public class PlayerData : BaseData
         CurrentLevelIndex = 0;
         CurrentLevelProgress = 0.0f;
 
-        HeatingMaxTemperatureUpgradeLevel = 1;
         HeatingSpeedUpgradeLevel = 1;
-        HeatingAreaUpgradeLevel = 1;
+        HeatingMinTemperatureUpgradeLevel = 1;
 
         LaunchSpeedUpgradeLevel = 1;
         ConveyorSpeedUpgradeLevel = 1;
@@ -53,21 +56,34 @@ public class PlayerData : BaseData
         EarnForPopUpgradeLevel = 1;
         EarnForBagUpgradeLevel = 1;
         EarnOfflineUpgradeLevel = 1;
-
-        for (int i = 0; i < ConveyorLevels.Count; i++)
-            ConveyorLevels[i] = 0;
-        ConveyorLevels[0] = 1;
-
-        for (int i = 0; i < ProductLineLevels.Count; i++)
-            ProductLineLevels[i] = 0;
-        ProductLineLevels[0] = 1;
     }
 
     public void Init()
     {
-        ConveyorLevels = new List<int>();
-        for (int i = 0; i < 10; i++)
-            ConveyorLevels.Add(0);
-        ConveyorLevels[0] = 1;
+        for (int i = 0; i < 9; i++)
+            CommonUpgradeLevels[i].Level = 1;
+
+        for (int i = 0; i < 3; i++)
+            EpicUpgradeLevels[i].Level = 1;
+
+        foreach (var itemIn in GameData.Instance.BalanceData.CommonUpgradeData)
+            foreach (var itemOut in CommonUpgradeLevels)
+                if (itemIn.UpgradeKey == itemOut.UpgradeKey)
+                    itemIn.Level = itemOut.Level;
+
+        for (int i = 0; i < 5; i++)
+            ConveyorBuyed[i] = false;
+        ConveyorBuyed[0] = true;
+
+        for (int i = 0; i < 3; i++)
+            ProductLineBuyed[i] = false;
+        ProductLineBuyed[0] = true;
     }
+}
+
+[Serializable]
+public class UpgradeLevel
+{
+    public string UpgradeKey;
+    public int Level;
 }

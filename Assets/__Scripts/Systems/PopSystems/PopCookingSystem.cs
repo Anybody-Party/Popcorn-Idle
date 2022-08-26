@@ -9,7 +9,7 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<Pop, Cooking>.Exclude<Done, Landing> _filter;
+        private EcsFilter<Pop, Cooking>.Exclude<Done> _filter;
 
         public void Run()
         {

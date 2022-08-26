@@ -13,7 +13,7 @@ namespace Client
             foreach (var idx in _filter)
             {
                 EcsEntity entity = _filter.GetEntity(idx);
-                _gameUi.SetShowStateLevelFailedScreen(true);
+                //_gameUi.SetShowStateLevelFailedScreen(true);
                 entity.Del<GameFailedEvent>();
             }
         }

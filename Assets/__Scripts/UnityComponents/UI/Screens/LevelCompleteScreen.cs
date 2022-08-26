@@ -1,11 +1,12 @@
 using Leopotam.Ecs;
+using TMPro;
 using UnityEngine;
 
 public class LevelCompleteScreen : BaseScreen
 {
     [SerializeField] private ActionButton getRewardButton;
     [SerializeField] private ActionButton hideScreenButton;
-    [SerializeField] private BaseText rewardMoneyText;
+    [SerializeField] private TextMeshProUGUI rewardMoneyText;
 
     private void Start()
     {

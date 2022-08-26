@@ -53,6 +53,8 @@ namespace Client
                 .Add(new TimerSystem())
                 .Add(new GameVibrationSystem())
                 .Add(new MoneyCounterSystem())
+                .Add(new MoneyInSecCounterSystem())
+                .Add(new UpgradeSystem())
 
                 .OneFrame<MovingCompleteEvent>()
                 .OneFrame<ChangeGameStateRequest>()
@@ -141,6 +143,7 @@ namespace Client
                 .Add(new PopInitSystem())
                 .Add(new PopLaunchSystem())
                 .Add(new PopCookingSystem())
+                .Add(new PopCookingShakeSystem())
                 .Add(new PopPopingSystem())
                 .Add(new PopGoToJumpSystem())
                 .Add(new PopPrepareToJumpSystem())

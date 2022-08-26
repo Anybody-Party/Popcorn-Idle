@@ -9,11 +9,11 @@ public class ActionButton : UIElement
 {
     [HideInInspector] public UnityEvent OnClickEvent;
 
-    protected Button unityButton;
+    private Button unityButton;
 
     private const string onClickTriggerName = "OnClick";
 
-    private void Start()
+    private void Awake()
     {
         unityButton = GetComponent<Button>();
         unityButton.onClick.AddListener(() => OnClickEvent.Invoke());
@@ -30,5 +30,13 @@ public class ActionButton : UIElement
     {
         unityButton?.onClick.RemoveAllListeners();
         OnClickEvent.RemoveAllListeners();
+    }
+
+    public void SetInteractable(bool flag)
+    {
+        if (!unityButton)
+            unityButton = GetComponent<Button>();
+
+        unityButton.interactable = flag;
     }
 }

@@ -2,6 +2,9 @@
 using System;
 using System.Globalization;
 using System.IO;
+using System.Collections;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class Utility : MonoBehaviour
 {
@@ -52,7 +55,7 @@ public class Utility : MonoBehaviour
     static CultureInfo ci = new CultureInfo("en-us");
     public static string[] shortNotation = new string[23] { "", "k", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc", "U", "D", "a", "j", "aa", "jj", "!", "!!", "ss", "dd", "nn", };
 
-    public static string FormatEveryThirdPower(double target, string lowDecimalFormat = "N0", int maxValue = 1000, int minValue = 1000, bool isIgnoreLowDecWhenLessThanMinValue = false, bool auto = true)
+    public static string FormatMoney(double target, string lowDecimalFormat = "N0", int maxValue = 1000, int minValue = 1000, bool isIgnoreLowDecWhenLessThanMinValue = false, bool auto = true)
     {
         double value = target;
         int baseValue = 0;
@@ -151,5 +154,10 @@ public class Utility : MonoBehaviour
     public static string GetDataPath()
     {
         return Path.Combine(Application.persistentDataPath, "SaveData");
+    }
+
+    public static void ScrollToTop(ScrollRect scrollRect)
+    {
+        scrollRect.DOVerticalNormalizedPos(1f, 0.1f);
     }
 }

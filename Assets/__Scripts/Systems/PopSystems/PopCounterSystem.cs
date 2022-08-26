@@ -2,7 +2,7 @@
 
 namespace Client
 {
-    public class PopCounterSystem : IEcsRunSystem
+    public class PopCounterSystem : IEcsInitSystem, IEcsRunSystem
     {
         private EcsWorld _world;
         private GameData _gameData;
@@ -10,6 +10,12 @@ namespace Client
 
         private EcsFilter<AddPopEvent> _filter;
         private EcsFilter<AddGoldPopEvent> _goldFilter;
+
+        public void Init()
+        {
+            _gameUi.GameScreen.UpdatePopcornAmountText(_gameData.PlayerData.PopcornAmount);
+            _gameUi.GameScreen.UpdateGoldPopcornAmountText(_gameData.PlayerData.GoldPopcornAmount);
+        }
 
         public void Run()
         {

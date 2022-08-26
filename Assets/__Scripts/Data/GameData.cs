@@ -9,18 +9,15 @@ public class GameData : MonoBehaviourSingleton<GameData>
 {
     public StaticData StaticData;
     public BalanceData BalanceData;
+    public PlayerData PlayerData;
     public SceneData SceneData;
     public RuntimeData RuntimeData;
-    public PlayerData PlayerData;
 
     private void Awake()
     {
         Debug.Log(Utility.GetDataPath());
-
         RuntimeData = new RuntimeData();
-        PlayerData = new PlayerData();
         PlayerData.Init();
-
         LoadData();
     }
 

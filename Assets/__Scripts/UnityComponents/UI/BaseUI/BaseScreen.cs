@@ -13,8 +13,8 @@ public abstract class BaseScreen : UIElement
 
     [HideInInspector] public EcsWorld EcsWorld;
 
-    [HideInInspector] public Action OnHideScreen;
-    [HideInInspector] public Action OnShowScreen;
+    [HideInInspector] public UnityEvent OnHideScreen;
+    [HideInInspector] public UnityEvent OnShowScreen;
 
     public void Init(EcsWorld ecsWorld)
     {

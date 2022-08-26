@@ -22,9 +22,9 @@ namespace Client
 
                 for (int i = 0; i < _gameData.SceneData.Conveyors.Count; i++)
                     if (conveyor.Id == i)
-                        _filter.Get1(idx).Level = _gameData.PlayerData.ConveyorLevels[i];
+                        _filter.Get1(idx).IsBuyed = _gameData.PlayerData.ConveyorBuyed[i];
 
-                if(conveyor.Level > 0)
+                if (conveyor.IsBuyed)
                 {
                     entity.Get<LaunchPopTimerTag>();
                     entityGo.Value.SetActive(true);
@@ -53,8 +53,8 @@ namespace Client
                     for (int i = 0; i < _gameData.SceneData.Conveyors.Count; i++)
                         if (conveyor.Id == buyEvent.ConveyorNum)
                         {
-                            _gameData.PlayerData.ConveyorLevels[conveyor.Id] = 1;
-                            conveyor.Level = 1;
+                            conveyor.IsBuyed = true;
+                            _gameData.PlayerData.ConveyorBuyed[conveyor.Id] = conveyor.IsBuyed;
                             entity.Get<LaunchPopTimerTag>();
                         }
                 }
