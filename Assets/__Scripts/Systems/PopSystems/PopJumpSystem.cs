@@ -9,7 +9,7 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<Pop, ReadyToJump>.Exclude<DelayTimer> _filter;
+        private EcsFilter<Pop, ReadyToJump>.Exclude<Timer<TimerPrepareToJump>> _filter;
 
         public void Run()
         {
@@ -29,24 +29,6 @@ namespace Client
                 entity.Get<InJump>();
                 entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Happy;
                 entity.Del<ReadyToJump>();
-            }
-        }
-    }
-
-    public class PopTapSpeedUpSystem : IEcsRunSystem
-    {
-        private GameData _gameData;
-        private GameUI _gameUi;
-        private EcsWorld _world;
-
-        private EcsFilter<Pop, GoToJump> _filter;
-
-        public void Run()
-        {
-            foreach (var idx in _filter)
-            {
-                ref EcsEntity entity = ref _filter.GetEntity(idx);
-                
             }
         }
     }

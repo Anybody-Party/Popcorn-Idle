@@ -11,6 +11,7 @@ public class StaticData : BaseDataSO
     public bool IsVibrationOn;
 
     [Header("Prefabs")]
+    public GameObject GoldPopcornPrefab;
     public GameObject PopcornPrefab;
     public GameObject EarnInfoPrefab;
     public GameObject EmptyPrefab;

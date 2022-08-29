@@ -36,10 +36,13 @@ namespace Client
             EcsSystems spawnSystems = SpawnSystems();
             EcsSystems moveSystems = MoveSystems();
             EcsSystems popSystems = PopSystems();
+            EcsSystems timerSystems = TimerSystems();
 
             //.Add(characterSystems)
             _updateSystems
                 .Add(new InitGameSystem())
+                .Add(timerSystems)
+                .Add(new RaycastSystem())
 
                 .Add(new ConveyorSystem())
                 .Add(new HeatingSystem())
@@ -50,11 +53,11 @@ namespace Client
 
                 .Add(new EarningViewSystem())
                 .Add(new LevelProgressSystem())
-                .Add(new TimerSystem())
                 .Add(new GameVibrationSystem())
-                .Add(new MoneyCounterSystem())
-                .Add(new MoneyInSecCounterSystem())
+                .Add(new EarningMoneySystem())
+                .Add(new EarningMoneyInSecSystem())
                 .Add(new UpgradeSystem())
+                .Add(new HandSystem())
 
                 .OneFrame<MovingCompleteEvent>()
                 .OneFrame<ChangeGameStateRequest>()
@@ -72,6 +75,7 @@ namespace Client
                 .OneFrame<OnCollisionEnterEvent>()
                 .OneFrame<OnTriggerEnterEvent>()
                 .OneFrame<OnTriggerExitEvent>()
+                .OneFrame<RaycastEvent>()
 
                 .Inject(_gameData)
 
@@ -136,6 +140,21 @@ namespace Client
             .Add(new LandingSystem());
         }
 
+        private EcsSystems TimerSystems()
+        {
+            return new EcsSystems(_ecsWorld, "TimerSystems")
+            .Add(new TimerSystem<TimerBeforeGoToJump>())
+            .Add(new TimerSystem<TimerEarningView>())
+            .Add(new TimerSystem<TimerForPopClean>())
+            .Add(new TimerSystem<TimerIntervalSpawnPop>())
+            .Add(new TimerSystem<TimerPrepareToJump>())
+            .Add(new TimerSystem<TimerSpeedUp>())
+            .Add(new TimerSystem<TimerToSellState>())
+            .Add(new TimerSystem<TimerUpdateMoneyInSec>())
+            .Add(new TimerSystem<TimerHeatingViewUpdate>())
+            .Add(new TimerSystem<TimerShakeInterval>());
+        }
+
         private EcsSystems PopSystems()
         {
             return new EcsSystems(_ecsWorld, "PopSystems")
@@ -145,11 +164,13 @@ namespace Client
                 .Add(new PopCookingSystem())
                 .Add(new PopCookingShakeSystem())
                 .Add(new PopPopingSystem())
+                .Add(new PopTapSpeedUpSystem())
                 .Add(new PopGoToJumpSystem())
                 .Add(new PopPrepareToJumpSystem())
                 .Add(new PopJumpSystem())
                 .Add(new PopPrepareToSellSystem())
                 .Add(new PopSellSystem())
+                .Add(new PopCleanSystem())
 
                 .Add(new PopEmotionSystem())
                 .Add(new PopViewSystem())

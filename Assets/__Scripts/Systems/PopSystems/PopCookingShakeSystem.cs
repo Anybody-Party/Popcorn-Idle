@@ -9,8 +9,7 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<Pop, Cooking>.Exclude<Done, ShakeTimer> _filter;
-        private EcsFilter<Pop, Cooking, ShakeTimer> _tiemrFilter;
+        private EcsFilter<Pop, Cooking>.Exclude<Done, Timer<TimerShakeInterval>> _filter;
 
         public void Run()
         {
@@ -25,17 +24,7 @@ namespace Client
                     ForceMode = ForceMode.Impulse
                 };
 
-                entity.Get<ShakeTimer>().Value = 0.2f;
-            }
-
-            foreach (var idx in _tiemrFilter)
-            {
-                ref EcsEntity entity = ref _tiemrFilter.GetEntity(idx);
-                ref ShakeTimer shakeTimer = ref entity.Get<ShakeTimer>();
-
-                shakeTimer.Value -= Time.deltaTime;
-                if (shakeTimer.Value <= 0.0f)
-                    entity.Del<ShakeTimer>();
+                entity.Get<Timer<TimerShakeInterval>>().Value = 0.2f;
             }
         }
     }

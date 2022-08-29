@@ -9,7 +9,7 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<Pop, GoToJump>.Exclude<TransformMoving, DelayTimer> _filter;
+        private EcsFilter<Pop, GoToJump>.Exclude<TransformMoving, Timer<TimerBeforeGoToJump>> _filter;
 
         public void Run()
         {
@@ -23,11 +23,12 @@ namespace Client
                 {
                     Target = point.position,
                     Accuracy = 0.1f,
-                    Speed = _gameData.BalanceData.BasePopcornSpeed
+                    Speed = _gameData.RuntimeData.GetPopSpeed()
                 };
                 entity.Get<LookingAt>().Target = new Vector3(point.position.x, point.position.y + 0.5f, point.position.z) ;
                 entity.Get<ChangeAnimationRequest>().Animation = PopAnimations.IsWalking;
             }
         }
     }
+
 }

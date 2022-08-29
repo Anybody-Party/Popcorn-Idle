@@ -17,6 +17,7 @@ public class GameData : MonoBehaviourSingleton<GameData>
     {
         Debug.Log(Utility.GetDataPath());
         RuntimeData = new RuntimeData();
+        RuntimeData.Init();
         PlayerData.Init();
         LoadData();
     }
@@ -52,7 +53,7 @@ public class GameData : MonoBehaviourSingleton<GameData>
     {
         SaveData();
 #if UNITY_EDITOR
-        DeleteAllGameData(); // TODO: REMOVE
+        //DeleteAllGameData(); // TODO: REMOVE
 #endif
     }
 

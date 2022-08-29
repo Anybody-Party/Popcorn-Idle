@@ -32,7 +32,7 @@ namespace Client
 
                 entity.Del<Poping>();
                 entity.Get<Landing>();
-                entity.Get<DelayTimer>().Value = 0.5f;
+                entity.Get<Timer<TimerBeforeGoToJump>>().Value = 0.5f;
                 entity.Get<GoToJump>();
                 entity.Get<ChangeAnimationRequest>().Animation = PopAnimations.IsPop;
                 entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Smile;

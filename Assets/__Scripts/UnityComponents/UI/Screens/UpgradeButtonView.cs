@@ -14,12 +14,17 @@ public class UpgradeButtonView : MonoBehaviour
     public TextMeshProUGUI buyText;
     public Image upgradeProgressBarFill;
     public Image upgradeImage;
+    public Image currencyImage;
+    public Sprite moneySprite;
+    public Sprite goldPopcornSprite;
 
     public void InitData(UpgradeData upgradeData, EcsWorld _world)
     {
         upgradeNameText.text = upgradeData.UpgradeName;
         upgradeDescriptionText.text = upgradeData.UpgradeDescription;
+        currencyImage.sprite = upgradeData.IsEpicUpgrade ? goldPopcornSprite : moneySprite;
         buyText.text = "BUY";
+        upgradeImage.sprite = upgradeData.UpgradeSprite;
 
         upgradeButton.OnClickEvent.AddListener(() =>
         {
@@ -41,16 +46,25 @@ public class UpgradeButtonView : MonoBehaviour
     public void UpdateInfo(UpgradeData upgradeData)
     {
         double price = upgradeData.BasePrice * Mathf.Pow(upgradeData.PriceProgressionCoef, upgradeData.Level);
+        double currency = upgradeData.IsEpicUpgrade ? GameData.Instance.PlayerData.GoldPopcornAmount : GameData.Instance.PlayerData.Money;
         upgradeCounterText.text = $"{upgradeData.Level}/{upgradeData.MaxLevel}";
         buyPriceText.text = $"{Utility.FormatMoney(price)}";
         upgradeProgressBarFill.fillAmount = upgradeData.Level / upgradeData.MaxLevel;
         if (upgradeButton)
-            upgradeButton.SetInteractable(GameData.Instance.PlayerData.Money >= price && upgradeData.Level < upgradeData.MaxLevel);
+            upgradeButton.SetInteractable(currency >= price && upgradeData.Level < upgradeData.MaxLevel);
 
         if (upgradeData.Level == upgradeData.MaxLevel)
         {
             buyText.text = "MAX";
             buyPriceText.text = $"";
         }
+    }
+
+    public bool CanBuyIt(UpgradeData upgradeData)
+    {
+        double price = upgradeData.BasePrice * Mathf.Pow(upgradeData.PriceProgressionCoef, upgradeData.Level);
+        double currency = upgradeData.IsEpicUpgrade ? GameData.Instance.PlayerData.GoldPopcornAmount : GameData.Instance.PlayerData.Money;
+
+        return currency >= price && upgradeData.Level < upgradeData.MaxLevel;
     }
 }

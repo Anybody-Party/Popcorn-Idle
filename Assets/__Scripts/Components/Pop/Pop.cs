@@ -7,6 +7,8 @@ namespace Client
     internal struct Pop
     {
         public ConveyorLink Conveyor;
+        public int ConveyorId;
+        public int ProductLineId;
     }
 
     public enum PopAnimations

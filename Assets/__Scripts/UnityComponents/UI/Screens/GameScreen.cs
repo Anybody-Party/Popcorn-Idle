@@ -31,6 +31,7 @@ public class GameScreen : BaseScreen
         heatingButton.OnChangePressState.AddListener((x) =>
         {
             EcsEntity eventEntity = EcsWorld.NewEntity();
+            GameData.Instance.RuntimeData.IsHeatButtonPressed = x;
             if (x)
                 eventEntity.Get<PressHeatingButtonEvent>();
             else
@@ -53,7 +54,7 @@ public class GameScreen : BaseScreen
     public void UpdateProgressBar(float _progress) => levelProgressBarFill.fillAmount = _progress;
 
     public void UpdatePopcornAmountText(double _popcornAmount) => popcornAmountText.text = $"{Utility.FormatMoney(_popcornAmount)}";
-    public void UpdateGoldPopcornAmountText(int _goldPopcornAmount) => goldPopcornAmountText.text = $"{_goldPopcornAmount}";
+    public void UpdateGoldPopcornAmountText(double _goldPopcornAmount) => goldPopcornAmountText.text = $"{_goldPopcornAmount}";
 
     public void UpdateTemperatureText(float _currentTemperature) => temperatureText.text = $"{179 +_currentTemperature:0}";
     public void UpdateTemperatureProgressBar(float _temperature) => temperatureProgressBarFillImage.fillAmount = _temperature;

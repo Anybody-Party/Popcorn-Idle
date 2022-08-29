@@ -12,22 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7a529b5b6e0454a98f18e36d2cef78, type: 3}
   m_Name: BalanceData
   m_EditorClassIdentifier: 
-  BasePopcornSpeed: 0.005
-  TapSpeedUpSpeedCoef: 1.8
-  BaseSpawnPopTime: 5
-  BaseCookingTime: 5
-  BaseHeatingSpeed: 9.27
+  BasePopcornSpeed: 0.002
+  TapSpeedUpSpeedCoef: 1.6
+  SpeedUpTime: 1.6
+  CleanTime: 4
+  BaseSpawnPopTime: 8
+  BaseCookingTime: 10
+  BaseHeatingSpeed: 0.5
   BaseColdingSpeed: 0.5
   CurrentTemperatureCap: {x: 1, y: 15}
   MaxTemperature: 75
+  BasePopcornsInBigBag: 15
+  GlodPopcornsChance: 0.02
   StartMoney: 0
   BasePopSellReward: 1
   PopSellRewardMultiplier: 1
   BaseBagSellReward: 100
   BagSellRewardMultiplier: 1
+  ChocoPopMultiplier: 1.8
   LaunchPopcornForce: {x: 2.75, y: 3.75}
   PopingPopcornForce: {x: 2, y: 3}
-  JumpPopcornForce: {x: 2, y: 2.5}
+  JumpPopcornForce: {x: 2.2, y: 2.5}
   CookingShakePopcornForce: {x: 0, y: 0.8779248}
   CommonUpgradeData:
   - {fileID: 11400000, guid: 9c8ff939a0824324c91abd3a889b46e3, type: 2}
@@ -40,6 +45,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8070b08101ac8dd4daefdfad6d0aba6c, type: 2}
   - {fileID: 11400000, guid: c1044a5a6b2afc74bba1ff1bf2e752ad, type: 2}
   EpicUpgradeData:
-  - {fileID: 11400000, guid: 9c8ff939a0824324c91abd3a889b46e3, type: 2}
-  - {fileID: 11400000, guid: 8753c33528063254eb86b4d12ae2556a, type: 2}
-  - {fileID: 11400000, guid: ff67fb138102c1840b3153993f9bdc26, type: 2}
+  - {fileID: 11400000, guid: b6583b489da5f014cae8e87f466c87ca, type: 2}
+  - {fileID: 11400000, guid: b118d12617fdb5e44937d78525731435, type: 2}
+  - {fileID: 11400000, guid: a4e9d1ca81fd98544bc2abd47a5fe6b2, type: 2}
+  TemperatureUpgradeStep: 2.5
+  ConveyerSpeedUpgradeBase: 0.001
+  SpawnTimePopMultiplierForLevel: 0.9
+  CookingTimePopMultiplierForLevel: 0.9
+  EarningPopMultiplierForLevel: 1.16
+  EarningBagMultiplierForLevel: 1.07
+  HeatingSpeedMultiplierForLevel: 1.07

@@ -33,7 +33,7 @@ RectTransform:
   m_Father: {fileID: 7860547726586736314}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.264968, y: 0.52833176}
+  m_AnchorMin: {x: 0.264968, y: 0.59049076}
   m_AnchorMax: {x: 0.76792294, y: 0.85166824}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Max Temperature
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5027b27aa6c9ad14aadbce8f97b1c63f, type: 2}
-  m_sharedMaterial: {fileID: -48782594274184773, guid: 5027b27aa6c9ad14aadbce8f97b1c63f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cfd0590613db1b749a8fa8177016b193, type: 2}
+  m_sharedMaterial: {fileID: -788263136007194555, guid: cfd0590613db1b749a8fa8177016b193, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 4714145111665623165}
   - component: {fileID: 2871863063482382801}
   m_Layer: 5
-  m_Name: MoneyImage
+  m_Name: CurrencyImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,8 +244,8 @@ RectTransform:
   m_Father: {fileID: 7860547726586736314}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2649682, y: 0.33846653}
-  m_AnchorMax: {x: 0.7679228, y: 0.5283335}
+  m_AnchorMin: {x: 0.26496798, y: 0.40062153}
+  m_AnchorMax: {x: 0.76792264, y: 0.5904885}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -279,8 +279,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Max Temperature
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5027b27aa6c9ad14aadbce8f97b1c63f, type: 2}
-  m_sharedMaterial: {fileID: -48782594274184773, guid: 5027b27aa6c9ad14aadbce8f97b1c63f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cfd0590613db1b749a8fa8177016b193, type: 2}
+  m_sharedMaterial: {fileID: -788263136007194555, guid: cfd0590613db1b749a8fa8177016b193, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7832637dd3ee78d499dd5c8a2471d629, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b0369466f8ff1f4a9d498b0e7971c33, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -508,7 +508,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 2.2
+  m_PixelsPerUnitMultiplier: 2
 --- !u!114 &7756319236930670713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,6 +608,9 @@ MonoBehaviour:
   buyText: {fileID: 8569314573646014448}
   upgradeProgressBarFill: {fileID: 4429311329785007921}
   upgradeImage: {fileID: 7671981666497945920}
+  currencyImage: {fileID: 2871863063482382801}
+  moneySprite: {fileID: 21300000, guid: ce4dc1fc61e82bc449fae5aa8b08b3e5, type: 3}
+  goldPopcornSprite: {fileID: 21300000, guid: 3f3f0e5fd18f0aa41900ad8a04b9dd11, type: 3}
 --- !u!1 &5845135649647195014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,7 +1088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7832637dd3ee78d499dd5c8a2471d629, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b0369466f8ff1f4a9d498b0e7971c33, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1094,7 +1097,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5
+  m_PixelsPerUnitMultiplier: 2.5
 --- !u!114 &2694792492379728047
 MonoBehaviour:
   m_ObjectHideFlags: 0

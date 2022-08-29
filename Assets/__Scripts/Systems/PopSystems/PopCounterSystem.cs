@@ -10,6 +10,7 @@ namespace Client
 
         private EcsFilter<AddPopEvent> _filter;
         private EcsFilter<AddGoldPopEvent> _goldFilter;
+        private EcsFilter<AddReadyToSellPopEvent> _readyToSellFilter;
 
         public void Init()
         {
@@ -31,6 +32,18 @@ namespace Client
                 _gameData.PlayerData.GoldPopcornAmount += 1;
                 _gameUi.GameScreen.UpdateGoldPopcornAmountText(_gameData.PlayerData.GoldPopcornAmount);
                 _filter.GetEntity(idx).Del<AddGoldPopEvent>();
+            }
+
+            foreach (var idx in _readyToSellFilter)
+            {
+                int productLine = _readyToSellFilter.Get1(idx).ProductLineId;
+                _gameData.RuntimeData.ReadyToSellCounter[productLine] += 1;
+                _readyToSellFilter.GetEntity(idx).Del<AddReadyToSellPopEvent>();
+                if (_gameData.RuntimeData.ReadyToSellCounter[productLine] >= _gameData.RuntimeData.InBigBagPopcornAmount())
+                {
+                    _gameData.RuntimeData.ReadyToSellCounter[productLine] = 0;
+                    _world.NewEntity().Get<HandTakenRequest>().ProductLineId = productLine;
+                }
             }
         }
     }

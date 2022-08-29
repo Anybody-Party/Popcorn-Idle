@@ -8,7 +8,7 @@ namespace Client
         private EcsWorld _world;
         private GameData _gameData;
 
-        private EcsFilter<ConveyorLink, LaunchPopTimerTag>.Exclude<DelayTimer> _filter;
+        private EcsFilter<ConveyorLink, LaunchPop>.Exclude<Timer<TimerIntervalSpawnPop>> _filter;
 
         public void Run()
         {
@@ -18,10 +18,16 @@ namespace Client
                 ref ConveyorLink conveyor = ref entity.Get<ConveyorLink>();
                 ref GameObjectLink conveyorGo = ref entity.Get<GameObjectLink>();
 
-                entity.Get<DelayTimer>().Value = _gameData.BalanceData.BaseSpawnPopTime;
+                entity.Get<Timer<TimerIntervalSpawnPop>>().Value = _gameData.RuntimeData.GetPopSpawnTime();
 
                 EcsEntity popEntity = _world.NewEntity();
-                popEntity.Get<Pop>().Conveyor = conveyor;
+                popEntity.Get<Pop>() = new Pop
+                {
+                    Conveyor = conveyor,
+                    ConveyorId = conveyor.Id,
+                    ProductLineId = conveyor.ProductLineId
+                };
+
                 popEntity.Get<ReadyToLaunch>();
 
                 Transform spawnPoint = conveyor.SpawnPoints[Random.Range(0, conveyor.SpawnPoints.Count)];

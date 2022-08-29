@@ -1,32 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 [CreateAssetMenu(menuName = "GameData/PlayerData", fileName = "PlayerData")]
 public class PlayerData : BaseDataSO
 {
     public double Money;
     public double MoneyInSec;
-    public int GoldPopcornAmount;
-    public int PopcornAmount;
+    public double GoldPopcornAmount;
+    public double PopcornAmount;
 
     public int CurrentLevelIndex;
     public float CurrentLevelProgress;
+    
+    [Header("Heating"), BoxGroup("Common")] public UpgradeLevel HeatingMaxTemperatureUpgrade;
+    [BoxGroup("Common")] public UpgradeLevel HeatingSpeedUpgrade;
+    [BoxGroup("Common")] public UpgradeLevel HeatingMinTemperatureUpgrade;
 
-    [Header("Heating Upgrades")]
-    public UpgradeLevel HeatingMaxTemperatureUpgrade;
-    public int HeatingMinTemperatureUpgradeLevel;
-    public int HeatingSpeedUpgradeLevel;
+    [Header("Conveyor"), BoxGroup("Common")] public UpgradeLevel SpawnSpeedUpgrade;
+    [BoxGroup("Common")] public UpgradeLevel ConveyorSpeedUpgrade;
+    [BoxGroup("Common")] public UpgradeLevel BagSizeUpgrade;
 
-    [Header("Conveyor Upgrades")]
-    public int LaunchSpeedUpgradeLevel;
-    public int ConveyorSpeedUpgradeLevel;
-    public int BagSizeUpgradeLevel;
+    [Header("Earning"), BoxGroup("Common")] public UpgradeLevel EarnForPopUpgrade;
+    [BoxGroup("Common")] public UpgradeLevel EarnForBagUpgrade;
+    [BoxGroup("Common")] public UpgradeLevel EarnOfflineUpgrade;
 
-    [Header("Earning Upgrades")]
-    public int EarnForPopUpgradeLevel;
-    public int EarnForBagUpgradeLevel;
-    public int EarnOfflineUpgradeLevel;
+    [BoxGroup("Epic")] public UpgradeLevel RepairStoveUpgrade;
+    [BoxGroup("Epic")] public UpgradeLevel LuckyBoyUpgrade;
+    [BoxGroup("Epic")] public UpgradeLevel MilkyChocoUpgrade;
 
     [Header("Level Upgardes")]
     public List<UpgradeLevel> CommonUpgradeLevels;
@@ -46,28 +48,38 @@ public class PlayerData : BaseDataSO
         CurrentLevelIndex = 0;
         CurrentLevelProgress = 0.0f;
 
-        HeatingSpeedUpgradeLevel = 1;
-        HeatingMinTemperatureUpgradeLevel = 1;
+        HeatingMaxTemperatureUpgrade.Level = 0;
+        HeatingSpeedUpgrade.Level = 0;
+        HeatingMinTemperatureUpgrade.Level = 0;
 
-        LaunchSpeedUpgradeLevel = 1;
-        ConveyorSpeedUpgradeLevel = 1;
-        BagSizeUpgradeLevel = 1;
+        SpawnSpeedUpgrade.Level = 0;
+        ConveyorSpeedUpgrade.Level = 0;
+        BagSizeUpgrade.Level = 0;
 
-        EarnForPopUpgradeLevel = 1;
-        EarnForBagUpgradeLevel = 1;
-        EarnOfflineUpgradeLevel = 1;
+        EarnForPopUpgrade.Level = 0;
+        EarnForBagUpgrade.Level = 0;
+        EarnOfflineUpgrade.Level = 0;
+
+        RepairStoveUpgrade.Level = 0;
+        LuckyBoyUpgrade.Level = 0;
+        MilkyChocoUpgrade.Level = 0;
     }
 
     public void Init()
     {
         for (int i = 0; i < 9; i++)
-            CommonUpgradeLevels[i].Level = 1;
+            CommonUpgradeLevels[i].Level = 0;
 
         for (int i = 0; i < 3; i++)
-            EpicUpgradeLevels[i].Level = 1;
+            EpicUpgradeLevels[i].Level = 0;
 
         foreach (var itemIn in GameData.Instance.BalanceData.CommonUpgradeData)
             foreach (var itemOut in CommonUpgradeLevels)
+                if (itemIn.UpgradeKey == itemOut.UpgradeKey)
+                    itemIn.Level = itemOut.Level;
+
+        foreach (var itemIn in GameData.Instance.BalanceData.EpicUpgradeData)
+            foreach (var itemOut in EpicUpgradeLevels)
                 if (itemIn.UpgradeKey == itemOut.UpgradeKey)
                     itemIn.Level = itemOut.Level;
 

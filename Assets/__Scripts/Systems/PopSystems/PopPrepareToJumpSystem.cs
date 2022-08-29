@@ -24,7 +24,7 @@ namespace Client
 
                 entity.Get<ReadyToJump>();
                 entity.Get<ChangeAnimationRequest>().Animation = PopAnimations.IsPrepareToJump;
-                entity.Get<DelayTimer>().Value = 0.1f;
+                entity.Get<Timer<TimerPrepareToJump>>().Value = 0.1f;
                 entity.Del<GoToJump>();
             }
         }

@@ -20,4 +20,7 @@ public struct PopcornViewLink
     public GameObject Salt;
     public GameObject Caramel;
     public GameObject Wasabi;
+
+    [Header("VFXs")]
+    public GameObject SpeedUpTrail;
 }

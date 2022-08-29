@@ -16,16 +16,16 @@ namespace Client
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
-                ref DoneTimer doneTimer = ref entity.Get<DoneTimer>();
-                doneTimer.Value += Time.deltaTime * _gameData.RuntimeData.Temperature * 0.1f;
+                ref CookingTimer cookingTimer = ref entity.Get<CookingTimer>();
+                cookingTimer.Value += Time.deltaTime * _gameData.RuntimeData.Temperature * 0.1f;
 
-                if (doneTimer.Value > _gameData.BalanceData.BaseCookingTime)
+                if (cookingTimer.Value > _gameData.RuntimeData.GetPopCookingTime())
                 {
                     entity.Del<Cooking>();
                     entity.Get<Done>();
                     entity.Get<PopCookingDoneEvent>();
                     entity.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.Popcorn;
-                    entity.Del<DoneTimer>();
+                    entity.Del<CookingTimer>();
                     entity.Get<Poping>();
                 }
             }

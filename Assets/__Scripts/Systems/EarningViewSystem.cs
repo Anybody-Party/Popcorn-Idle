@@ -10,8 +10,8 @@ namespace Client
         private EcsWorld _world;
 
         private EcsFilter<CreateEarnViewRequest> _requestFilter;
-        private EcsFilter<WorldTextLink, EarnView>.Exclude<Done> _initInfoFilter;
-        private EcsFilter<WorldTextLink, EarnView, Done>.Exclude<DespawnTag, DelayTimer> _despawnInfoFilter;
+        private EcsFilter<WorldTextLink, EarnView>.Exclude<Timer<TimerEarningView>> _initInfoFilter;
+        private EcsFilter<WorldTextLink, EarnView, Done>.Exclude<DespawnTag, Timer<TimerEarningView>> _despawnInfoFilter;
 
         public void Run()
         {
@@ -25,7 +25,7 @@ namespace Client
                 entity.Get<SpawnPrefab>() = new SpawnPrefab
                 {
                     Prefab = _gameData.StaticData.EarnInfoPrefab,
-                    Position = entityEarnView.Position,
+                    Position = entityEarnView.Position + Vector3.up,
                     Rotation = Quaternion.identity,
                     Parent = null,
                     Entity = entity
@@ -41,9 +41,8 @@ namespace Client
                 ref EarnView entityEarnView = ref entity.Get<EarnView>();
                 ref WorldTextLink entityEarnInfoView = ref entity.Get<WorldTextLink>();
 
-                entityEarnInfoView.Value.text = $"+{entityEarnView.Value}";
-                entity.Get<DelayTimer>().Value = 1.0f;
-                entity.Get<Done>();
+                entityEarnInfoView.Value.text = $"+{Utility.FormatMoney(entityEarnView.Value)}$";
+                entity.Get<Timer<TimerEarningView>>().Value = 1.0f;
             }
 
             foreach (var idx in _despawnInfoFilter)

@@ -26,7 +26,7 @@ namespace Client
 
                 if (conveyor.IsBuyed)
                 {
-                    entity.Get<LaunchPopTimerTag>();
+                    entity.Get<LaunchPop>();
                     entityGo.Value.SetActive(true);
                 }
                 else
@@ -55,7 +55,7 @@ namespace Client
                         {
                             conveyor.IsBuyed = true;
                             _gameData.PlayerData.ConveyorBuyed[conveyor.Id] = conveyor.IsBuyed;
-                            entity.Get<LaunchPopTimerTag>();
+                            entity.Get<LaunchPop>();
                         }
                 }
 

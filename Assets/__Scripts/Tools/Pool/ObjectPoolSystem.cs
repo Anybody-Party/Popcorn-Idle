@@ -37,6 +37,7 @@ namespace Client
                     };
 
                     _gameData.SceneData.PrefabFactory.SpawnPrefabWithPreInitEntity(poolObjectEntity.Get<SpawnPrefab>(), ref poolObjectEntity);
+                    poolObjectEntity.Del<SpawnPrefab>();
                     ref GameObjectLink poolObjectEntityGo = ref poolObjectEntity.Get<GameObjectLink>();
 
                     poolObjectEntityGo.Value.SetActive(false);

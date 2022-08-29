@@ -17,7 +17,13 @@ namespace Client
                 ref EcsEntity entity = ref _popFilter.GetEntity(idx);
                 ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
 
-                double reward = _gameData.BalanceData.BasePopSellReward * _gameData.BalanceData.PopSellRewardMultiplier; // TODO: Add additions modificator
+                ref EcsEntity popEntity = ref entity.Get<GetMoneyForPopInSellZone>().PopEntity;
+                ref Pop pop = ref popEntity.Get<Pop>();
+
+                double reward = _gameData.RuntimeData.GetPopEarning();
+
+                if (popEntity.Has<ChocolateAddtion>())
+                    reward *= _gameData.RuntimeData.GetChocoMultiplier();
 
                 _world.NewEntity().Get<EarnMoneyEvent>().Value = reward;
 
@@ -29,7 +35,10 @@ namespace Client
                 };
                 earnViewEntity.Get<CreateEarnViewRequest>();
 
-                entity.Get<GetMoneyForPopInSellZone>().PopEntity.Get<ReadyToSell>();
+                
+
+                popEntity.Get<ReadyToSell>();
+                popEntity.Get<AddReadyToSellPopEvent>().ProductLineId = pop.ProductLineId;
                 entity.Del<GetMoneyForPopInSellZone>();
             }
         }

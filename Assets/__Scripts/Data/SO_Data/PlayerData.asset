@@ -12,48 +12,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706339e4313c4664fa26c3b328151180, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  Money: 0
-  MoneyInSec: 0.10004999925456938
+  Money: 2.319999933242798
+  MoneyInSec: 271.68406524453223
   GoldPopcornAmount: 0
-  PopcornAmount: 544
+  PopcornAmount: 1474
   CurrentLevelIndex: 0
   CurrentLevelProgress: 0
   HeatingMaxTemperatureUpgrade:
     UpgradeKey: MaxTemp
-    Level: 1
-  HeatingMinTemperatureUpgradeLevel: 0
-  HeatingSpeedUpgradeLevel: 0
-  LaunchSpeedUpgradeLevel: 0
-  ConveyorSpeedUpgradeLevel: 0
-  BagSizeUpgradeLevel: 0
-  EarnForPopUpgradeLevel: 0
-  EarnForBagUpgradeLevel: 0
-  EarnOfflineUpgradeLevel: 0
+    Level: 0
+  HeatingSpeedUpgrade:
+    UpgradeKey: HeatSpeed
+    Level: 0
+  HeatingMinTemperatureUpgrade:
+    UpgradeKey: MinTemp
+    Level: 0
+  SpawnSpeedUpgrade:
+    UpgradeKey: SpawnSpeed
+    Level: 0
+  ConveyorSpeedUpgrade:
+    UpgradeKey: ConveyorSpeed
+    Level: 0
+  BagSizeUpgrade:
+    UpgradeKey: BagSize
+    Level: 0
+  EarnForPopUpgrade:
+    UpgradeKey: EarinigPop
+    Level: 0
+  EarnForBagUpgrade:
+    UpgradeKey: EarningBag
+    Level: 0
+  EarnOfflineUpgrade:
+    UpgradeKey: EarningOffline
+    Level: 0
+  RepairStoveUpgrade:
+    UpgradeKey: RepairStoveSystems
+    Level: 0
+  LuckyBoyUpgrade:
+    UpgradeKey: LuckyBoy
+    Level: 0
+  MilkyChocoUpgrade:
+    UpgradeKey: MilkyChoco
+    Level: 0
   CommonUpgradeLevels:
   - UpgradeKey: MaxTemp
-    Level: 1
-  - UpgradeKey: MaxTemp
-    Level: 1
-  - UpgradeKey: MaxTemp
-    Level: 1
-  - UpgradeKey: MaxTemp
-    Level: 1
-  - UpgradeKey: MaxTemp
-    Level: 1
-  - UpgradeKey: MaxTemp
-    Level: 1
-  - UpgradeKey: MaxTemp
-    Level: 1
-  - UpgradeKey: MaxTemp
-    Level: 1
-  - UpgradeKey: MaxTemp
-    Level: 1
+    Level: 0
+  - UpgradeKey: HeatSpeed
+    Level: 0
+  - UpgradeKey: MinTemp
+    Level: 0
+  - UpgradeKey: SpawnSpeed
+    Level: 0
+  - UpgradeKey: ConveyorSpeed
+    Level: 0
+  - UpgradeKey: BagSize
+    Level: 0
+  - UpgradeKey: EarinigPop
+    Level: 0
+  - UpgradeKey: EarningBag
+    Level: 0
+  - UpgradeKey: EarningOffline
+    Level: 0
   EpicUpgradeLevels:
-  - UpgradeKey: MaxTemp
-    Level: 1
-  - UpgradeKey: MaxTemp
-    Level: 1
-  - UpgradeKey: MaxTemp
-    Level: 1
+  - UpgradeKey: RepairStoveSystems
+    Level: 0
+  - UpgradeKey: LuckyBoy
+    Level: 0
+  - UpgradeKey: MilkyChoco
+    Level: 0
   ConveyorBuyed: 0100000000
   ProductLineBuyed: 010000

@@ -20,8 +20,8 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
 
-                currentTemperature += _gameData.BalanceData.BaseHeatingSpeed * Time.deltaTime;
-                currentTemperature = Mathf.Clamp(currentTemperature, _gameData.BalanceData.CurrentTemperatureCap.x, _gameData.BalanceData.CurrentTemperatureCap.y);
+                currentTemperature += _gameData.RuntimeData.GetHeatingSpeed() * Time.deltaTime;
+                currentTemperature = Mathf.Clamp(currentTemperature, _gameData.RuntimeData.GetMinTemperature(), _gameData.RuntimeData.GetMaxTemperature());
                 _gameData.RuntimeData.Temperature = currentTemperature;
                 foreach (var item in _releaseFilter)
                 {
@@ -31,8 +31,8 @@ namespace Client
                 return;
             }
 
-            currentTemperature -= _gameData.BalanceData.BaseColdingSpeed * Time.deltaTime;
-            currentTemperature = Mathf.Clamp(currentTemperature, _gameData.BalanceData.CurrentTemperatureCap.x, _gameData.BalanceData.CurrentTemperatureCap.y);
+            currentTemperature -= _gameData.RuntimeData.GetColdingSpeed() * Time.deltaTime;
+            currentTemperature = Mathf.Clamp(currentTemperature, _gameData.RuntimeData.GetMinTemperature(), _gameData.RuntimeData.GetMaxTemperature());
             _gameData.RuntimeData.Temperature = currentTemperature;
         }
     }

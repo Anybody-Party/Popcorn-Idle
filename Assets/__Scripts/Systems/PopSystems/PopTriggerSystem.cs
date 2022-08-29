@@ -1,5 +1,4 @@
 ﻿using Leopotam.Ecs;
-using UnityEngine;
 
 namespace Client
 {
@@ -24,31 +23,32 @@ namespace Client
                 //Despawn
                 if (entity.Has<PoolObject>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.DespawnTag))
                 {
-                    //heroPs.ParticleSystems[0].ParticleSystem.Play();
-
-                    entity.Del<VelocityMoving>();
-                    entity.Del<TransformMoving>();
-                    entity.Del<LookingAt>();
-                    entity.Del<GoToJump>();
+                    DeleteAllMoving(ref entity);
 
                     entity.Get<DespawnTag>();
                     entity.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.RawCorn;
-                    entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Smile;
+                    entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Empty;
+                    entity.Get<RigidbodyLink>().Value.isKinematic = false;
                 }
 
                 if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.CookingZoneTag))
                     entity.Get<Cooking>();
 
+                if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.GroundTag))
+                {
+                    DeleteAllMoving(ref entity);
+                    entity.Get<CleanIt>();
+                    entity.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.PopcornWithoutLimbs;
+                    entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Scary;
+                }
+
                 if (!entity.Has<ReadyToSell>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.SellZoneTag))
                 {
                     entity.Get<GetMoneyForPopInSellZone>().PopEntity = entity;
 
-                    entity.Del<VelocityMoving>();
-                    entity.Del<TransformMoving>();
-                    entity.Del<LookingAt>();
-                    entity.Del<GoToJump>();
+                    DeleteAllMoving(ref entity);
 
-                    entity.Get<DelayTimer>().Value = 3.0f;
+                    entity.Get<Timer<TimerToSellState>>().Value = 3.0f;
                     entity.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.PopcornWithoutLimbs;
                     entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Empty;
                 }
@@ -64,5 +64,14 @@ namespace Client
                     entity.Del<Cooking>();
             }
         }
+
+        private void DeleteAllMoving(ref EcsEntity pop)
+        {
+            pop.Del<VelocityMoving>();
+            pop.Del<TransformMoving>();
+            pop.Del<LookingAt>();
+            pop.Del<GoToJump>();
+        }
     }
 }
+

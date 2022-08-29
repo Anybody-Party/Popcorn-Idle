@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviourSingleton<CameraController>
 {
+    public Camera camera;
     public GameObject defaultCamera;
     [SerializeField] private Cinemachine.CinemachineImpulseSource shakeSource;
 
