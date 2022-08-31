@@ -15,7 +15,7 @@ MonoBehaviour:
   UpgradeKey: MinTemp
   UpgradeName: MINIMUM TEMPERATURE
   UpgradeDescription: Raises the minimum possible temperature by a couple of degrees
-  UpgradeSprite: {fileID: 21300000, guid: 201336bc34f72cb41939d2de29f7905c, type: 3}
+  UpgradeSprite: {fileID: 21300000, guid: c408a233d4a17724ea4ecf1b5d82a00c, type: 3}
   JokeUpgradeName: 
   JokeUpgradeDescription: 
   Level: 0

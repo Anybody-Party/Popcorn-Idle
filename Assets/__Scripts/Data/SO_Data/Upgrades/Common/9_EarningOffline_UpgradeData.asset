@@ -15,7 +15,7 @@ MonoBehaviour:
   UpgradeKey: EarningOffline
   UpgradeName: OFFLINE BONUS
   UpgradeDescription: The manager works better while you are not at work
-  UpgradeSprite: {fileID: 21300000, guid: 7241b38d1f323174286050d72365c88a, type: 3}
+  UpgradeSprite: {fileID: 21300000, guid: 8cbf108ae195da2448ca0e9c58219bf6, type: 3}
   JokeUpgradeName: 
   JokeUpgradeDescription: 
   Level: 0

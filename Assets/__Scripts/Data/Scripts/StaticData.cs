@@ -22,6 +22,8 @@ public class StaticData : BaseDataSO
     [BoxGroup("Tags")] [Tag] public string SellZoneTag;
     [BoxGroup("Tags")] [Tag] public string GroundTag;
     [BoxGroup("Tags")] [Tag] public string ConveyorTag;
+    [BoxGroup("Tags")] [Tag] public string ChocolateAdditionTag;
+    [BoxGroup("Tags")] [Tag] public string GoldPopcornTag;
 
     public override void ResetData()
     {

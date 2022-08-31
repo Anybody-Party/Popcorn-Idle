@@ -22,3 +22,5 @@ MonoBehaviour:
   SellZoneTag: SellZone
   GroundTag: Ground
   ConveyorTag: Conveyor
+  ChocolateAdditionTag: ChocolateAdditionZone
+  GoldPopcornTag: GoldPopcorn

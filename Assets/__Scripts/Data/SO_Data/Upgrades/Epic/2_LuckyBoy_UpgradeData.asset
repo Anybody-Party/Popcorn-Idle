@@ -15,7 +15,7 @@ MonoBehaviour:
   UpgradeKey: LuckyBoy
   UpgradeName: LUCKY BOY
   UpgradeDescription: Increase the chance of dropping gold popcorns
-  UpgradeSprite: {fileID: 21300000, guid: 0206b0163d275ac4d9ffd05f3851a47e, type: 3}
+  UpgradeSprite: {fileID: 21300000, guid: af397e59ac9e0e8459c4ad5a3af748ae, type: 3}
   JokeUpgradeName: 
   JokeUpgradeDescription: 
   Level: 0

@@ -16,10 +16,10 @@ public struct PopcornViewLink
     public GameObject ScaryEmotion;
 
     [Header("Additions")]
-    public GameObject Chocolate;
-    public GameObject Salt;
-    public GameObject Caramel;
-    public GameObject Wasabi;
+    public GameObject ChocolateAddition;
+    public GameObject SaltAddition;
+    public GameObject CaramelAddition;
+    public GameObject WasabiAddition;
 
     [Header("VFXs")]
     public GameObject SpeedUpTrail;

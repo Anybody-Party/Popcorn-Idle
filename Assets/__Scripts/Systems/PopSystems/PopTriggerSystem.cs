@@ -23,20 +23,22 @@ namespace Client
                 //Despawn
                 if (entity.Has<PoolObject>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.DespawnTag))
                 {
-                    DeleteAllMoving(ref entity);
-
-                    entity.Get<DespawnTag>();
-                    entity.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.RawCorn;
-                    entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Empty;
-                    entity.Get<RigidbodyLink>().Value.isKinematic = false;
+                    PopExtensions.StopAllMoving(ref entity);
+                    PopExtensions.PrepareToDespawn(ref entity);
                 }
 
                 if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.CookingZoneTag))
                     entity.Get<Cooking>();
 
+                if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.ChocolateAdditionTag))
+                {
+                    entity.Get<ChocolateAddtion>();
+                    entity.Get<ChangePopAdditionRequest>().Addition = PopAdditions.Chocolate;
+                }
+
                 if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.GroundTag))
                 {
-                    DeleteAllMoving(ref entity);
+                    PopExtensions.StopAllMoving(ref entity);
                     entity.Get<CleanIt>();
                     entity.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.PopcornWithoutLimbs;
                     entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Scary;
@@ -46,9 +48,10 @@ namespace Client
                 {
                     entity.Get<GetMoneyForPopInSellZone>().PopEntity = entity;
 
-                    DeleteAllMoving(ref entity);
+                    PopExtensions.StopAllMoving(ref entity);
 
                     entity.Get<Timer<TimerToSellState>>().Value = 3.0f;
+                    entity.Get<ShakeBagRequest>().ProductLineId = entity.Get<Pop>().ProductLineId;
                     entity.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.PopcornWithoutLimbs;
                     entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Empty;
                 }
@@ -63,14 +66,6 @@ namespace Client
                 if (entity.Has<Cooking>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.CookingZoneTag))
                     entity.Del<Cooking>();
             }
-        }
-
-        private void DeleteAllMoving(ref EcsEntity pop)
-        {
-            pop.Del<VelocityMoving>();
-            pop.Del<TransformMoving>();
-            pop.Del<LookingAt>();
-            pop.Del<GoToJump>();
         }
     }
 }

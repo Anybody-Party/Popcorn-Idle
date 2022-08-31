@@ -20,6 +20,7 @@ namespace Client
         IsJump,
         IsMissFalling,
         IsFalling,
+        IsGoldTaken,
         WalkingIndex,
         JumpIndex
     }
@@ -37,5 +38,34 @@ namespace Client
         RawCorn,
         Popcorn,
         PopcornWithoutLimbs
+    }
+
+    public enum PopAdditions
+    {
+        None,
+        Chocolate,
+        Salt,
+        Caramel,
+        Wasabi
+    }
+
+    public static class PopExtensions
+    {
+        public static void StopAllMoving(ref EcsEntity pop)
+        {
+            pop.Del<VelocityMoving>();
+            pop.Del<TransformMoving>();
+            pop.Del<LookingAt>();
+            pop.Del<GoToJump>();
+        }
+
+        public static void PrepareToDespawn(ref EcsEntity pop)
+        {
+            pop.Get<DespawnTag>();
+            pop.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.RawCorn;
+            pop.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Empty;
+            pop.Get<ChangePopAdditionRequest>().Addition = PopAdditions.None;
+            pop.Get<RigidbodyLink>().Value.isKinematic = false;
+        }
     }
 }

@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BasePopcornSpeed: 0.002
   TapSpeedUpSpeedCoef: 1.6
-  SpeedUpTime: 1.6
-  CleanTime: 4
-  BaseSpawnPopTime: 8
-  BaseCookingTime: 10
   BaseHeatingSpeed: 0.5
   BaseColdingSpeed: 0.5
   CurrentTemperatureCap: {x: 1, y: 15}
   MaxTemperature: 75
   BasePopcornsInBigBag: 15
-  GlodPopcornsChance: 0.02
+  GlodPopcornsChance: 0.5
+  SpeedUpTime: 1.6
+  CleanTime: 4
+  BaseSpawnPopTime: 8
+  BaseCookingTime: 10
+  BaseGetGoldPopTime: 0
   StartMoney: 0
   BasePopSellReward: 1
   PopSellRewardMultiplier: 1

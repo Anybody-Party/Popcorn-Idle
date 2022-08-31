@@ -15,7 +15,7 @@ MonoBehaviour:
   UpgradeKey: EarinigPop
   UpgradeName: MONEY FOR POPCORN
   UpgradeDescription: Increases the cost of each popcorn
-  UpgradeSprite: {fileID: 21300000, guid: bd110c8ca412c674f870e5b8211b9aae, type: 3}
+  UpgradeSprite: {fileID: 21300000, guid: 4b40b041fb61bdc47850f40c47de25f0, type: 3}
   JokeUpgradeName: 
   JokeUpgradeDescription: 
   Level: 0

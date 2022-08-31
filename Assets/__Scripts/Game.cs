@@ -50,6 +50,7 @@ namespace Client
                 .Add(spawnSystems)
                 .Add(inputSystems)
                 .Add(popSystems)
+                .Add(new GoldPopTapSystem())
 
                 .Add(new EarningViewSystem())
                 .Add(new LevelProgressSystem())
@@ -152,6 +153,7 @@ namespace Client
             .Add(new TimerSystem<TimerToSellState>())
             .Add(new TimerSystem<TimerUpdateMoneyInSec>())
             .Add(new TimerSystem<TimerHeatingViewUpdate>())
+            .Add(new TimerSystem<TimerGoldTaken>())
             .Add(new TimerSystem<TimerShakeInterval>());
         }
 
@@ -162,7 +164,7 @@ namespace Client
                 .Add(new PopInitSystem())
                 .Add(new PopLaunchSystem())
                 .Add(new PopCookingSystem())
-                .Add(new PopCookingShakeSystem())
+                //.Add(new PopCookingShakeSystem())
                 .Add(new PopPopingSystem())
                 .Add(new PopTapSpeedUpSystem())
                 .Add(new PopGoToJumpSystem())

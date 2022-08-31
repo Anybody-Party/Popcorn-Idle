@@ -10,10 +10,6 @@ public class BalanceData : BaseDataSO
     [Header("Base Balance")]
     public float BasePopcornSpeed;
     public float TapSpeedUpSpeedCoef;
-    public float SpeedUpTime;
-    public float CleanTime;
-    public float BaseSpawnPopTime;
-    public float BaseCookingTime;
 
     public float BaseHeatingSpeed;
     public float BaseColdingSpeed;
@@ -23,6 +19,13 @@ public class BalanceData : BaseDataSO
 
     public int BasePopcornsInBigBag;
     public float GlodPopcornsChance;
+
+    [Header("Time")]
+    public float SpeedUpTime;
+    public float CleanTime;
+    public float BaseSpawnPopTime;
+    public float BaseCookingTime;
+    public float BaseGetGoldPopTime;
 
     [Header("Money Balance")]
     public double StartMoney;

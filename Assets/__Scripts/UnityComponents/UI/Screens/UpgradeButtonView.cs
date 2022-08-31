@@ -48,7 +48,7 @@ public class UpgradeButtonView : MonoBehaviour
         double price = upgradeData.BasePrice * Mathf.Pow(upgradeData.PriceProgressionCoef, upgradeData.Level);
         double currency = upgradeData.IsEpicUpgrade ? GameData.Instance.PlayerData.GoldPopcornAmount : GameData.Instance.PlayerData.Money;
         upgradeCounterText.text = $"{upgradeData.Level}/{upgradeData.MaxLevel}";
-        buyPriceText.text = $"{Utility.FormatMoney(price)}";
+        buyPriceText.text = $"<sprite=0> {Utility.FormatMoney(price)}"; // money sprite
         upgradeProgressBarFill.fillAmount = upgradeData.Level / upgradeData.MaxLevel;
         if (upgradeButton)
             upgradeButton.SetInteractable(currency >= price && upgradeData.Level < upgradeData.MaxLevel);

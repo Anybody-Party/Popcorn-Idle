@@ -30,17 +30,17 @@ namespace Client
                 if (changeAnimationAction.Animation == PopAnimations.IsPrepareToJump)
                     SetAnimation(entityAnimator.Value, PopAnimations.IsPrepareToJump.ToString());
 
+                if (changeAnimationAction.Animation == PopAnimations.IsGoldTaken)
+                    SetAnimation(entityAnimator.Value, PopAnimations.IsGoldTaken.ToString());
+
                 if (changeAnimationAction.Animation == PopAnimations.IsJump)
                 {
                     int jumpRandom = Random.Range(0, 3);
                     SetAnimation(entityAnimator.Value, PopAnimations.IsJump.ToString(), jumpRandom, PopAnimations.JumpIndex.ToString());
                 }
 
-                //if (entity.Has<Landing>())
-                //    SetAnimation(entityAnimator.Value, PopAnimations.IsMissFalling.ToString());
-
-                //if (entity.Has<Landing>())
-                //    SetAnimation(entityAnimator.Value, PopAnimations.IsFalling.ToString());
+                if (changeAnimationAction.Animation == PopAnimations.IsFalling)
+                    SetAnimation(entityAnimator.Value, PopAnimations.IsMissFalling.ToString());
 
                 entity.Del<ChangeAnimationRequest>();
             }

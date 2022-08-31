@@ -1,13 +1,19 @@
 ﻿using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Client
 {
-    public class GameVibrationSystem : IEcsRunSystem
+    public class GameVibrationSystem : IEcsInitSystem, IEcsRunSystem
     {
         private GameData _gameData;
 
         private EcsFilter<SetVibrationStateEvent> _settingFilter;
         private EcsFilter<VibrationRequest> _eventFilter;
+
+        public void Init()
+        {
+            Handheld.Vibrate();
+        }
 
         public void Run()
         {

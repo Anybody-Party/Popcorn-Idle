@@ -15,7 +15,7 @@ MonoBehaviour:
   UpgradeKey: ConveyorSpeed
   UpgradeName: CONVEYOR SPEED
   UpgradeDescription: Speeds up the conveyor belt
-  UpgradeSprite: {fileID: 21300000, guid: 5865bab12202ec048b2d8ea71b738600, type: 3}
+  UpgradeSprite: {fileID: 21300000, guid: 5957df73792465048bc9e0598cb71ea4, type: 3}
   JokeUpgradeName: 
   JokeUpgradeDescription: 
   Level: 0

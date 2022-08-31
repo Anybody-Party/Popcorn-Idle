@@ -11,14 +11,15 @@ public class UpgradeScreen : BaseScreen
     [SerializeField] private ActionButton commonTabButton;
     [SerializeField] private List<UpgradeButtonView> commonUpgradeButtons;
     [SerializeField] private ScrollRect commonScrollRect;
+    [SerializeField] private ActionButton commonHideScreenButton;
 
     [Header("Epic")]
     [SerializeField] private GameObject epicTab;
     [SerializeField] private ActionButton epicTabButton;
     [SerializeField] private List<UpgradeButtonView> epicUpgradeButtons;
     [SerializeField] private ScrollRect epicScrollRect;
+    [SerializeField] private ActionButton epicHideScreenButton;
 
-    [SerializeField] private ActionButton hideScreenButton;
     [SerializeField] private GameObject CanBuyUpgrade;
 
     private void Start()
@@ -31,7 +32,8 @@ public class UpgradeScreen : BaseScreen
 
         commonTabButton.OnClickEvent.AddListener(() => UpdateCommonTab());
         epicTabButton.OnClickEvent.AddListener(() => UpdateEpicTab());
-        hideScreenButton.OnClickEvent.AddListener(() => SetShowState(false));
+        commonHideScreenButton.OnClickEvent.AddListener(() => SetShowState(false));
+        epicHideScreenButton.OnClickEvent.AddListener(() => SetShowState(false));
 
         OnShowScreen.AddListener(() => UpdateCommonTab());
     }

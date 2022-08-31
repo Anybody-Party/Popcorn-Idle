@@ -20,6 +20,8 @@ namespace Client
 
                 entity.Get<Timer<TimerIntervalSpawnPop>>().Value = _gameData.RuntimeData.GetPopSpawnTime();
 
+                bool isGold = _gameData.RuntimeData.GetGoldPopcornChance();
+
                 EcsEntity popEntity = _world.NewEntity();
                 popEntity.Get<Pop>() = new Pop
                 {
@@ -33,12 +35,15 @@ namespace Client
                 Transform spawnPoint = conveyor.SpawnPoints[Random.Range(0, conveyor.SpawnPoints.Count)];
                 popEntity.Get<SpawnPrefab>() = new SpawnPrefab
                 {
-                    Prefab = _gameData.StaticData.PopcornPrefab,
+                    Prefab = isGold ? _gameData.StaticData.GoldPopcornPrefab : _gameData.StaticData.PopcornPrefab,
                     Position = spawnPoint.position,
                     Rotation = spawnPoint.rotation,
                     Parent = conveyorGo.Value.transform,
                     Entity = popEntity
                 };
+
+                if (isGold)
+                    popEntity.Get<GoldPop>();
 
                 popEntity.Get<PoolObjectRequest>();
 
