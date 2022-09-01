@@ -9,7 +9,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] public OfflineBonusScreen OfflineBonusScreen;
     [SerializeField] public GameScreen GameScreen;
     [SerializeField] public UpgradeScreen UpgradeScreen;
-    [SerializeField] public VibrationButtonScreen VibrationButtonScreen;
+    [SerializeField] public SettingsScreen SettingsScreen;
 
     private List<BaseScreen> screens;
 
@@ -29,5 +29,5 @@ public class GameUI : MonoBehaviour
     public void SetShowStateOfflineBonusScreen(bool isShow) => OfflineBonusScreen.SetShowState(isShow);
     public void SetShowStateGameScreen(bool isShow) => GameScreen.SetShowState(isShow);
     public void SetShowStateUpgradeScreen(bool isShow) => UpgradeScreen.SetShowState(isShow);
-    public void SetShowStateVirationButtonScreen(bool isShow) => VibrationButtonScreen.SetShowState(isShow);
+    public void SetShowStateSettingsScreen(bool isShow) => SettingsScreen.SetShowState(isShow);
 }

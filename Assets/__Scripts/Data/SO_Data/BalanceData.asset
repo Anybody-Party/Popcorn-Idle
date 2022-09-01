@@ -24,7 +24,7 @@ MonoBehaviour:
   CleanTime: 4
   BaseSpawnPopTime: 8
   BaseCookingTime: 10
-  BaseGetGoldPopTime: 0
+  BaseGetGoldPopTime: 5
   StartMoney: 0
   BasePopSellReward: 1
   PopSellRewardMultiplier: 1

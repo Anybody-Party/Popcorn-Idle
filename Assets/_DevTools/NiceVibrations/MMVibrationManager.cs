@@ -79,7 +79,7 @@ namespace MoreMountains.NiceVibrations
         /// </summary>
         public static void Vibrate()
         {
-            if (GameData.Instance.StaticData.IsVibrationOn)
+            if (GameData.Instance.PlayerData.IsVibrationOn)
             {
                 if (Android())
                 {
@@ -98,7 +98,7 @@ namespace MoreMountains.NiceVibrations
         /// <param name="type">Type.</param>
         public static void Haptic(HapticTypes type)
         {
-            if (GameData.Instance.StaticData.IsVibrationOn)
+            if (GameData.Instance.PlayerData.IsVibrationOn)
             {
                 if (Android())
                 {
@@ -387,7 +387,7 @@ namespace MoreMountains.NiceVibrations
             }
 
             // this will trigger a standard vibration on all the iOS devices that don't support haptic feedback
-            if (GameData.Instance.StaticData.IsVibrationOn)
+            if (GameData.Instance.PlayerData.IsVibrationOn)
             {
                 if (HapticsSupported())
                 {

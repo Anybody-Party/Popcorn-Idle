@@ -12,7 +12,7 @@ namespace Client
         {
             if (Input.GetMouseButtonDown(0))
             {
-                var ray = _gameData.SceneData.CameraController.camera.ScreenPointToRay(Input.mousePosition);
+                var ray = _gameData.SceneData.CameraController.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
 
                 if (Physics.Raycast(ray, out var hit, 100f))
                     _world.NewEntity().Get<RaycastEvent>() = new RaycastEvent

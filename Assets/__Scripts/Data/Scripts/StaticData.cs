@@ -7,9 +7,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GameData/StaticData", fileName = "StaticData")]
 public class StaticData : BaseDataSO
 {
-    [Header("GameSettings")]
-    public bool IsVibrationOn;
-
     [Header("Prefabs")]
     public GameObject GoldPopcornPrefab;
     public GameObject PopcornPrefab;

@@ -15,6 +15,8 @@ public struct ConveyorLink
     public GameObject HeatSteam;
     public GameObject AirHeatDistortion;
 
+    public ParticleSystem BuildDustPS;
+
     public List<Transform> SpawnPoints;
     public List<Transform> PrepareJumpPoints;
     public List<Transform> JumpPoints;

@@ -39,6 +39,8 @@ namespace Client
                 entity.Get<RandomizePopRotationViewRequest>();
 
                 _world.NewEntity().Get<VibrationRequest>().HapticType = MoreMountains.NiceVibrations.HapticTypes.LightImpact;
+                _world.NewEntity().Get<PlaySoundRequest>().SoundName = AudioSound.ExplosionSound;
+                _world.NewEntity().Get<PlaySoundRequest>().SoundName = AudioSound.JumpSound;
             }
         }
     }

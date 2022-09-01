@@ -10,7 +10,6 @@ public class MobileOrthoZoom : MonoBehaviour
 
     private void Update()
     {
-
         if (Input.touchCount == 2)
         {
             Touch touchZero = Input.GetTouch(0);
@@ -29,7 +28,7 @@ public class MobileOrthoZoom : MonoBehaviour
         Zoom(Input.GetAxis("Mouse ScrollWheel"));
     }
 
-    private void Zoom(float increment)
+    public void Zoom(float increment)
     {
         Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize - increment, zoomOutMin, zoomOutMax);
     }

@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using DG.Tweening;
+using Leopotam.Ecs;
 
 namespace Client
 {
@@ -10,6 +11,7 @@ namespace Client
 
         private EcsFilter<AddPopEvent> _filter;
         private EcsFilter<AddGoldPopEvent> _goldFilter;
+        private EcsFilter<SpendGoldPopEvent> _spendGoldFilter;
         private EcsFilter<AddReadyToSellPopEvent> _readyToSellFilter;
 
         public void Init()
@@ -31,7 +33,16 @@ namespace Client
             {
                 _gameData.PlayerData.GoldPopcornAmount += 1;
                 _gameUi.GameScreen.UpdateGoldPopcornAmountText(_gameData.PlayerData.GoldPopcornAmount);
-                _filter.GetEntity(idx).Del<AddGoldPopEvent>();
+                _gameUi.GameScreen.BounceGoldPopcron();
+                _goldFilter.GetEntity(idx).Del<AddGoldPopEvent>();
+            }
+
+            foreach (var idx in _spendGoldFilter)
+            {
+                _gameData.PlayerData.GoldPopcornAmount -= _spendGoldFilter.Get1(idx).Value;
+                _gameUi.GameScreen.UpdateGoldPopcornAmountText(_gameData.PlayerData.GoldPopcornAmount);
+                _gameUi.GameScreen.BounceGoldPopcron();
+                _spendGoldFilter.GetEntity(idx).Del<SpendGoldPopEvent>();
             }
 
             foreach (var idx in _readyToSellFilter)

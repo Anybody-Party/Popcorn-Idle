@@ -970,7 +970,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4206193546517227066}
   - component: {fileID: 8444459260715367294}
-  - component: {fileID: 2456415942169405325}
   - component: {fileID: 1561309623098245780}
   - component: {fileID: 7503736713841169166}
   - component: {fileID: 2770189900294633585}
@@ -1015,18 +1014,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8042560a329d1634e8b78dbd867df515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2456415942169405325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3536651797395635328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a6ec7b71bd99b946b29081e0674f985, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1561309623098245780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,10 +1033,10 @@ MonoBehaviour:
     SmileEmotion: {fileID: 536433234376676401}
     HappyEmotion: {fileID: 4810882952608720703}
     ScaryEmotion: {fileID: 7628134348965273568}
-    Chocolate: {fileID: 6959344470454211955}
-    Salt: {fileID: 0}
-    Caramel: {fileID: 0}
-    Wasabi: {fileID: 0}
+    ChocolateAddition: {fileID: 0}
+    SaltAddition: {fileID: 0}
+    CaramelAddition: {fileID: 0}
+    WasabiAddition: {fileID: 0}
     SpeedUpTrail: {fileID: 3371134231647317799}
 --- !u!54 &7503736713841169166
 Rigidbody:

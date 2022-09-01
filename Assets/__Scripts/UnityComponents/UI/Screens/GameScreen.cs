@@ -1,4 +1,6 @@
+using DG.Tweening;
 using Leopotam.Ecs;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +21,9 @@ public class GameScreen : BaseScreen
     [SerializeField] private Image levelProgressBarFill;
 
     [SerializeField] private Image goldPopImage;
+    [SerializeField] private Transform goldPopPanel;
+
+    [SerializeField] private ActionButton openSettingsScreenButton;
 
     [Header("Heating Button")]
     [SerializeField] private HeatingButton heatingButton;
@@ -44,8 +49,12 @@ public class GameScreen : BaseScreen
         {
             EcsWorld.NewEntity().Get<ShowUpgradeScreenRequest>();
         });
-    }
 
+        openSettingsScreenButton.OnClickEvent.AddListener(() =>
+        {
+            EcsWorld.NewEntity().Get<ShowSettingScreenRequest>();
+        });
+    }
 
     public void UpdateLevelText(int _level) => levelText.text = $"WAVE {_level}";
 
@@ -63,4 +72,5 @@ public class GameScreen : BaseScreen
     public void UpdateHeatingButtonColor(float _temperature) => heatingButtonImage.color = heatingButtonColorGradient.Evaluate(_temperature);
 
     public Vector3 GetGoldPopPosition() => goldPopImage.transform.position;
+    public void BounceGoldPopcron() => goldPopPanel.transform.DOPunchScale(Vector3.one * 1.1f, 0.2f);
 }

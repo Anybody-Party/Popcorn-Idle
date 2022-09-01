@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using Client;
+using Leopotam.Ecs;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +29,13 @@ public class UpgradeButtonView : MonoBehaviour
 
         upgradeButton.OnClickEvent.AddListener(() =>
         {
+            double price = upgradeData.BasePrice * Mathf.Pow(upgradeData.PriceProgressionCoef, upgradeData.Level);
+
+            if (upgradeData.IsEpicUpgrade)
+                _world.NewEntity().Get<SpendGoldPopEvent>().Value = price;
+            else
+                _world.NewEntity().Get<SpendMoneyEvent>().Value = price;
+                
             upgradeData.Level += 1;
             UpdateInfo(upgradeData);
 

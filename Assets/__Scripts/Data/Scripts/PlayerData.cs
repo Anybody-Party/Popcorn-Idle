@@ -6,11 +6,17 @@ using NaughtyAttributes;
 [CreateAssetMenu(menuName = "GameData/PlayerData", fileName = "PlayerData")]
 public class PlayerData : BaseDataSO
 {
+    [Header("GameSettings")]
+    public bool IsVibrationOn;
+    public bool IsSoundOn;
+
+    [Header("Money & Popcorn")]
     public double Money;
     public double MoneyInSec;
     public double GoldPopcornAmount;
     public double PopcornAmount;
 
+    [Header("Level")]
     public int CurrentLevelIndex;
     public float CurrentLevelProgress;
     

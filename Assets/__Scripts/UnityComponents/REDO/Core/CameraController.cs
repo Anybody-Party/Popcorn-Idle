@@ -6,8 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviourSingleton<CameraController>
 {
-    public Camera camera;
-    public GameObject defaultCamera;
+    [SerializeField] private Camera camera;
+    [SerializeField] private PanAndZoom panAndZoom;
+    [SerializeField] private MobileOrthoZoom mobileOrthoZoom;
+    [SerializeField] private GameObject defaultCamera;
     [SerializeField] private Cinemachine.CinemachineImpulseSource shakeSource;
 
     private void Initialize()
@@ -18,5 +20,10 @@ public class CameraController : MonoBehaviourSingleton<CameraController>
     public void Shake()
     {
         shakeSource.GenerateImpulse(transform.forward);
+    }
+
+    public void SetZoom(float zoom)
+    {
+        mobileOrthoZoom.Zoom(zoom);
     }
 }

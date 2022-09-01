@@ -15,6 +15,10 @@ namespace Client
 
         [Header("UI")]
         [SerializeField] private GameUI _gameUi;
+        [SerializeField] private WorldGameUI _worldGameUi;
+
+        [Header("Audio")]
+        [SerializeField] private AudioManager _audioManager;
 
         private IEnumerator Start()
         {
@@ -54,11 +58,14 @@ namespace Client
 
                 .Add(new EarningViewSystem())
                 .Add(new LevelProgressSystem())
-                .Add(new GameVibrationSystem())
-                .Add(new EarningMoneySystem())
+                .Add(new VibrationSystem())
+                .Add(new MoneySystem())
                 .Add(new EarningMoneyInSecSystem())
                 .Add(new UpgradeSystem())
                 .Add(new HandSystem())
+                .Add(new CameraSystem())
+                .Add(new AudioSystem())
+                .Add(new SettingSystem())
 
                 .OneFrame<MovingCompleteEvent>()
                 .OneFrame<ChangeGameStateRequest>()
@@ -66,6 +73,8 @@ namespace Client
 
                 .Inject(_gameData)
                 .Inject(_gameUi)
+                .Inject(_worldGameUi)
+                .Inject(_audioManager)
 
                 .Init();
 

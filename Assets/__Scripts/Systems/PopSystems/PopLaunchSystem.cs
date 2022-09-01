@@ -28,6 +28,7 @@ namespace Client
                 entity.Get<Landing>();
 
                 entity.Del<ReadyToLaunch>();
+                _world.NewEntity().Get<PlaySoundRequest>().SoundName = AudioSound.ShootSound;
             }
         }
     }

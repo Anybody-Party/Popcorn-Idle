@@ -137,23 +137,28 @@ namespace Leopotam.Ecs {
         /// <summary>
         /// Creates new entity.
         /// </summary>
-        [MethodImpl (MethodImplOptions.AggressiveInlining)]
-        public EcsEntity NewEntity () {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public EcsEntity NewEntity()
+        {
 #if DEBUG
-            if (IsDestroyed) { throw new Exception ("EcsWorld already destroyed."); }
+            if (IsDestroyed) { throw new Exception("EcsWorld already destroyed."); }
 #endif
             EcsEntity entity;
             entity.Owner = this;
             // try to reuse entity from pool.
-            if (FreeEntities.Count > 0) {
+            if (FreeEntities.Count > 0)
+            {
                 entity.Id = FreeEntities.Items[--FreeEntities.Count];
                 ref var entityData = ref Entities[entity.Id];
                 entity.Gen = entityData.Gen;
                 entityData.ComponentsCountX2 = 0;
-            } else {
+            }
+            else
+            {
                 // create new entity.
-                if (EntitiesCount == Entities.Length) {
-                    Array.Resize (ref Entities, EntitiesCount << 1);
+                if (EntitiesCount == Entities.Length)
+                {
+                    Array.Resize(ref Entities, EntitiesCount << 1);
                 }
                 entity.Id = EntitiesCount++;
                 ref var entityData = ref Entities[entity.Id];
@@ -163,9 +168,10 @@ namespace Leopotam.Ecs {
                 entityData.ComponentsCountX2 = 0;
             }
 #if DEBUG
-            _leakedEntities.Add (entity);
-            foreach (var debugListener in DebugListeners) {
-                debugListener.OnEntityCreated (entity);
+            _leakedEntities.Add(entity);
+            foreach (var debugListener in DebugListeners)
+            {
+                debugListener.OnEntityCreated(entity);
             }
 #endif
             return entity;

@@ -39,6 +39,7 @@ public class AudioManager : MonoBehaviour
     private bool checkMusic;
     private bool checkSFX;
 
+
     [HideInInspector]
     public AudioSource musicTrack;
 
@@ -52,9 +53,6 @@ public class AudioManager : MonoBehaviour
 
             s.source.outputAudioMixerGroup = s.mixer;
         }
-
-        checkMusic = PlayerPrefs.GetInt("s_music") > 0 ? true : false;
-        checkSFX = PlayerPrefs.GetInt("s_sound") > 0 ? true : false;
     }
 
     public void Play(string sound)
@@ -92,23 +90,21 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void ToggleMusic()
+    public void ToggleAudio(bool _on)
     {
-        checkMusic = PlayerPrefs.GetInt("s_music") > 0 ? true : false;
-        PlayerPrefs.SetInt("s_music", checkMusic ? 0 : 1);
-        if (checkMusic)
-            masterMixer.SetFloat("MusicVol", -5f);
+        if (_on)
+            masterMixer.SetFloat("AudioVolume", -25f);
         else
-            masterMixer.SetFloat("MusicVol", -80f);
+            masterMixer.SetFloat("AudioVolume", -80f);
     }
+}
 
-    public void ToggleSFX()
-    {
-        checkSFX = PlayerPrefs.GetInt("s_sound") > 0 ? true : false;
-        PlayerPrefs.SetInt("s_sound", checkSFX ? 0 : 1);
-        if (checkSFX)
-            masterMixer.SetFloat("SFXsVol", -12f);
-        else
-            masterMixer.SetFloat("SFXsVol", -80f);
-    }
+public static class AudioSound
+{
+    public const string CashSound = "cash";
+    public const string ConveyorSound = "conveyor";
+    public const string ExplosionSound = "explosion";
+    public const string JumpSound = "jump";
+    public const string ShootSound = "shoot";
+    public const string MusicSound = "music";
 }

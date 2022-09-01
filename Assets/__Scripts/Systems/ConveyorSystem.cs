@@ -1,4 +1,5 @@
 ﻿using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Client
 {
@@ -7,9 +8,10 @@ namespace Client
         private GameData _gameData;
         private GameUI _gameUi;
         private EcsWorld _world;
+        private WorldGameUI _worldGameUi;
 
         private EcsFilter<ConveyorLink> _filter;
-        private EcsFilter<BuyNewConveyorEvent> _buyFilter;
+        private EcsFilter<BuyConveyorRequest> _buyFilter;
 
         public void Init()
         {
@@ -34,14 +36,19 @@ namespace Client
                     entityGo.Value.SetActive(false);
                 }
             }
+
+            SetZoomForConveyors();
+            _worldGameUi.UpdateBuyConveyorScreens();
         }
 
         public void Run()
         {
+            _worldGameUi.UpdateBuyConveyorScreens(); //TODO: Remove
+
             foreach (var buy in _buyFilter)
             {
                 ref EcsEntity buyEventEntity = ref _filter.GetEntity(buy);
-                ref BuyNewConveyorEvent buyEvent = ref buyEventEntity.Get<BuyNewConveyorEvent>();
+                ref BuyConveyorRequest buyRequest = ref buyEventEntity.Get<BuyConveyorRequest>();
 
                 foreach (var idx in _filter)
                 {
@@ -51,16 +58,30 @@ namespace Client
                     ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
 
                     for (int i = 0; i < _gameData.SceneData.Conveyors.Count; i++)
-                        if (conveyor.Id == buyEvent.ConveyorNum)
+                        if (conveyor.Id == buyRequest.ConveyorId)
                         {
                             conveyor.IsBuyed = true;
                             _gameData.PlayerData.ConveyorBuyed[conveyor.Id] = conveyor.IsBuyed;
+                            double price = GameData.Instance.BalanceData.BaseConveyorPrice * Mathf.Pow(GameData.Instance.BalanceData.ConveyorPriceMultiplierForNumber, buyRequest.ConveyorId);
+                            _world.NewEntity().Get<SpendMoneyEvent>().Value = price;
+                            conveyor.BuildDustPS.Play();
+                            entityGo.Value.SetActive(true);
                             entity.Get<LaunchPop>();
                         }
                 }
-
-                buyEventEntity.Del<BuyNewConveyorEvent>();
+                SetZoomForConveyors();
+                buyEventEntity.Del<BuyConveyorRequest>();
             }
+        }
+
+        private void SetZoomForConveyors()
+        {
+            int counter = 0;
+            for (int i = 0; i < _gameData.PlayerData.ConveyorBuyed.Count; i++)
+                if (_gameData.PlayerData.ConveyorBuyed[i])
+                    counter++;
+
+            _world.NewEntity().Get<SetCameraZoomReqeust>().ZoomObjects = counter;
         }
     }
 }

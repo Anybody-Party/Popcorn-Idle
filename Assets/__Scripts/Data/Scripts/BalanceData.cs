@@ -36,6 +36,9 @@ public class BalanceData : BaseDataSO
     public double BaseBagSellReward;
     public double BagSellRewardMultiplier;
 
+    public double BaseConveyorPrice;
+    public float ConveyorPriceMultiplierForNumber;
+
     public float ChocoPopMultiplier;
 
     [Header("Physic Balance")]
