@@ -9,7 +9,8 @@ public class GameUI : MonoBehaviour
     [SerializeField] public OfflineBonusScreen OfflineBonusScreen;
     [SerializeField] public GameScreen GameScreen;
     [SerializeField] public UpgradeScreen UpgradeScreen;
-    [SerializeField] public SettingsScreen SettingsScreen;
+    [SerializeField] public SettingScreen SettingScreen;
+    [SerializeField] public CheatScreen CheatScreen;
 
     private List<BaseScreen> screens;
 
@@ -26,8 +27,14 @@ public class GameUI : MonoBehaviour
     }
 
     public void SetShowStateLevelCompleteScreen(bool isShow) => LevelCompleteScreen.SetShowState(isShow);
-    public void SetShowStateOfflineBonusScreen(bool isShow) => OfflineBonusScreen.SetShowState(isShow);
     public void SetShowStateGameScreen(bool isShow) => GameScreen.SetShowState(isShow);
     public void SetShowStateUpgradeScreen(bool isShow) => UpgradeScreen.SetShowState(isShow);
-    public void SetShowStateSettingsScreen(bool isShow) => SettingsScreen.SetShowState(isShow);
+    public void SetShowStateSettingScreen(bool isShow) => SettingScreen.SetShowState(isShow);
+    public void SetShowStateCheatScreen(bool isShow) => CheatScreen.SetShowState(isShow);
+
+    public void SetShowStateOfflineBonusScreen(bool isShow, double reward)
+    {
+        OfflineBonusScreen.SetShowState(isShow);
+        OfflineBonusScreen.UpdateRewardText(reward);
+    }
 }

@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2838852550525497490}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
 --- !u!33 &1742535474
 MeshFilter:
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 5115693982571881235}
   - component: {fileID: 5115693982571881244}
   m_Layer: 0
-  m_Name: conveyor
+  m_Name: "\u0421onveyorBelt"
   m_TagString: Conveyor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,6 +345,51 @@ MonoBehaviour:
   targetMaterial: {fileID: 2100000, guid: bab1fe7fe09412c43815b1c7785176f1, type: 2}
   speedX: 0
   speedY: 0.05
+--- !u!1 &1003368593650100988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2937365981045117584}
+  - component: {fileID: 7743301281782196005}
+  m_Layer: 0
+  m_Name: Steps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2937365981045117584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003368593650100988}
+  m_LocalRotation: {x: 0.2417179, y: -0, z: -0, w: 0.97034657}
+  m_LocalPosition: {x: 0, y: -5.01, z: 0.01}
+  m_LocalScale: {x: 8.2783, y: 0.87473714, z: 0.06347707}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2838852550525497490}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 27.976, y: 0, z: 0}
+--- !u!65 &7743301281782196005
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003368593650100988}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2312401372683037150
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,10 +457,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8181891752101408648}
+  - {fileID: 6023898053009029461}
   - {fileID: 1742535470}
   - {fileID: 3864050242212324403}
   - {fileID: 3799414040145066399}
-  - {fileID: 6023898053009029461}
+  - {fileID: 2937365981045117584}
   m_Father: {fileID: 3799414038297847308}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -553,6 +599,7 @@ MonoBehaviour:
     StoveMaterial: {fileID: 2378570107549466}
     HeatSteam: {fileID: 6023898053008759369}
     AirHeatDistortion: {fileID: 8845135219691599154}
+    BeltScroller: {fileID: 5115693982571881244}
     BuildDustPS: {fileID: 7997714398093965192}
     SpawnPoints:
     - {fileID: 3799414039468151905}
@@ -971,7 +1018,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2838852550525497490}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3799414040145066392
 BoxCollider:
@@ -1333,7 +1380,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2838852550525497490}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &313380328561650588
 MeshFilter:
@@ -1830,7 +1877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8056837166324891333, guid: 6ebc09edc248ad4429607fb39382754d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8056837166324891333, guid: 6ebc09edc248ad4429607fb39382754d, type: 3}
       propertyPath: m_LocalPosition.x

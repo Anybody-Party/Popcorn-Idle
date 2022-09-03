@@ -34,6 +34,7 @@ namespace Client
 
             SetTargetFrameRate();
             _gameUi.InjectEcsWorld(_ecsWorld);
+            _worldGameUi.InjectEcsWorld(_ecsWorld);
             ProvideMonoEntitiesFromScene();
 
             EcsSystems inputSystems = InputSystems();
@@ -49,6 +50,7 @@ namespace Client
                 .Add(new RaycastSystem())
 
                 .Add(new ConveyorSystem())
+                .Add(new ConveyorBeltViewSystem())
                 .Add(new HeatingSystem())
                 .Add(new HeatingViewSystem())
                 .Add(spawnSystems)
@@ -66,6 +68,8 @@ namespace Client
                 .Add(new CameraSystem())
                 .Add(new AudioSystem())
                 .Add(new SettingSystem())
+                .Add(new CheatSystem())
+                .Add(new OfflineBonusSystem())
 
                 .OneFrame<MovingCompleteEvent>()
                 .OneFrame<ChangeGameStateRequest>()
@@ -183,6 +187,7 @@ namespace Client
                 .Add(new PopSellSystem())
                 .Add(new PopCleanSystem())
 
+                .Add(new PopAdditionSystem())
                 .Add(new PopEmotionSystem())
                 .Add(new PopViewSystem())
                 .Add(new PopAnimationSystem())

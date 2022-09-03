@@ -30,13 +30,13 @@ namespace Client
                 if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.CookingZoneTag))
                     entity.Get<Cooking>();
 
-                if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.ChocolateAdditionTag))
+                if (!entity.Has<GoldPop>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.ChocolateAdditionTag))
                 {
                     entity.Get<ChocolateAddtion>();
                     entity.Get<ChangePopAdditionRequest>().Addition = PopAdditions.Chocolate;
                 }
 
-                if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.GroundTag))
+                if (!entity.Has<CleanIt>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.GroundTag))
                 {
                     PopExtensions.StopAllMoving(ref entity);
                     entity.Get<CleanIt>();

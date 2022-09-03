@@ -47,7 +47,7 @@ namespace Client
 
             foreach (var buy in _buyFilter)
             {
-                ref EcsEntity buyEventEntity = ref _filter.GetEntity(buy);
+                ref EcsEntity buyEventEntity = ref _buyFilter.GetEntity(buy);
                 ref BuyConveyorRequest buyRequest = ref buyEventEntity.Get<BuyConveyorRequest>();
 
                 foreach (var idx in _filter)

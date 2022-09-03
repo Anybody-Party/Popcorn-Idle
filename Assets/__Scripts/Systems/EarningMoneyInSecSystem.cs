@@ -13,7 +13,6 @@ namespace Client
 
         public void Init()
         {
-            _gameData.PlayerData.MoneyInSec = 0;
             _world.NewEntity().Get<MoneyInSecUpdateTimerContainer>();
         }
 

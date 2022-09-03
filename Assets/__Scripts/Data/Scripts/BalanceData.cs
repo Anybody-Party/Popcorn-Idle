@@ -9,6 +9,7 @@ public class BalanceData : BaseDataSO
 {
     [Header("Base Balance")]
     public float BasePopcornSpeed;
+    public float BaseConveyorBeltSpeed;
     public float TapSpeedUpSpeedCoef;
 
     public float BaseHeatingSpeed;
@@ -26,6 +27,10 @@ public class BalanceData : BaseDataSO
     public float BaseSpawnPopTime;
     public float BaseCookingTime;
     public float BaseGetGoldPopTime;
+
+    [Header("OfflineBonus")]
+    [MinMaxSlider(1.0f, 8.0f)]
+    public Vector2 OfflineTimeHourCap;
 
     [Header("Money Balance")]
     public double StartMoney;
@@ -58,13 +63,14 @@ public class BalanceData : BaseDataSO
     public List<UpgradeData> EpicUpgradeData;
 
     [Header("Upgrades Balance")]
-    public float TemperatureUpgradeStep; // 2.5f
-    public float ConveyerSpeedUpgradeBase; // 0.001f
-    public float SpawnTimePopMultiplierForLevel; // 0.9f
-    public float CookingTimePopMultiplierForLevel; // 0.9f
-    public float EarningPopMultiplierForLevel; // 1.16f
-    public float EarningBagMultiplierForLevel; // 1.07f
-    public float HeatingSpeedMultiplierForLevel; // 1.07f
+    public float TemperatureUpgradeStep; // 2.5f //
+    public float ConveyerSpeedUpgradeBase; // 0.001f //
+    public float SpawnTimePopMultiplierForLevel; // 0.9f // 
+    public float CookingTimePopMultiplierForLevel; // 0.9f ?
+    public float EarningPopMultiplierForLevel; // 1.16f //
+    public float EarningBagMultiplierForLevel; // 1.07f // 
+    public float EarningOfflineMultiplierForLevel; // 1.07f //
+    public float HeatingSpeedMultiplierForLevel; // 1.07f //
 
     public override void ResetData()
     {

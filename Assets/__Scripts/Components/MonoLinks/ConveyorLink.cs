@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using FlatKit;
+using Leopotam.Ecs;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public struct ConveyorLink
     public BlendMaterialController StoveMaterial;
     public GameObject HeatSteam;
     public GameObject AirHeatDistortion;
+    public UvScroller BeltScroller;
 
     public ParticleSystem BuildDustPS;
 

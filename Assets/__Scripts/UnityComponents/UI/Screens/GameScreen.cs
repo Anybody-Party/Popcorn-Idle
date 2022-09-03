@@ -23,15 +23,17 @@ public class GameScreen : BaseScreen
     [SerializeField] private Image goldPopImage;
     [SerializeField] private Transform goldPopPanel;
 
-    [SerializeField] private ActionButton openSettingsScreenButton;
-
     [Header("Heating Button")]
     [SerializeField] private HeatingButton heatingButton;
     [SerializeField] private Image heatingButtonImage;
+    [SerializeField] private Shadow heatingButtonShadow;
     [SerializeField] private Gradient heatingButtonColorGradient;
+    [SerializeField] private Gradient heatingButtonShadowGradient;
 
-    [Header("Show Upgrades Screen Button")]
+    [Header("Show Screens Button")]
     [SerializeField] private ActionButton showUpgradeScreenButton;
+    [SerializeField] private ActionButton showSettingScreenButton;
+    [SerializeField] private ActionButton showCheatScreenButton;
 
     private void Start()
     {
@@ -45,15 +47,9 @@ public class GameScreen : BaseScreen
                 eventEntity.Get<ReleaseHeatingButtonEvent>();
         });
 
-        showUpgradeScreenButton.OnClickEvent.AddListener(() =>
-        {
-            EcsWorld.NewEntity().Get<ShowUpgradeScreenRequest>();
-        });
-
-        openSettingsScreenButton.OnClickEvent.AddListener(() =>
-        {
-            EcsWorld.NewEntity().Get<ShowSettingScreenRequest>();
-        });
+        showUpgradeScreenButton.OnClickEvent.AddListener(() => EcsWorld.NewEntity().Get<ShowUpgradeScreenRequest>());
+        showSettingScreenButton.OnClickEvent.AddListener(() => EcsWorld.NewEntity().Get<ShowSettingScreenRequest>());
+        showCheatScreenButton.OnClickEvent.AddListener(() => EcsWorld.NewEntity().Get<ShowCheatScreenRequest>());
     }
 
     public void UpdateLevelText(int _level) => levelText.text = $"WAVE {_level}";
@@ -69,8 +65,12 @@ public class GameScreen : BaseScreen
 
     public void UpdateTemperatureText(float _currentTemperature) => temperatureText.text = $"{179 + _currentTemperature:0}";
     public void UpdateTemperatureProgressBar(float _temperature) => temperatureProgressBarFillImage.fillAmount = _temperature;
-    public void UpdateHeatingButtonColor(float _temperature) => heatingButtonImage.color = heatingButtonColorGradient.Evaluate(_temperature);
+    public void UpdateHeatingButtonColor(float _temperature)
+    {
+        heatingButtonImage.color = heatingButtonColorGradient.Evaluate(_temperature);
+        heatingButtonShadow.effectColor = heatingButtonShadowGradient.Evaluate(_temperature);
+    }
 
     public Vector3 GetGoldPopPosition() => goldPopImage.transform.position;
-    public void BounceGoldPopcron() => goldPopPanel.transform.DOPunchScale(Vector3.one * 1.1f, 0.2f);
+    public void BounceGoldPopcron() { goldPopPanel.transform.DORewind(); goldPopPanel.transform.DOPunchScale(Vector3.one * 0.9f, 0.1f, 1, 0.5f); }
 }

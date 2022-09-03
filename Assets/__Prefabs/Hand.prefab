@@ -196,6 +196,7 @@ MonoBehaviour:
     Bags:
     - {fileID: 7059404934002083937}
     - {fileID: 7779433295292181202}
+    EarnMoneyPS: {fileID: 0}
 --- !u!114 &5141220474215156628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,6 +1052,87 @@ Transform:
   m_Father: {fileID: 3150693543293585418}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2308518172274687379
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1268903447599406007}
+    m_Modifications:
+    - target: {fileID: 7338049492303085889, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492303085889, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492303085889, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.3254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318153383, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_Name
+      value: TreasureChestGlowRays
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10.85466
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7.967099
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 7.9670997
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.71999705
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.021651022
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.7299914
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00000012974486
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000006146728
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00017452611
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338049492318399293, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e6552ee5fa737034bbf304ca2084fcc0, type: 3}
 --- !u!1001 &2308518172390038141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1187,7 +1269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4751731267274412572, guid: 41774d7fc082df84f957f0be92260f5a, type: 3}
       propertyPath: m_Name
-      value: PopcornBigBag
+      value: PopcornMediumBag
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41774d7fc082df84f957f0be92260f5a, type: 3}

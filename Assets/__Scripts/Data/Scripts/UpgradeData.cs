@@ -28,6 +28,11 @@ public class UpgradeData : BaseDataSO
     public double BasePrice;
     public float PriceProgressionCoef;
 
+    [Header("Progression")]
+    public float MultiplierForLevel;
+    public float StartValue;
+    public float StepValue;
+
     public override void ResetData()
     {
         throw new NotImplementedException();

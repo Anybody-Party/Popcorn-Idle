@@ -10,14 +10,20 @@ public class OfflineBonusScreen : BaseScreen
 
     private void Start()
     {
-        //getRewardButton.OnClickEvent.AddListener(() =>
-        //EcsWorld.NewEntity()
-        //.Get<CreateNewLevelRequest>()
-        //.IsRestart = false);
+        getRewardButton.OnClickEvent.AddListener(() =>
+        EcsWorld.NewEntity()
+        .Get<GetOfflineBonusRewardRequest>().Multiplier = 3);
 
-        //hideScreenButton.OnClickEvent.AddListener(() =>
-        //EcsWorld.NewEntity()
-        //.Get<CreateNewLevelRequest>()
-        //.IsRestart = false);
+        hideScreenButton.OnClickEvent.AddListener(() =>
+        EcsWorld.NewEntity()
+        .Get<GetOfflineBonusRewardRequest>().Multiplier = 1);
+
+        getRewardButton.OnClickEvent.AddListener(() => SetShowState(false));
+        hideScreenButton.OnClickEvent.AddListener(() => SetShowState(false));
+    }
+
+    public void UpdateRewardText(double reward)
+    {
+        rewardMoneyText.text = $"<sprite=0> {Utility.FormatMoney(reward)}"; // money sprite
     }
 }

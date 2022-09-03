@@ -23,7 +23,7 @@ public class BuyConveyorScreen : BaseScreen
 
     public void UpdateButtonView()
     {
-        if(GameData.Instance.PlayerData.ConveyorBuyed[conveyorId])
+        if(GameData.Instance.PlayerData.ConveyorBuyed[conveyorId] || !GameData.Instance.PlayerData.ConveyorBuyed[conveyorId - 1])
             gameObject.SetActive(false);
         else
         {

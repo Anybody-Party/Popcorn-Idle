@@ -6,52 +6,20 @@ using System.Net;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Networking;
+using NaughtyAttributes;
 
-public class TimeManager : MonoBehaviour
+public class TimeManager : MonoBehaviourSingleton<TimeManager>
 {
-    #region Singleton Init
-    private static TimeManager _instance;
-
-    void Awake() // Init in order
-    {
-        if (_instance == null)
-            Init();
-        else if (_instance != this)
-        {
-            Debug.Log($"Destroying {gameObject.name}, caused by one singleton instance");
-            Destroy(gameObject);
-        }
-    }
-
-    public static TimeManager Instance // Init not in order
-    {
-        get
-        {
-            if (_instance == null)
-                Init();
-            return _instance;
-        }
-        private set { _instance = value; }
-    }
-
-    static void Init() // Init script
-    {
-        _instance = FindObjectOfType<TimeManager>();
-        if (_instance != null)
-            _instance.Initialize();
-    }
-    #endregion
-
-    [NaughtyAttributes.ShowNativeProperty]
+    [ShowNativeProperty]
     string CurrentTime => (DateTimeOffset.Now.ToOffset(TimeSpan.Zero).ToString());
-    [NaughtyAttributes.ShowNativeProperty]
+    [ShowNativeProperty]
     string OfflineDateTime => (PlayerPrefs.HasKey(Offline.OfflineTimeKey) ? DTOLoad(Offline.OfflineTimeKey).ToString() : "");
-    [NaughtyAttributes.ShowNativeProperty]
-    string PicturePaintingProcessTime => (PlayerPrefs.HasKey(PicturePaintingProcess.PicturePaintingProcessTimeKey) ? DTOLoad(PicturePaintingProcess.PicturePaintingProcessTimeKey).ToString() : "");
+    //[ShowNativeProperty]
+    //string PicturePaintingProcessTime => (PlayerPrefs.HasKey(PicturePaintingProcess.PicturePaintingProcessTimeKey) ? DTOLoad(PicturePaintingProcess.PicturePaintingProcessTimeKey).ToString() : "");
 
     public DateTimeOffset? netTime;
 
-    void Initialize()
+    void Awake()
     {
         StartCoroutine(GetNetTime());
 
@@ -61,8 +29,6 @@ public class TimeManager : MonoBehaviour
             PlayerPrefs.SetString("IsFirstLaunch", "no");
             SaveWithCurrentTime(Offline.OfflineTimeKey, new TimeSpan(0, 0, 0));
         }
-        // Init data here
-        enabled = true;
     }
 
     public class Offline
@@ -98,49 +64,49 @@ public class TimeManager : MonoBehaviour
         //}
     }
 
-    public class PicturePaintingProcess
-    {
-        public const string PicturePaintingProcessTimeKey = "PicturePaintingProcessTimeKey";
-        public const string PicturePaintingOfflineProgressTimeKey = "PicturePaintingOfflineProgressTimeKey";
+    //public class PicturePaintingProcess
+    //{
+    //    public const string PicturePaintingProcessTimeKey = "PicturePaintingProcessTimeKey";
+    //    public const string PicturePaintingOfflineProgressTimeKey = "PicturePaintingOfflineProgressTimeKey";
 
-        public static void Hack_Rollback5Min()
-        {
-            Instance.AddToExist(PicturePaintingProcessTimeKey, new TimeSpan(0, -5, 0));
-        }
+    //    public static void Hack_Rollback5Min()
+    //    {
+    //        Instance.AddToExist(PicturePaintingProcessTimeKey, new TimeSpan(0, -5, 0));
+    //    }
 
-        public static void SaveQuitTimeForOfflineProgress()
-        {
-            Instance.SaveWithNetTime(PicturePaintingOfflineProgressTimeKey, new TimeSpan(0, 0, 0));
-        }
+    //    public static void SaveQuitTimeForOfflineProgress()
+    //    {
+    //        Instance.SaveWithNetTime(PicturePaintingOfflineProgressTimeKey, new TimeSpan(0, 0, 0));
+    //    }
 
-        public static void StartNewPicture(TimeSpan _paintingTime)
-        {
-            Instance.SaveWithNetTime(PicturePaintingProcessTimeKey, _paintingTime);
-        }
+    //    public static void StartNewPicture(TimeSpan _paintingTime)
+    //    {
+    //        Instance.SaveWithNetTime(PicturePaintingProcessTimeKey, _paintingTime);
+    //    }
 
-        public static void AddPaintingTime(TimeSpan _paintingTime)
-        {
-            Instance.AddToExist(PicturePaintingProcessTimeKey, _paintingTime);
-        }
+    //    public static void AddPaintingTime(TimeSpan _paintingTime)
+    //    {
+    //        Instance.AddToExist(PicturePaintingProcessTimeKey, _paintingTime);
+    //    }
 
-        public static DateTimeOffset LoadOfflineProgress()
-        {
-            return Instance.DTOLoad(PicturePaintingProcessTimeKey);
-        }
+    //    public static DateTimeOffset LoadOfflineProgress()
+    //    {
+    //        return Instance.DTOLoad(PicturePaintingProcessTimeKey);
+    //    }
 
-        public static TimeSpan GetTimeToComplete()
-        {
-            var diff = Instance.GetTimeDifference(PicturePaintingProcessTimeKey);
-            if (diff.TotalSeconds < 0f)
-                return new TimeSpan(0, 0, 0);
-            return diff;
-        }
+    //    public static TimeSpan GetTimeToComplete()
+    //    {
+    //        var diff = Instance.GetTimeDifference(PicturePaintingProcessTimeKey);
+    //        if (diff.TotalSeconds < 0f)
+    //            return new TimeSpan(0, 0, 0);
+    //        return diff;
+    //    }
 
-        //public static bool IsNewRewardBecameAvailable()
-        //{
-        //    return Instance.IsNetTimeMoreThanSavedValue(OfflineTimeKey);
-        //}
-    }
+    //    //public static bool IsNewRewardBecameAvailable()
+    //    //{
+    //    //    return Instance.IsNetTimeMoreThanSavedValue(OfflineTimeKey);
+    //    //}
+    //}
 
     #region Use it! (High level api)
 
@@ -283,6 +249,13 @@ public class TimeManager : MonoBehaviour
     {
         if (!_isPause)
             StartCoroutine(GetNetTime());
+        else
+            Offline.SaveQuitTimeForOfflineBonus();
+    }
+
+    private void OnApplicationQuit()
+    {
+        Offline.SaveQuitTimeForOfflineBonus();
     }
 
 }

@@ -16,6 +16,18 @@ namespace Client
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
+                ref UpgradeEvent upgrade = ref entity.Get<UpgradeEvent>();
+
+                foreach (var item in GameData.Instance.PlayerData.CommonUpgradeLevels)
+                    if (item.UpgradeKey == upgrade.Key)
+                        item.Level = upgrade.Level;
+
+                foreach (var item in GameData.Instance.PlayerData.EpicUpgradeLevels)
+                    if (item.UpgradeKey == upgrade.Key)
+                        item.Level = upgrade.Level;
+
+                GameData.Instance.PlayerData.UpdateUpgradeDataLevel();
+
                 entity.Del<UpgradeEvent>();
             }
 

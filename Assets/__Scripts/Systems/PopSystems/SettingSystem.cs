@@ -15,7 +15,7 @@ namespace Client
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
-                _gameUi.SetShowStateSettingsScreen(true);
+                _gameUi.SetShowStateSettingScreen(true);
                 entity.Del<ShowSettingScreenRequest>();
             }
         }

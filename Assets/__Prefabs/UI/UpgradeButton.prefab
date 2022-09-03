@@ -407,7 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.29913434, g: 0.2481755, b: 0.3679245, a: 1}
+  m_Color: {r: 0.46836784, g: 0.39782843, b: 0.5660378, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.138
+  m_FillAmount: 0.093
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

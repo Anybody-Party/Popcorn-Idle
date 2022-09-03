@@ -30,13 +30,17 @@ namespace Client
                         ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
                         ref GameObjectLink popGo = ref entity.Get<GameObjectLink>();
 
-                        popView.SpeedUpTrail.SetActive(true);
+                        if (popGo.Value == raycast.GameObject)
+                        {
+                            popView.SpeedUpTrail.SetActive(true);
 
-                        popGo.Value.transform.DOMove(_gameData.SceneData.CameraController.GetComponent<Camera>().ScreenToWorldPoint(_gameUi.GameScreen.GetGoldPopPosition()), _gameData.BalanceData.BaseGetGoldPopTime).SetEase(Ease.InCirc);
-                        popGo.Value.transform.DOScale(Vector3.zero, _gameData.BalanceData.BaseGetGoldPopTime).SetEase(Ease.InOutBounce);
-                        entity.Get<IsThisGoldTakenMarker>();
-                        entity.Get<Timer<TimerGoldTaken>>().Value = _gameData.BalanceData.BaseGetGoldPopTime;
-                        entity.Get<ChangeAnimationRequest>().Animation = PopAnimations.IsGoldTaken;
+                            popGo.Value.transform.DOMove(_gameData.SceneData.CameraController.GetComponent<Camera>().ScreenToWorldPoint(_gameUi.GameScreen.GetGoldPopPosition()), _gameData.BalanceData.BaseGetGoldPopTime).SetEase(Ease.InCirc);
+                            popGo.Value.transform.DOScale(Vector3.zero, _gameData.BalanceData.BaseGetGoldPopTime * 3f);
+                            entity.Get<IsThisGoldTakenMarker>();
+                            entity.Get<Timer<TimerGoldTaken>>().Value = _gameData.BalanceData.BaseGetGoldPopTime;
+                            entity.Get<ChangeAnimationRequest>().Animation = PopAnimations.IsGoldTaken;
+                            entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Happy;
+                        }
                     }
                 }
             }

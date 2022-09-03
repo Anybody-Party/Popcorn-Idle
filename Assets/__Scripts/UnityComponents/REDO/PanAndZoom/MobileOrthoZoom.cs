@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class MobileOrthoZoom : MonoBehaviour
 {
+    [SerializeField] private Cinemachine.CinemachineVirtualCamera camera;
+
     public float zoomOutMin = 1;
     public float zoomOutMax = 8;
 
@@ -23,13 +25,17 @@ public class MobileOrthoZoom : MonoBehaviour
 
             float difference = currentMagnitude - prevMagnitude;
 
-            Zoom(difference * 0.01f);
+            TouchZoom(difference * 0.01f);
         }
-        Zoom(Input.GetAxis("Mouse ScrollWheel"));
     }
 
     public void Zoom(float increment)
     {
-        Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize - increment, zoomOutMin, zoomOutMax);
+        camera.m_Lens.OrthographicSize = Mathf.Clamp(camera.m_Lens.OrthographicSize + increment, zoomOutMin, zoomOutMax);
+    }
+
+    public void TouchZoom(float increment)
+    {
+        camera.m_Lens.OrthographicSize = Mathf.Clamp(camera.m_Lens.OrthographicSize - increment, zoomOutMin, zoomOutMax);
     }
 }

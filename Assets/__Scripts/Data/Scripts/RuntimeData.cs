@@ -95,6 +95,12 @@ public class RuntimeData : BaseData
         return value;
     }
 
+    public float GetConveyorBeltSpeedView()
+    {
+        float value = GameData.Instance.BalanceData.BaseConveyorBeltSpeed + GameData.Instance.PlayerData.ConveyorSpeedUpgrade.Level * 0.005f;
+       return value;
+    }
+
     [NaughtyAttributes.Button]
     public void PrintUpgrades()
     {

@@ -17,7 +17,7 @@ namespace Client
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref SetCameraZoomReqeust zoomRequest = ref entity.Get<SetCameraZoomReqeust>();
 
-                float zoom = zoomRequest.ZoomObjects;
+                float zoom = zoomRequest.ZoomObjects * 0.5f;
                 _gameData.SceneData.CameraController.SetZoom(zoom);
 
                 entity.Del<SetCameraZoomReqeust>();

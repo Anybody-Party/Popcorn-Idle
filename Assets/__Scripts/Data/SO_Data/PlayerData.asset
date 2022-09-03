@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706339e4313c4664fa26c3b328151180, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  Money: 2.319999933242798
-  MoneyInSec: 271.68406524453223
-  GoldPopcornAmount: 0
-  PopcornAmount: 1474
+  IsVibrationOn: 0
+  IsSoundOn: 0
+  Money: 0
+  MoneyInSec: 0.0287360229790789
+  GoldPopcornAmount: 11
+  PopcornAmount: 3459
   CurrentLevelIndex: 0
   CurrentLevelProgress: 0
   HeatingMaxTemperatureUpgrade:

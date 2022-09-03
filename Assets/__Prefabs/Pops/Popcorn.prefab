@@ -243,6 +243,37 @@ Transform:
   m_Father: {fileID: 9163941743662620929}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &971146169882375126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3128149159691005129}
+  m_Layer: 7
+  m_Name: Salt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3128149159691005129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971146169882375126}
+  m_LocalRotation: {x: -0, y: -0, z: 0.00000008940697, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 319324523095387304}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 60}
 --- !u!1 &1014882895006979347
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1192737873576439021}
-  - component: {fileID: 8263657934332821520}
+  - component: {fileID: 4000419223481520662}
   m_Layer: 7
   m_Name: CollisionCollider
   m_TagString: Untagged
@@ -275,8 +306,8 @@ Transform:
   m_Father: {fileID: 4532408434131286486}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8263657934332821520
-BoxCollider:
+--- !u!136 &4000419223481520662
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -285,8 +316,9 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1042259816881086267
 GameObject:
@@ -510,6 +542,37 @@ Transform:
   m_Father: {fileID: 1879632382413001792}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -51.809, y: -157.006, z: 151.102}
+--- !u!1 &1681269364458069995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2888210539549665793}
+  m_Layer: 7
+  m_Name: Caramel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2888210539549665793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681269364458069995}
+  m_LocalRotation: {x: -0, y: -0, z: 0.00000008940697, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 319324523095387304}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 60}
 --- !u!1 &2035066388875200322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,10 +1096,10 @@ MonoBehaviour:
     SmileEmotion: {fileID: 536433234376676401}
     HappyEmotion: {fileID: 4810882952608720703}
     ScaryEmotion: {fileID: 7628134348965273568}
-    ChocolateAddition: {fileID: 0}
-    SaltAddition: {fileID: 0}
-    CaramelAddition: {fileID: 0}
-    WasabiAddition: {fileID: 0}
+    ChocolateAddition: {fileID: 6959344470454211955}
+    SaltAddition: {fileID: 971146169882375126}
+    CaramelAddition: {fileID: 1681269364458069995}
+    WasabiAddition: {fileID: 5837755730364016740}
     SpeedUpTrail: {fileID: 3371134231647317799}
 --- !u!54 &7503736713841169166
 Rigidbody:
@@ -1159,6 +1222,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 10851779797876642}
+  - {fileID: 3128149159691005129}
+  - {fileID: 2888210539549665793}
+  - {fileID: 4513547997796489098}
   m_Father: {fileID: 7474118907237126430}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1740,6 +1806,37 @@ Transform:
   m_Father: {fileID: 8472247898903307417}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 52.268177, y: -36.50489, z: -37.9773}
+--- !u!1 &5837755730364016740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4513547997796489098}
+  m_Layer: 7
+  m_Name: Wasabi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4513547997796489098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837755730364016740}
+  m_LocalRotation: {x: -0, y: -0, z: 0.00000008940697, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 319324523095387304}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 60}
 --- !u!1 &5894553005945086466
 GameObject:
   m_ObjectHideFlags: 0
