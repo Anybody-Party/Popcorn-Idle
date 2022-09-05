@@ -21,10 +21,10 @@ namespace Client
                 ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
 
                 //Despawn
-                if (entity.Has<PoolObject>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.DespawnTag))
+                if (/*entity.Has<PoolObject>() && */entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.DespawnTag))
                 {
-                    PopExtensions.StopAllMoving(ref entity);
-                    PopExtensions.PrepareToDespawn(ref entity);
+                    entity.Get<StopAllMovingRequest>();
+                    entity.Get<PrepareToDespawnRequest>();
                 }
 
                 if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.CookingZoneTag))
@@ -33,27 +33,24 @@ namespace Client
                 if (!entity.Has<GoldPop>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.ChocolateAdditionTag))
                 {
                     entity.Get<ChocolateAddtion>();
-                    entity.Get<ChangePopAdditionRequest>().Addition = PopAdditions.Chocolate;
+                    entity.Get<ChangePopAdditionRequest>().Addition = StaticData.PopAdditions.Chocolate;
                 }
 
-                if (!entity.Has<CleanIt>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.GroundTag))
+                if (!entity.Has<PrepareToDespawnRequest>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.GroundTag))
                 {
-                    PopExtensions.StopAllMoving(ref entity);
                     entity.Get<CleanIt>();
-                    entity.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.PopcornWithoutLimbs;
-                    entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Scary;
                 }
 
                 if (!entity.Has<ReadyToSell>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.SellZoneTag))
                 {
                     entity.Get<GetMoneyForPopInSellZone>().PopEntity = entity;
 
-                    PopExtensions.StopAllMoving(ref entity);
+                    entity.Get<StopAllMovingRequest>();
 
-                    entity.Get<Timer<TimerToSellState>>().Value = 3.0f;
+                    entity.Get<Timer<TimerToSellState>>().Value = 2.0f;
                     entity.Get<ShakeBagRequest>().ProductLineId = entity.Get<Pop>().ProductLineId;
-                    entity.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.PopcornWithoutLimbs;
-                    entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Empty;
+                    entity.Get<ChangePopViewRequest>().PopBody = StaticData.PopBody.PopcornWithoutLimbs;
+                    entity.Get<ChangePopEmotionRequest>().Emotion = StaticData.PopEmotions.None;
                 }
             }
 

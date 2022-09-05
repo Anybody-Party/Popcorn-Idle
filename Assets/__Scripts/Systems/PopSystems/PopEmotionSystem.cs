@@ -18,18 +18,10 @@ namespace Client
                 ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
                 ref ChangePopEmotionRequest changePopEmotionRequest = ref entity.Get<ChangePopEmotionRequest>();
 
-                popView.SmileEmotion.SetActive(false);
-                popView.HappyEmotion.SetActive(false);
-                popView.ScaryEmotion.SetActive(false);
+                foreach (var item in popView.Emotions)
+                    item.SetActive(false);
 
-                if (changePopEmotionRequest.Emotion == PopEmotions.Smile)
-                    popView.SmileEmotion.SetActive(true);
-
-                if (changePopEmotionRequest.Emotion == PopEmotions.Happy)
-                    popView.HappyEmotion.SetActive(true);
-
-                if (changePopEmotionRequest.Emotion == PopEmotions.Scary)
-                    popView.ScaryEmotion.SetActive(true);
+                popView.Emotions[(int)changePopEmotionRequest.Emotion].SetActive(true);
 
                 entity.Del<ChangePopEmotionRequest>();
             }

@@ -16,10 +16,14 @@ public class GameData : MonoBehaviourSingleton<GameData>
     private void Awake()
     {
         Debug.Log(Utility.GetDataPath());
+
         RuntimeData = new RuntimeData();
         RuntimeData.Init();
         PlayerData.Init();
+
         LoadData();
+
+        PlayerData.IsGameLaunchedBefore = true;
     }
 
     private void SaveData()

@@ -46,6 +46,7 @@ namespace Client
             //.Add(characterSystems)
             _updateSystems
                 .Add(new InitGameSystem())
+                .Add(new DebugSystem()) // TODO: del
                 .Add(timerSystems)
                 .Add(new RaycastSystem())
 
@@ -56,6 +57,9 @@ namespace Client
                 .Add(spawnSystems)
                 .Add(inputSystems)
                 .Add(popSystems)
+                .Add(new HandSystem())
+                .Add(new HandAnimationSystem())
+                
                 .Add(new GoldPopTapSystem())
 
                 .Add(new EarningViewSystem())
@@ -64,7 +68,6 @@ namespace Client
                 .Add(new MoneySystem())
                 .Add(new EarningMoneyInSecSystem())
                 .Add(new UpgradeSystem())
-                .Add(new HandSystem())
                 .Add(new CameraSystem())
                 .Add(new AudioSystem())
                 .Add(new SettingSystem())
@@ -176,6 +179,8 @@ namespace Client
 
                 .Add(new PopInitSystem())
                 .Add(new PopLaunchSystem())
+                .Add(new PopStopAllMovingSystem())
+                .Add(new PopPreapreToDespawmSystem())
                 .Add(new PopCookingSystem())
                 //.Add(new PopCookingShakeSystem())
                 .Add(new PopPopingSystem())
@@ -194,6 +199,7 @@ namespace Client
 
                 .Add(new PopCounterSystem())
                 .Add(new PopEarningSystem());
+                
         }
 
         private EcsSystems CoreGameplaySystems()

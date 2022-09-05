@@ -4,6 +4,6 @@ namespace Client
 {
     internal struct ChangePopViewRequest
     {
-        public PopBodyView PopBodyView;
+        public StaticData.PopBody PopBody;
     }
 }

@@ -40,7 +40,7 @@ namespace Client
 
                 _gameData.PlayerData.MoneyInSec = moneyInSecFromPops + moneyInSecFromBags;
                 _gameData.PlayerData.MoneyInSec *= conveyorCounter;
-                _gameData.PlayerData.MoneyInSec *= 0.001f;
+                _gameData.PlayerData.MoneyInSec *= 0.01f;
 
                 _gameUi.GameScreen.UpdateMoneyInSecText(_gameData.PlayerData.MoneyInSec);
 

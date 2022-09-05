@@ -49,6 +49,7 @@ namespace Client
             {
                 int productLine = _readyToSellFilter.Get1(idx).ProductLineId;
                 _gameData.RuntimeData.ReadyToSellCounter[productLine] += 1;
+
                 _readyToSellFilter.GetEntity(idx).Del<AddReadyToSellPopEvent>();
                 if (_gameData.RuntimeData.ReadyToSellCounter[productLine] >= _gameData.RuntimeData.InBigBagPopcornAmount())
                 {

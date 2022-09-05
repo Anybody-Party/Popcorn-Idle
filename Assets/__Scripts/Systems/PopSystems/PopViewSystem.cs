@@ -20,25 +20,25 @@ namespace Client
                 ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
                 ref ChangePopViewRequest changePopViewRequest = ref entity.Get<ChangePopViewRequest>();
 
-                if (changePopViewRequest.PopBodyView ==  PopBodyView.Popcorn)
+                if (changePopViewRequest.PopBody ==  StaticData.PopBody.Popcorn)
                 {
-                    popView.DoneBody.SetActive(true);
-                    popView.BaseBody.SetActive(true);
-                    popView.RawBody.SetActive(false);
+                    popView.Bodies[(int)StaticData.PopBody.Popcorn].SetActive(true);
+                    popView.Bodies[(int)StaticData.PopBody.Skeleton].SetActive(true);
+                    popView.Bodies[(int)StaticData.PopBody.RawCorn].SetActive(false);
                 }
 
-                if (changePopViewRequest.PopBodyView == PopBodyView.PopcornWithoutLimbs)
+                if (changePopViewRequest.PopBody == StaticData.PopBody.PopcornWithoutLimbs)
                 {
-                    popView.DoneBody.SetActive(true);
-                    popView.BaseBody.SetActive(false);
-                    popView.RawBody.SetActive(false);
+                    popView.Bodies[(int)StaticData.PopBody.Popcorn].SetActive(true);
+                    popView.Bodies[(int)StaticData.PopBody.Skeleton].SetActive(false);
+                    popView.Bodies[(int)StaticData.PopBody.RawCorn].SetActive(false);
                 }
 
-                if (changePopViewRequest.PopBodyView == PopBodyView.RawCorn)
+                if (changePopViewRequest.PopBody == StaticData.PopBody.RawCorn)
                 {
-                    popView.DoneBody.SetActive(false);
-                    popView.BaseBody.SetActive(false);
-                    popView.RawBody.SetActive(true);
+                    popView.Bodies[(int)StaticData.PopBody.Popcorn].SetActive(false);
+                    popView.Bodies[(int)StaticData.PopBody.Skeleton].SetActive(false);
+                    popView.Bodies[(int)StaticData.PopBody.RawCorn].SetActive(true);
                 }
 
                 entity.Del<ChangePopViewRequest>();
@@ -48,7 +48,7 @@ namespace Client
             {
                 ref EcsEntity entity = ref _rotationfilter.GetEntity(idx);
                 
-                _rotationfilter.Get1(idx).DoneBody.transform.Rotate(new Vector3(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f)), Random.Range(0, 360.0f));
+                _rotationfilter.Get1(idx).Bodies[(int)StaticData.PopBody.Popcorn].transform.Rotate(new Vector3(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f)), Random.Range(0, 360.0f));
 
                 entity.Del<RandomizePopRotationViewRequest>();
             }

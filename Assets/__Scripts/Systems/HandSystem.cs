@@ -1,8 +1,9 @@
 ﻿using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Client
 {
-    public class HandSystem : IEcsRunSystem
+    public class HandSystem : IEcsInitSystem, IEcsRunSystem
     {
         private GameData _gameData;
         private GameUI _gameUi;
@@ -11,6 +12,12 @@ namespace Client
         private EcsFilter<HandTakenRequest> _takenfilter;
         private EcsFilter<HandLink> _handsFilter;
         private EcsFilter<ShakeBagRequest> _shakeFilter;
+
+        public void Init()
+        {
+            foreach (var hand in _handsFilter)
+                _handsFilter.Get1(hand).PopCounterText.text = $"{0}/{_gameData.RuntimeData.InBigBagPopcornAmount()}";
+        }
 
         public void Run()
         {
@@ -23,11 +30,10 @@ namespace Client
                 {
                     ref EcsEntity handEntity = ref _handsFilter.GetEntity(hand);
                     ref HandLink handLink = ref handEntity.Get<HandLink>();
-                    
                     if (requset.ProductLineId == handLink.ProductLineId)
                     {
-                        ref AnimatorLink animatorLink = ref handEntity.Get<AnimatorLink>();
-                        animatorLink.Value.SetTrigger("IsTaken");
+                        handEntity.Get<ChangeHandAnimationRequest>().Animation = StaticData.HandAnimations.IsTaken;
+                        handLink.PopCounterText.text = $"{0}/{_gameData.RuntimeData.InBigBagPopcornAmount()}";
 
                         double reward = _gameData.RuntimeData.GetBagEarning(); // TODO: Add additions modificator
 
@@ -37,7 +43,7 @@ namespace Client
                         earnViewEntity.Get<EarnView>() = new EarnView
                         {
                             Value = reward,
-                            Position = handLink.EarnMoneyPS.transform.position
+                            Position = handLink.EarnMoneyPoint.position
                         };
                         handLink.EarnMoneyPS.Play();
 
@@ -58,9 +64,8 @@ namespace Client
 
                     if (shakeBagRequest.ProductLineId == handLink.ProductLineId)
                     {
-                        ref AnimatorLink animatorLink = ref handEntity.Get<AnimatorLink>();
-                        animatorLink.Value.SetTrigger("IsPopIn");
-
+                        handLink.PopCounterText.text = $"{_gameData.RuntimeData.ReadyToSellCounter[shakeBagRequest.ProductLineId] + 1}/{_gameData.RuntimeData.InBigBagPopcornAmount()}";
+                        handEntity.Get<ChangeHandAnimationRequest>().Animation = StaticData.HandAnimations.IsPopIn;
                         entity.Del<ShakeBagRequest>();
                     }
                 }

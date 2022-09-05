@@ -39,7 +39,7 @@ namespace Client
                 popEntity.Get<AddReadyToSellPopEvent>().ProductLineId = pop.ProductLineId;
                 entity.Del<GetMoneyForPopInSellZone>();
 
-                _world.NewEntity().Get<PlaySoundRequest>().SoundName = AudioSound.CashSound;
+                _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.CashSound;
             }
         }
     }

@@ -32,11 +32,22 @@ namespace Client
                 };
                 entity.Get<LookingAt>().Target = point;
                 entity.Get<InJump>();
-                entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Happy;
+                entity.Get<ChangePopEmotionRequest>().Emotion = StaticData.PopEmotions.Happy;
                 entity.Del<ReadyToJump>();
 
-                _world.NewEntity().Get<PlaySoundRequest>().SoundName = AudioSound.JumpSound;
+                _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.JumpSound;
             }
+        }
+    }
+
+    public class DebugSystem : IEcsInitSystem
+    {
+        private GameData _gameData;
+        private GameUI _gameUi;
+        private EcsWorld _world;
+
+        public void Init()
+        {
         }
     }
 }

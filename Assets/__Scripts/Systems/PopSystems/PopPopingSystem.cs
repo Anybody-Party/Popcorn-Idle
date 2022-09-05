@@ -34,13 +34,13 @@ namespace Client
                 entity.Get<Landing>();
                 entity.Get<Timer<TimerBeforeGoToJump>>().Value = 0.5f;
                 entity.Get<GoToJump>();
-                entity.Get<ChangeAnimationRequest>().Animation = PopAnimations.IsPop;
-                entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Smile;
+                entity.Get<ChangePopAnimationRequest>().Animation = StaticData.PopAnimations.IsPop;
+                entity.Get<ChangePopEmotionRequest>().Emotion = StaticData.PopEmotions.Smile;
                 entity.Get<RandomizePopRotationViewRequest>();
 
                 _world.NewEntity().Get<VibrationRequest>().HapticType = MoreMountains.NiceVibrations.HapticTypes.LightImpact;
-                _world.NewEntity().Get<PlaySoundRequest>().SoundName = AudioSound.ExplosionSound;
-                _world.NewEntity().Get<PlaySoundRequest>().SoundName = AudioSound.JumpSound;
+                _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.ExplosionSound;
+                _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.JumpSound;
             }
         }
     }

@@ -2,6 +2,6 @@
 {
     internal struct ChangePopEmotionRequest
     {
-        public PopEmotions Emotion;
+        public StaticData.PopEmotions Emotion;
     }
 }

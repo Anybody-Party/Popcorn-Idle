@@ -24,7 +24,7 @@ namespace Client
                     entity.Del<Cooking>();
                     entity.Get<Done>();
                     entity.Get<PopCookingDoneEvent>();
-                    entity.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.Popcorn;
+                    entity.Get<ChangePopViewRequest>().PopBody = StaticData.PopBody.Popcorn;
                     entity.Del<CookingTimer>();
                     entity.Get<Poping>();
                 }

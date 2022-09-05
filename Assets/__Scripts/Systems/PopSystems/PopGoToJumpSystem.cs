@@ -26,7 +26,7 @@ namespace Client
                     Speed = _gameData.RuntimeData.GetPopSpeed()
                 };
                 entity.Get<LookingAt>().Target = new Vector3(point.position.x, point.position.y + 0.5f, point.position.z) ;
-                entity.Get<ChangeAnimationRequest>().Animation = PopAnimations.IsWalking;
+                entity.Get<ChangePopAnimationRequest>().Animation = StaticData.PopAnimations.IsWalking;
             }
         }
     }

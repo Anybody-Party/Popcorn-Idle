@@ -8,7 +8,7 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<Pop, ReadyToSell>.Exclude<Timer<TimerToSellState>> _filter;
+        private EcsFilter<Pop, ReadyToSell>.Exclude<Timer<TimerToSellState>, AttachedToBag> _filter;
         private EcsFilter<HandLink> _handFilter;
 
         public void Run()
@@ -25,6 +25,7 @@ namespace Client
                 foreach (var hand in _handFilter)
                     if (pop.ProductLineId == _handFilter.Get1(hand).ProductLineId)
                         entityGo.Value.transform.SetParent(_handFilter.GetEntity(hand).Get<GameObjectLink>().Value.transform);
+                entity.Get<AttachedToBag>();
             }
         }
     }

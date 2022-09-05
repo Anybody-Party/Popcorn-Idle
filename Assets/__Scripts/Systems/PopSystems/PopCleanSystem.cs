@@ -21,8 +21,16 @@ namespace Client
                 ref Pop pop = ref entity.Get<Pop>();
                 ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
 
-                _filter.GetEntity(idx).Get<Timer<TimerForPopClean>>().Value = _gameData.BalanceData.CleanTime;
-                entityGo.Value.transform.DOScale(Vector3.zero, _gameData.BalanceData.CleanTime).SetEase(Ease.InOutBounce);
+                entity.Get<ChangePopViewRequest>().PopBody = StaticData.PopBody.PopcornWithoutLimbs;
+                entity.Get<ChangePopEmotionRequest>().Emotion = StaticData.PopEmotions.Scary;
+                entity.Get<StopAllMovingRequest>();
+
+                entity.Get<Timer<TimerForPopClean>>().Value = _gameData.BalanceData.CleanTime;
+                Transform tr = entityGo.Value.transform;
+                Transform parentBefore = tr.parent;
+                tr.SetParent(null);
+                Vector3 scaleBefore = tr.localScale;
+                tr.DOScale(Vector3.zero, _gameData.BalanceData.CleanTime - 0.01f).SetEase(Ease.InOutBounce).OnComplete(() => { tr.DOScale(scaleBefore, 0.0f); tr.SetParent(parentBefore); });
             }
 
             foreach (var idx in _timerDoneFilter)
@@ -30,11 +38,9 @@ namespace Client
                 ref EcsEntity entity = ref _timerDoneFilter.GetEntity(idx);
                 ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
 
-                entity.Get<DespawnTag>();
-                entityGo.Value.transform.localScale = Vector3.one * 0.1f;
-                entity.Get<ChangePopViewRequest>().PopBodyView = PopBodyView.RawCorn;
-                entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Empty;
-                entity.Del<TimerForPopClean>();
+                entity.Get<PrepareToDespawnRequest>();
+                entity.Del<Timer<TimerForPopClean>>();
+                //entity.Del<TimerDoneEvent<TimerForPopClean>>();
                 entity.Del<CleanIt>();
             }
         }

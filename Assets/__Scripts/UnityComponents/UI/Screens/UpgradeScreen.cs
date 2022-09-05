@@ -20,7 +20,6 @@ public class UpgradeScreen : BaseScreen
     [SerializeField] private ScrollRect epicScrollRect;
     [SerializeField] private ActionButton epicHideScreenButton;
 
-    [SerializeField] private GameObject CanBuyUpgrade;
 
     private void Start()
     {
@@ -65,20 +64,5 @@ public class UpgradeScreen : BaseScreen
         if (epicTab.activeInHierarchy)
             for (int i = 0; i < epicUpgradeButtons.Count; i++)
                 epicUpgradeButtons[i].UpdateInfo(GameData.Instance.BalanceData.EpicUpgradeData[i]);
-
-        bool canBuyUpgrade = false;
-
-        for (int i = 0; i < GameData.Instance.BalanceData.EpicUpgradeData.Count; i++)
-            if (commonUpgradeButtons[i].CanBuyIt(GameData.Instance.BalanceData.CommonUpgradeData[i]))
-                canBuyUpgrade = true;
-
-        for (int i = 0; i < GameData.Instance.BalanceData.EpicUpgradeData.Count; i++)
-            if (epicUpgradeButtons[i].CanBuyIt(GameData.Instance.BalanceData.CommonUpgradeData[i]))
-                canBuyUpgrade = true;
-
-        if (canBuyUpgrade && !CanBuyUpgrade.activeInHierarchy)
-            CanBuyUpgrade.SetActive(canBuyUpgrade);
-        if (!canBuyUpgrade && CanBuyUpgrade.activeInHierarchy)
-            CanBuyUpgrade.SetActive(canBuyUpgrade);
     }
 }

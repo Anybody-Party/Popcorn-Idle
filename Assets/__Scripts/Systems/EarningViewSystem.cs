@@ -11,7 +11,7 @@ namespace Client
 
         private EcsFilter<CreateEarnViewRequest> _requestFilter;
         private EcsFilter<WorldTextLink, EarnView>.Exclude<Timer<TimerEarningView>> _initInfoFilter;
-        private EcsFilter<WorldTextLink, EarnView, Done>.Exclude<DespawnTag, Timer<TimerEarningView>> _despawnInfoFilter;
+        private EcsFilter<WorldTextLink, EarnView, TimerDoneEvent<TimerEarningView>>.Exclude<DespawnTag> _despawnInfoFilter;
 
         public void Run()
         {

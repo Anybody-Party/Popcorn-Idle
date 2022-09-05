@@ -18,22 +18,10 @@ namespace Client
                 ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
                 ref ChangePopAdditionRequest changePopAdditionRequest = ref entity.Get<ChangePopAdditionRequest>();
 
-                popView.ChocolateAddition.SetActive(false);
-                popView.SaltAddition.SetActive(false);
-                popView.CaramelAddition.SetActive(false);
-                popView.WasabiAddition.SetActive(false);
+                foreach (var item in popView.Additions)
+                    item.SetActive(false);
 
-                if (changePopAdditionRequest.Addition == PopAdditions.Chocolate)
-                    popView.ChocolateAddition.SetActive(true);
-
-                if (changePopAdditionRequest.Addition == PopAdditions.Salt)
-                    popView.SaltAddition.SetActive(true);
-
-                if (changePopAdditionRequest.Addition == PopAdditions.Caramel)
-                    popView.CaramelAddition.SetActive(true);
-
-                if (changePopAdditionRequest.Addition == PopAdditions.Wasabi)
-                    popView.WasabiAddition.SetActive(true);
+                popView.Additions[(int)changePopAdditionRequest.Addition].SetActive(true);
 
                 entity.Del<ChangePopAdditionRequest>();
             }

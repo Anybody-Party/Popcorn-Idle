@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace Client
 {
-    public partial class PopAnimationSystem : IEcsRunSystem
+    public class PopAnimationSystem : IEcsRunSystem
     {
-        private EcsFilter<Pop, AnimatorLink, ChangeAnimationRequest> _filter;
+        private EcsFilter<Pop, AnimatorLink, ChangePopAnimationRequest> _filter;
 
         public void Run()
         {
@@ -13,49 +13,38 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref AnimatorLink entityAnimator = ref entity.Get<AnimatorLink>();
-                ref ChangeAnimationRequest changeAnimationAction = ref entity.Get<ChangeAnimationRequest>();
+                ref ChangePopAnimationRequest changeAnimationAction = ref entity.Get<ChangePopAnimationRequest>();
 
-                if (changeAnimationAction.Animation == PopAnimations.IsPop)
-                    SetAnimation(entityAnimator.Value, PopAnimations.IsPop.ToString());
-
-                if (changeAnimationAction.Animation == PopAnimations.IsWalking)
+                if (changeAnimationAction.Animation == StaticData.PopAnimations.IsWalking)
                 {
                     int walkRandom = Random.Range(0, 2);
-                    SetAnimation(entityAnimator.Value, PopAnimations.IsWalking.ToString(), walkRandom, PopAnimations.WalkingIndex.ToString());
+                    SetAnimation(entityAnimator.Value, changeAnimationAction.Animation, walkRandom, StaticData.PopAnimations.WalkingIndex);
                 }
-
-                if (changeAnimationAction.Animation == PopAnimations.IsRunning)
-                    SetAnimation(entityAnimator.Value, PopAnimations.IsRunning.ToString());
-
-                if (changeAnimationAction.Animation == PopAnimations.IsPrepareToJump)
-                    SetAnimation(entityAnimator.Value, PopAnimations.IsPrepareToJump.ToString());
-
-                if (changeAnimationAction.Animation == PopAnimations.IsGoldTaken)
-                    SetAnimation(entityAnimator.Value, PopAnimations.IsGoldTaken.ToString());
-
-                if (changeAnimationAction.Animation == PopAnimations.IsJump)
+                else if (changeAnimationAction.Animation == StaticData.PopAnimations.IsJump)
                 {
                     int jumpRandom = Random.Range(0, 3);
-                    SetAnimation(entityAnimator.Value, PopAnimations.IsJump.ToString(), jumpRandom, PopAnimations.JumpIndex.ToString());
+                    SetAnimation(entityAnimator.Value, changeAnimationAction.Animation, jumpRandom, StaticData.PopAnimations.JumpIndex);
                 }
+                else
+                    SetAnimation(entityAnimator.Value, changeAnimationAction.Animation);
 
-                if (changeAnimationAction.Animation == PopAnimations.IsFalling)
-                    SetAnimation(entityAnimator.Value, PopAnimations.IsMissFalling.ToString());
-
-                entity.Del<ChangeAnimationRequest>();
+                entity.Del<ChangePopAnimationRequest>();
             }
         }
 
-        private void SetAnimation(Animator animator, string animation, int randomAnimation = -1, string animationRandom = null)
+        private void SetAnimation(Animator animator, int animation, int randomAnimation = -1, string animationRandom = null)
         {
             if (animator.GetBool(animation))
                 return;
             Utility.ResetAnimtor(animator);
 
-            if(animationRandom != null)
+            if (animationRandom != null)
                 animator.SetInteger(animationRandom, randomAnimation);
 
             animator.SetTrigger(animation);
         }
     }
+
+
+
 }

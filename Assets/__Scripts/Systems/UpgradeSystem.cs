@@ -11,6 +11,11 @@ namespace Client
         private EcsFilter<UpgradeEvent> _filter;
         private EcsFilter<ShowUpgradeScreenRequest> _showRequestFilter;
 
+        private EcsFilter<SpendGoldPopEvent> _spendGoldFilter;
+        private EcsFilter<AddGoldPopEvent> _addGoldFilter;
+        private EcsFilter<SpendMoneyEvent> _spendMoneyFilter;
+        private EcsFilter<EarnMoneyEvent> _earnMoneyFilter;
+
         public void Run()
         {
             foreach (var idx in _filter)
@@ -37,6 +42,30 @@ namespace Client
                 _gameUi.SetShowStateUpgradeScreen(true);
                 entity.Del<ShowUpgradeScreenRequest>();
             }
+
+            foreach (var idx in _spendGoldFilter)
+                CheckCanUpgrade();
+            foreach (var idx in _addGoldFilter)
+                CheckCanUpgrade();
+            foreach (var idx in _spendMoneyFilter)
+                CheckCanUpgrade();
+            foreach (var idx in _earnMoneyFilter)
+                CheckCanUpgrade();
+        }
+
+        private void CheckCanUpgrade()
+        {
+            bool canBuyUpgrade = false;
+
+            for (int i = 0; i < GameData.Instance.BalanceData.CommonUpgradeData.Count; i++)
+                if (GameData.Instance.BalanceData.CommonUpgradeData[i].CanBuyIt())
+                    canBuyUpgrade = true;
+
+            for (int i = 0; i < GameData.Instance.BalanceData.EpicUpgradeData.Count; i++)
+                if (GameData.Instance.BalanceData.EpicUpgradeData[i].CanBuyIt())
+                    canBuyUpgrade = true;
+
+            _gameUi.GameScreen.SetCanBuyUpgradeIndicator(canBuyUpgrade);
         }
     }
 }

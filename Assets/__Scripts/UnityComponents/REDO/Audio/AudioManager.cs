@@ -39,7 +39,6 @@ public class AudioManager : MonoBehaviour
     private bool checkMusic;
     private bool checkSFX;
 
-
     [HideInInspector]
     public AudioSource musicTrack;
 
@@ -57,6 +56,9 @@ public class AudioManager : MonoBehaviour
 
     public void Play(string sound)
     {
+        if (!GameData.Instance.PlayerData.IsSoundOn)
+            return;
+
         Sound s = Array.Find(sounds, item => item.name == sound);
         if (s == null)
         {
@@ -93,18 +95,9 @@ public class AudioManager : MonoBehaviour
     public void ToggleAudio(bool _on)
     {
         if (_on)
-            masterMixer.SetFloat("AudioVolume", -25f);
+            masterMixer.SetFloat("AudioVolume", -5f);
         else
             masterMixer.SetFloat("AudioVolume", -80f);
     }
 }
 
-public static class AudioSound
-{
-    public const string CashSound = "cash";
-    public const string ConveyorSound = "conveyor";
-    public const string ExplosionSound = "explosion";
-    public const string JumpSound = "jump";
-    public const string ShootSound = "shoot";
-    public const string MusicSound = "music";
-}

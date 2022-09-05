@@ -42,7 +42,7 @@ namespace Client
 
                         entity.Get<IsSpeedUpMarker>();
                         entity.Get<Timer<TimerSpeedUp>>().Value = _gameData.BalanceData.SpeedUpTime;
-                        entity.Get<ChangeAnimationRequest>().Animation = PopAnimations.IsRunning;
+                        entity.Get<ChangePopAnimationRequest>().Animation = StaticData.PopAnimations.IsRunning;
                     }
                 }
             }
@@ -65,7 +65,7 @@ namespace Client
                 };
                 entity.Replace(transformMoving);
 
-                entity.Get<ChangeAnimationRequest>().Animation = PopAnimations.IsWalking;
+                entity.Get<ChangePopAnimationRequest>().Animation = StaticData.PopAnimations.IsWalking;
                 entity.Del<TimerDoneEvent<TimerSpeedUp>>();
                 entity.Del<IsSpeedUpMarker>();
             }

@@ -67,12 +67,4 @@ public class UpgradeButtonView : MonoBehaviour
             buyPriceText.text = $"";
         }
     }
-
-    public bool CanBuyIt(UpgradeData upgradeData)
-    {
-        double price = upgradeData.BasePrice * Mathf.Pow(upgradeData.PriceProgressionCoef, upgradeData.Level);
-        double currency = upgradeData.IsEpicUpgrade ? GameData.Instance.PlayerData.GoldPopcornAmount : GameData.Instance.PlayerData.Money;
-
-        return currency >= price && upgradeData.Level < upgradeData.MaxLevel;
-    }
 }

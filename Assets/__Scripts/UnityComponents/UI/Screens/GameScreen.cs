@@ -35,6 +35,8 @@ public class GameScreen : BaseScreen
     [SerializeField] private ActionButton showSettingScreenButton;
     [SerializeField] private ActionButton showCheatScreenButton;
 
+    [SerializeField] private GameObject CanBuyUpgrade;
+
     private void Start()
     {
         heatingButton.OnChangePressState.AddListener((x) =>
@@ -72,5 +74,6 @@ public class GameScreen : BaseScreen
     }
 
     public Vector3 GetGoldPopPosition() => goldPopImage.transform.position;
-    public void BounceGoldPopcron() { goldPopPanel.transform.DORewind(); goldPopPanel.transform.DOPunchScale(Vector3.one * 0.9f, 0.1f, 1, 0.5f); }
+    public void BounceGoldPopcron() { goldPopPanel.transform.DORewind(); goldPopPanel.transform.DOPunchScale(Vector3.one * 0.11f, 0.1f, 1, 0.5f); }
+    public void SetCanBuyUpgradeIndicator(bool _on) => CanBuyUpgrade.SetActive(_on);
 }

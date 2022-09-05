@@ -33,6 +33,14 @@ public class UpgradeData : BaseDataSO
     public float StartValue;
     public float StepValue;
 
+    public bool CanBuyIt()
+    {
+        double price = BasePrice * Mathf.Pow(PriceProgressionCoef, Level);
+        double currency = IsEpicUpgrade ? GameData.Instance.PlayerData.GoldPopcornAmount : GameData.Instance.PlayerData.Money;
+
+        return currency >= price && Level < MaxLevel;
+    }
+
     public override void ResetData()
     {
         throw new NotImplementedException();

@@ -15,7 +15,7 @@ MonoBehaviour:
   BasePopcornSpeed: 0.002
   BaseConveyorBeltSpeed: 0.05
   TapSpeedUpSpeedCoef: 1.6
-  BaseHeatingSpeed: 0.5
+  BaseHeatingSpeed: 1.1
   BaseColdingSpeed: 0.5
   CurrentTemperatureCap: {x: 1, y: 15}
   MaxTemperature: 75
@@ -37,7 +37,7 @@ MonoBehaviour:
   ChocoPopMultiplier: 1.8
   LaunchPopcornForce: {x: 2.75, y: 3.75}
   PopingPopcornForce: {x: 2, y: 3}
-  JumpPopcornForce: {x: 2.2, y: 2.5}
+  JumpPopcornForce: {x: 2, y: 2.7}
   CookingShakePopcornForce: {x: 0, y: 0.8779248}
   CommonUpgradeData:
   - {fileID: 11400000, guid: 9c8ff939a0824324c91abd3a889b46e3, type: 2}

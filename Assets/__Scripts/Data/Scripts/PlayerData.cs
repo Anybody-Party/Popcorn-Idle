@@ -7,6 +7,7 @@ using NaughtyAttributes;
 public class PlayerData : BaseDataSO
 {
     [Header("GameSettings")]
+    public bool IsGameLaunchedBefore;
     public bool IsVibrationOn;
     public bool IsSoundOn;
 
@@ -96,6 +97,17 @@ public class PlayerData : BaseDataSO
 
     public void Init()
     {
+        Money = 0;
+        MoneyInSec = 0;
+        GoldPopcornAmount = 0;
+        PopcornAmount = 0;
+
+        CurrentLevelIndex = 0;
+        CurrentLevelProgress = 0.0f;
+
+        IsVibrationOn = true;
+        IsSoundOn = true;
+
         foreach (var itemIn in GameData.Instance.BalanceData.CommonUpgradeData)
             foreach (var itemOut in CommonUpgradeLevels)
                 if (itemIn.UpgradeKey == itemOut.UpgradeKey)

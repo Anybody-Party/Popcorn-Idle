@@ -2,6 +2,6 @@
 {
     internal struct ChangePopAdditionRequest
     {
-        public PopAdditions Addition;
+        public StaticData.PopAdditions Addition;
     }
 }

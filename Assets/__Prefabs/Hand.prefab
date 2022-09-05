@@ -197,6 +197,8 @@ MonoBehaviour:
     - {fileID: 7059404934002083937}
     - {fileID: 7779433295292181202}
     EarnMoneyPS: {fileID: 0}
+    PopCounterText: {fileID: 0}
+    EarnMoneyPoint: {fileID: 0}
 --- !u!114 &5141220474215156628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,6 +1225,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 400047739034535147}
     m_Modifications:
+    - target: {fileID: 1009894340, guid: 41774d7fc082df84f957f0be92260f5a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.125578
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009894340, guid: 41774d7fc082df84f957f0be92260f5a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.772622
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009894340, guid: 41774d7fc082df84f957f0be92260f5a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.4823
+      objectReference: {fileID: 0}
     - target: {fileID: 4295202327244104569, guid: 41774d7fc082df84f957f0be92260f5a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1270,6 +1284,18 @@ PrefabInstance:
     - target: {fileID: 4751731267274412572, guid: 41774d7fc082df84f957f0be92260f5a, type: 3}
       propertyPath: m_Name
       value: PopcornMediumBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 7738280009760595118, guid: 41774d7fc082df84f957f0be92260f5a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7738280009760595118, guid: 41774d7fc082df84f957f0be92260f5a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7738280009760595118, guid: 41774d7fc082df84f957f0be92260f5a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.93
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41774d7fc082df84f957f0be92260f5a, type: 3}

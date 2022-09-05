@@ -38,8 +38,8 @@ namespace Client
                             popGo.Value.transform.DOScale(Vector3.zero, _gameData.BalanceData.BaseGetGoldPopTime * 3f);
                             entity.Get<IsThisGoldTakenMarker>();
                             entity.Get<Timer<TimerGoldTaken>>().Value = _gameData.BalanceData.BaseGetGoldPopTime;
-                            entity.Get<ChangeAnimationRequest>().Animation = PopAnimations.IsGoldTaken;
-                            entity.Get<ChangePopEmotionRequest>().Emotion = PopEmotions.Happy;
+                            entity.Get<ChangePopAnimationRequest>().Animation = StaticData.PopAnimations.IsGoldTaken;
+                            entity.Get<ChangePopEmotionRequest>().Emotion = StaticData.PopEmotions.Happy;
                         }
                     }
                 }
@@ -53,8 +53,8 @@ namespace Client
 
                 popView.SpeedUpTrail.SetActive(false);
 
-                PopExtensions.StopAllMoving(ref entity);
-                PopExtensions.PrepareToDespawn(ref entity);
+                entity.Get<StopAllMovingRequest>();
+                entity.Get<PrepareToDespawnRequest>();
                 entity.Del<TimerDoneEvent<TimerGoldTaken>>();
                 entity.Del<IsThisGoldTakenMarker>();
 

@@ -20,7 +20,7 @@ namespace Client
                 ref RigidbodyLink entityRb = ref entity.Get<RigidbodyLink>();
                 ref PopcornViewLink entityView = ref entity.Get<PopcornViewLink>();
 
-                entityView.RawBody.transform.Rotate(Vector3.up, Random.Range(0, 360.0f));
+                entityView.Bodies[(int)StaticData.PopBody.RawCorn].transform.Rotate(Vector3.up, Random.Range(0, 360.0f));
 
                 Utility.ResetRigibodyVelocity(entityRb.Value);
                 entity.Get<AddingForce>().Direction = entityGo.Value.transform.up * Random.Range(_gameData.BalanceData.LaunchPopcornForce.x, _gameData.BalanceData.LaunchPopcornForce.y);
@@ -28,7 +28,7 @@ namespace Client
                 entity.Get<Landing>();
 
                 entity.Del<ReadyToLaunch>();
-                _world.NewEntity().Get<PlaySoundRequest>().SoundName = AudioSound.ShootSound;
+                _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.ShootSound;
             }
         }
     }
