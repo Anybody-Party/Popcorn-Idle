@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class MobileOrthoZoom : MonoBehaviour
 {
-    [SerializeField] private Cinemachine.CinemachineVirtualCamera camera;
+    [SerializeField] private Cinemachine.CinemachineVirtualCamera cineCamera;
 
     public float zoomOutMin = 1;
     public float zoomOutMax = 8;
@@ -31,11 +31,11 @@ public class MobileOrthoZoom : MonoBehaviour
 
     public void Zoom(float increment)
     {
-        camera.m_Lens.OrthographicSize = Mathf.Clamp(camera.m_Lens.OrthographicSize + increment, zoomOutMin, zoomOutMax);
+        cineCamera.m_Lens.OrthographicSize = Mathf.Clamp(cineCamera.m_Lens.OrthographicSize + increment, zoomOutMin, zoomOutMax);
     }
 
     public void TouchZoom(float increment)
     {
-        camera.m_Lens.OrthographicSize = Mathf.Clamp(camera.m_Lens.OrthographicSize - increment, zoomOutMin, zoomOutMax);
+        cineCamera.m_Lens.OrthographicSize = Mathf.Clamp(cineCamera.m_Lens.OrthographicSize - increment, zoomOutMin, zoomOutMax);
     }
 }

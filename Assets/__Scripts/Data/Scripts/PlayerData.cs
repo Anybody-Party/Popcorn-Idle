@@ -11,6 +11,9 @@ public class PlayerData : BaseDataSO
     public bool IsVibrationOn;
     public bool IsSoundOn;
 
+    [Header("Tutorials")]
+    public List<bool> TutrorialStates;
+
     [Header("Money & Popcorn")]
     public double Money;
     public double MoneyInSec;
@@ -123,6 +126,9 @@ public class PlayerData : BaseDataSO
 
         for (int i = 0; i < 3; i++)
             EpicUpgradeLevels[i].Level = 0;
+
+        for (int i = 0; i < 4; i++)
+            TutrorialStates[i] = false;
 
         HeatingMaxTemperatureUpgrade.Level = 0;
         HeatingSpeedUpgrade.Level = 0;

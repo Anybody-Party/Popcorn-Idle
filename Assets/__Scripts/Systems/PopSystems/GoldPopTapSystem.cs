@@ -40,6 +40,9 @@ namespace Client
                             entity.Get<Timer<TimerGoldTaken>>().Value = _gameData.BalanceData.BaseGetGoldPopTime;
                             entity.Get<ChangePopAnimationRequest>().Animation = StaticData.PopAnimations.IsGoldTaken;
                             entity.Get<ChangePopEmotionRequest>().Emotion = StaticData.PopEmotions.Happy;
+
+                            if (!_gameData.PlayerData.TutrorialStates[(int)StaticData.Tutorials.GoldTap])
+                                _world.NewEntity().Get<CompleteTutorialEvent>().Tutorial = StaticData.Tutorials.GoldTap;
                         }
                     }
                 }

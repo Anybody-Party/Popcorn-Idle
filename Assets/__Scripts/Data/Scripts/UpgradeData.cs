@@ -14,6 +14,7 @@ public class UpgradeData : BaseDataSO
 
     [Header("View")]
     public string UpgradeName;
+    [NaughtyAttributes.ResizableTextArea]
     public string UpgradeDescription;
     public Sprite UpgradeSprite;
 
@@ -39,6 +40,18 @@ public class UpgradeData : BaseDataSO
         double currency = IsEpicUpgrade ? GameData.Instance.PlayerData.GoldPopcornAmount : GameData.Instance.PlayerData.Money;
 
         return currency >= price && Level < MaxLevel;
+    }
+
+    public float GetValue()
+    {
+        float value = 0;
+
+        if (MultiplierForLevel != 0)
+            value = StartValue * Mathf.Pow(MultiplierForLevel, Level);
+        if(StepValue != 0)
+            value = StartValue + StepValue * Level;
+
+        return value;
     }
 
     public override void ResetData()

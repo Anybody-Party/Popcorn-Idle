@@ -12,6 +12,9 @@ public class GameUI : MonoBehaviour
     [SerializeField] public SettingScreen SettingScreen;
     [SerializeField] public CheatScreen CheatScreen;
 
+    [SerializeField] public HeatingTutorialScreen HeatingTutorialScreen;
+    [SerializeField] public UpgradeTutorialScreen UpgradeTutorialScreen;
+
     private List<BaseScreen> screens;
 
     public void InjectEcsWorld(EcsWorld ecsWorld)
@@ -31,6 +34,9 @@ public class GameUI : MonoBehaviour
     public void SetShowStateUpgradeScreen(bool isShow) => UpgradeScreen.SetShowState(isShow);
     public void SetShowStateSettingScreen(bool isShow) => SettingScreen.SetShowState(isShow);
     public void SetShowStateCheatScreen(bool isShow) => CheatScreen.SetShowState(isShow);
+
+    public void SetShowStateHeatingTutorialScreen(bool isShow) => HeatingTutorialScreen.SetShowState(isShow);
+    public void SetShowStateUpgradeTutorialScreen(bool isShow) => UpgradeTutorialScreen.SetShowState(isShow);
 
     public void SetShowStateOfflineBonusScreen(bool isShow, double reward)
     {

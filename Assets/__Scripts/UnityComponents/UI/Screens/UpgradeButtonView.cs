@@ -22,7 +22,7 @@ public class UpgradeButtonView : MonoBehaviour
     public void InitData(UpgradeData upgradeData, EcsWorld _world)
     {
         upgradeNameText.text = upgradeData.UpgradeName;
-        upgradeDescriptionText.text = upgradeData.UpgradeDescription;
+        upgradeDescriptionText.text = string.Format(upgradeData.UpgradeDescription, upgradeData.GetValue());
         currencyImage.sprite = upgradeData.IsEpicUpgrade ? goldPopcornSprite : moneySprite;
         buyText.text = "BUY";
         upgradeImage.sprite = upgradeData.UpgradeSprite;
@@ -56,6 +56,7 @@ public class UpgradeButtonView : MonoBehaviour
         double price = upgradeData.BasePrice * Mathf.Pow(upgradeData.PriceProgressionCoef, upgradeData.Level);
         double currency = upgradeData.IsEpicUpgrade ? GameData.Instance.PlayerData.GoldPopcornAmount : GameData.Instance.PlayerData.Money;
         upgradeCounterText.text = $"{upgradeData.Level}/{upgradeData.MaxLevel}";
+        upgradeDescriptionText.text = string.Format(upgradeData.UpgradeDescription, upgradeData.GetValue());
         buyPriceText.text = $"<sprite=0> {Utility.FormatMoney(price)}"; // money sprite
         upgradeProgressBarFill.fillAmount = (float)upgradeData.Level / (float)upgradeData.MaxLevel;
         if (upgradeButton)

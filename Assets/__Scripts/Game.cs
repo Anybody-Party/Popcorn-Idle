@@ -46,7 +46,7 @@ namespace Client
             //.Add(characterSystems)
             _updateSystems
                 .Add(new InitGameSystem())
-                .Add(new DebugSystem()) // TODO: del
+                //.Add(new DebugSystem())
                 .Add(timerSystems)
                 .Add(new RaycastSystem())
 
@@ -65,14 +65,16 @@ namespace Client
                 .Add(new EarningViewSystem())
                 .Add(new LevelProgressSystem())
                 .Add(new VibrationSystem())
+                .Add(new CheckUpgradePossiblitySystem())
                 .Add(new MoneySystem())
                 .Add(new EarningMoneyInSecSystem())
                 .Add(new UpgradeSystem())
                 .Add(new CameraSystem())
                 .Add(new AudioSystem())
-                .Add(new SettingSystem())
-                .Add(new CheatSystem())
+                .Add(new SettingScreenSystem())
+                .Add(new CheatScreenSystem())
                 .Add(new OfflineBonusSystem())
+                .Add(new TutorialSystem())
 
                 .OneFrame<MovingCompleteEvent>()
                 .OneFrame<ChangeGameStateRequest>()

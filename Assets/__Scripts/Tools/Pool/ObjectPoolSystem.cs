@@ -76,6 +76,8 @@ namespace Client
 
                             entity.Get<GameObjectLink>().Value.transform.position = spawnPrefabRequest.Position;
                             entity.Get<GameObjectLink>().Value.transform.rotation = spawnPrefabRequest.Rotation;
+                            entity.Get<GameObjectLink>().Value.transform.SetParent(null);
+                            entity.Get<GameObjectLink>().Value.transform.localScale = pool.Prefab.transform.localScale;
                             entity.Get<GameObjectLink>().Value.transform.parent = spawnPrefabRequest.Parent;
                             entity.Get<GameObjectLink>().Value.SetActive(true);
 

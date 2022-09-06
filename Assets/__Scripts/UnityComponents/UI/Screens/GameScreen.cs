@@ -1,3 +1,4 @@
+using Client;
 using DG.Tweening;
 using Leopotam.Ecs;
 using System;
@@ -44,9 +45,15 @@ public class GameScreen : BaseScreen
             EcsEntity eventEntity = EcsWorld.NewEntity();
             GameData.Instance.RuntimeData.IsHeatButtonPressed = x;
             if (x)
+            {
+                EcsWorld.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.Click1Sound;
                 eventEntity.Get<PressHeatingButtonEvent>();
+            }
             else
+            {
+                EcsWorld.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.Click2Sound;
                 eventEntity.Get<ReleaseHeatingButtonEvent>();
+            }
         });
 
         showUpgradeScreenButton.OnClickEvent.AddListener(() => EcsWorld.NewEntity().Get<ShowUpgradeScreenRequest>());
@@ -56,7 +63,7 @@ public class GameScreen : BaseScreen
 
     public void UpdateLevelText(int _level) => levelText.text = $"WAVE {_level}";
 
-    public void UpdateMoneyText(double _moneyCount) => moneyText.text = $"{Utility.FormatMoney(_moneyCount)}";
+    public void UpdateMoneyText(double _moneyCount) => moneyText.text = $"<sprite=0> {Utility.FormatMoney(_moneyCount)}"; // money sprite
 
     public void UpdateMoneyInSecText(double _moneyInSecCount) => moneyInSecText.text = $"{Utility.FormatMoney(_moneyInSecCount)}/SEC";
 

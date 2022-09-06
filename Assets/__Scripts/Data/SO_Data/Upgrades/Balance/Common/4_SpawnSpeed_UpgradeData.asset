@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeKey: SpawnSpeed
   UpgradeName: SPAWN SPEED
-  UpgradeDescription: Accelerates the production of raw corn
+  UpgradeDescription: Reduce time between corn production = <b><color=#EC9313>{0}
+    sec</color></b>
   UpgradeSprite: {fileID: 21300000, guid: 9f78a14eb2bc0b04885942c0ccf4a7cd, type: 3}
   JokeUpgradeName: 
   JokeUpgradeDescription: 
   Level: 0
   MaxLevel: 25
   IsEpicUpgrade: 0
-  BasePrice: 20
-  PriceProgressionCoef: 1.78
+  BasePrice: 120
+  PriceProgressionCoef: 1.03
   MultiplierForLevel: 0.9
-  StartValue: 0
+  StartValue: 8
   StepValue: 0

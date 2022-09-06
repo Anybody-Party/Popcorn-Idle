@@ -46,7 +46,7 @@ namespace Client
                             Position = handLink.EarnMoneyPoint.position
                         };
                         handLink.EarnMoneyPS.Play();
-
+                        _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.SellBagSound;
                         entity.Del<HandTakenRequest>();
                     }
                 }

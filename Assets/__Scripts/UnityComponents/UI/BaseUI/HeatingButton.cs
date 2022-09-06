@@ -15,8 +15,8 @@ public class HeatingButton : ActionButton, IPointerDownHandler, IPointerUpHandle
     {
         IsPressed = true;
 
-        if (!firePS.isPlaying)
-            firePS.Play();
+        //if (!firePS.isPlaying)
+        //    firePS.Play();
         if (!smokePS.isPlaying)
             smokePS.Play();
 
@@ -27,8 +27,8 @@ public class HeatingButton : ActionButton, IPointerDownHandler, IPointerUpHandle
     {
         IsPressed = false;
 
-        if (firePS.isPlaying)
-            firePS.Stop();
+        //if (firePS.isPlaying)
+        //    firePS.Stop();
         if (smokePS.isPlaying)
             smokePS.Stop();
 

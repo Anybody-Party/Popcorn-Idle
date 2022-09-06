@@ -23,10 +23,10 @@ namespace Client
                 entityGo.Value.transform.rotation = new Quaternion(0.0f, 180.0f, 0.0f, 0.0f);
                 entityRb.Value.freezeRotation = true;
 
-                Vector3 randomDirection = Random.onUnitSphere * 0.6f;
+                Vector3 randomDirection = Random.onUnitSphere * 0.3f;
                 entity.Get<AddingForce>() = new AddingForce
                 {
-                    Direction = new Vector3(randomDirection.x, 1.0f * Random.Range(_gameData.BalanceData.PopingPopcornForce.x, _gameData.BalanceData.PopingPopcornForce.y) , randomDirection.z),
+                    Direction = new Vector3(randomDirection.x, Random.Range(_gameData.BalanceData.PopingPopcornForce.x, _gameData.BalanceData.PopingPopcornForce.y), randomDirection.z),
                     ForceMode = ForceMode.Impulse
                 };
 
@@ -39,8 +39,13 @@ namespace Client
                 entity.Get<RandomizePopRotationViewRequest>();
 
                 _world.NewEntity().Get<VibrationRequest>().HapticType = MoreMountains.NiceVibrations.HapticTypes.LightImpact;
-                _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.ExplosionSound;
+                _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.ChpokSound;
                 _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.JumpSound;
+
+                if (!_gameData.PlayerData.TutrorialStates[(int)StaticData.Tutorials.GoldTap] && entity.Has<GoldPop>())
+                        _world.NewEntity().Get<StartTutorialRequest>().Tutorial = StaticData.Tutorials.GoldTap;
+                else if(!_gameData.PlayerData.TutrorialStates[(int)StaticData.Tutorials.SpeedUp])
+                    _world.NewEntity().Get<StartTutorialRequest>().Tutorial = StaticData.Tutorials.SpeedUp;
             }
         }
     }

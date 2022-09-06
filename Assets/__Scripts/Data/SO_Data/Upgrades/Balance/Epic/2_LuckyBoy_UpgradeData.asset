@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeKey: LuckyBoy
   UpgradeName: LUCKY BOY
-  UpgradeDescription: Increase the chance of dropping gold popcorns
+  UpgradeDescription: Increase the chance of dropping gold popcorns = <b><color=#EC9313>{0}%</color></b>
   UpgradeSprite: {fileID: 21300000, guid: af397e59ac9e0e8459c4ad5a3af748ae, type: 3}
   JokeUpgradeName: 
   JokeUpgradeDescription: 
   Level: 0
-  MaxLevel: 10
+  MaxLevel: 100
   IsEpicUpgrade: 1
   BasePrice: 10
   PriceProgressionCoef: 2.07
+  MultiplierForLevel: 0
+  StartValue: 1
+  StepValue: 1

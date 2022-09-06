@@ -1,4 +1,5 @@
 ﻿using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Client
 {
@@ -32,7 +33,7 @@ namespace Client
                         item.Level = upgrade.Level;
 
                 GameData.Instance.PlayerData.UpdateUpgradeDataLevel();
-
+                _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.BuyUpdateSound;
                 entity.Del<UpgradeEvent>();
             }
 
@@ -40,32 +41,9 @@ namespace Client
             {
                 ref EcsEntity entity = ref _showRequestFilter.GetEntity(idx);
                 _gameUi.SetShowStateUpgradeScreen(true);
+                _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.UiNavigationSound;
                 entity.Del<ShowUpgradeScreenRequest>();
             }
-
-            foreach (var idx in _spendGoldFilter)
-                CheckCanUpgrade();
-            foreach (var idx in _addGoldFilter)
-                CheckCanUpgrade();
-            foreach (var idx in _spendMoneyFilter)
-                CheckCanUpgrade();
-            foreach (var idx in _earnMoneyFilter)
-                CheckCanUpgrade();
-        }
-
-        private void CheckCanUpgrade()
-        {
-            bool canBuyUpgrade = false;
-
-            for (int i = 0; i < GameData.Instance.BalanceData.CommonUpgradeData.Count; i++)
-                if (GameData.Instance.BalanceData.CommonUpgradeData[i].CanBuyIt())
-                    canBuyUpgrade = true;
-
-            for (int i = 0; i < GameData.Instance.BalanceData.EpicUpgradeData.Count; i++)
-                if (GameData.Instance.BalanceData.EpicUpgradeData[i].CanBuyIt())
-                    canBuyUpgrade = true;
-
-            _gameUi.GameScreen.SetCanBuyUpgradeIndicator(canBuyUpgrade);
         }
     }
 }

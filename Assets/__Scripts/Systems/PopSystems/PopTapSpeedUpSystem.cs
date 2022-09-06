@@ -43,6 +43,9 @@ namespace Client
                         entity.Get<IsSpeedUpMarker>();
                         entity.Get<Timer<TimerSpeedUp>>().Value = _gameData.BalanceData.SpeedUpTime;
                         entity.Get<ChangePopAnimationRequest>().Animation = StaticData.PopAnimations.IsRunning;
+
+                        if (!_gameData.PlayerData.TutrorialStates[(int)StaticData.Tutorials.SpeedUp])
+                            _world.NewEntity().Get<CompleteTutorialEvent>().Tutorial = StaticData.Tutorials.SpeedUp;
                     }
                 }
             }

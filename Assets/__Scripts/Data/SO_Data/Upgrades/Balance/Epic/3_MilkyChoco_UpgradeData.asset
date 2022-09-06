@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeKey: MilkyChoco
   UpgradeName: MILKY CHOCOLATE
-  UpgradeDescription: Remove the percentage of palm oil
+  UpgradeDescription: Remove the percentage of palm oil = <b><color=#EC9313>{0}%</color></b>
   UpgradeSprite: {fileID: 21300000, guid: ce5e5220d94085b4fb3898b1dbc1b245, type: 3}
   JokeUpgradeName: 
   JokeUpgradeDescription: 
   Level: 0
-  MaxLevel: 10
+  MaxLevel: 20
   IsEpicUpgrade: 1
   BasePrice: 15
   PriceProgressionCoef: 1.07
+  MultiplierForLevel: 0
+  StartValue: 100
+  StepValue: -5

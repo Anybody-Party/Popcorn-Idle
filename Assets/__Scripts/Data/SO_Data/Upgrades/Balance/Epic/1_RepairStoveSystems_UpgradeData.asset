@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeKey: RepairStoveSystems
   UpgradeName: REPAIR STOVE SYSTEMS
-  UpgradeDescription: Eliminate heat leakage
+  UpgradeDescription: Eliminate heat leakage = <b><color=#EC9313>{0}%</color></b>
   UpgradeSprite: {fileID: 21300000, guid: 474c115799c863e419126338b8cd1714, type: 3}
   JokeUpgradeName: 
   JokeUpgradeDescription: 
@@ -23,3 +23,6 @@ MonoBehaviour:
   IsEpicUpgrade: 1
   BasePrice: 5
   PriceProgressionCoef: 1.27
+  MultiplierForLevel: 0
+  StartValue: 100
+  StepValue: -10

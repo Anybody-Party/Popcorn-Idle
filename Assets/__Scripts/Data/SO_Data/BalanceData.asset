@@ -14,23 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BasePopcornSpeed: 0.002
   BaseConveyorBeltSpeed: 0.05
-  TapSpeedUpSpeedCoef: 1.6
-  BaseHeatingSpeed: 1.1
+  TapSpeedUpSpeedCoef: 2
+  BaseHeatingSpeed: 1.25
   BaseColdingSpeed: 0.5
   CurrentTemperatureCap: {x: 1, y: 15}
   MaxTemperature: 75
   BasePopcornsInBigBag: 10
   GlodPopcornsChance: 0.01
   SpeedUpTime: 2
-  CleanTime: 4
+  CleanTime: 1
   BaseSpawnPopTime: 8
   BaseCookingTime: 10
-  BaseGetGoldPopTime: 5
+  BaseGetGoldPopTime: 2
   OfflineTimeHourCap: {x: 1, y: 5}
   StartMoney: 0
   BasePopSellReward: 5
   PopSellRewardMultiplier: 1
-  BaseBagSellReward: 100
+  BaseBagSellReward: 50
   BagSellRewardMultiplier: 1
   BaseConveyorPrice: 100
   ConveyorPriceMultiplierForNumber: 10
@@ -54,7 +54,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b118d12617fdb5e44937d78525731435, type: 2}
   - {fileID: 11400000, guid: a4e9d1ca81fd98544bc2abd47a5fe6b2, type: 2}
   TemperatureUpgradeStep: 2.5
-  ConveyerSpeedUpgradeBase: 0.0002
+  ConveyerSpeedUpgradeBase: 0.0003
   SpawnTimePopMultiplierForLevel: 0.9
   CookingTimePopMultiplierForLevel: 0.9
   EarningPopMultiplierForLevel: 1.16

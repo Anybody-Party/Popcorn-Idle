@@ -65,6 +65,7 @@ namespace Client
                             double price = GameData.Instance.BalanceData.BaseConveyorPrice * Mathf.Pow(GameData.Instance.BalanceData.ConveyorPriceMultiplierForNumber, buyRequest.ConveyorId);
                             _world.NewEntity().Get<SpendMoneyEvent>().Value = price;
                             conveyor.BuildDustPS.Play();
+                            _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.BuildNewConveyorSound;
                             entityGo.Value.SetActive(true);
                             entity.Get<LaunchPop>();
                         }

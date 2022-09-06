@@ -67,6 +67,14 @@ public class StaticData : BaseDataSO
         Wasabi = 4
     }
 
+    public enum Tutorials
+    {
+        Heating = 0,
+        Upgrade = 1,
+        SpeedUp = 2,
+        GoldTap = 3
+    }
+
     public static class AudioSound
     {
         public static readonly string CashSound = "cash";
@@ -75,6 +83,13 @@ public class StaticData : BaseDataSO
         public static readonly string JumpSound = "jump";
         public static readonly string ShootSound = "shoot";
         public static readonly string MusicSound = "music";
+        public static readonly string BuildNewConveyorSound = "buildnewconveyor";
+        public static readonly string BuyUpdateSound = "buyupdate";
+        public static readonly string SellBagSound = "sellbag";
+        public static readonly string Click1Sound = "click1";
+        public static readonly string Click2Sound = "click2";
+        public static readonly string UiNavigationSound = "uinavigation";
+        public static readonly string ChpokSound = "chpok";
     }
 
     public override void ResetData()

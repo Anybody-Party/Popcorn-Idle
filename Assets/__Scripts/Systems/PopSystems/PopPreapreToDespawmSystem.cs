@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using DG.Tweening;
+using Leopotam.Ecs;
 
 namespace Client
 {
@@ -16,6 +17,7 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 entity.Get<DespawnTag>();
+                entity.Get<GameObjectLink>().Value.transform.DOComplete(); 
                 entity.Get<ChangePopViewRequest>().PopBody = StaticData.PopBody.RawCorn;
                 entity.Get<ChangePopEmotionRequest>().Emotion = StaticData.PopEmotions.None;
                 entity.Get<ChangePopAdditionRequest>().Addition = StaticData.PopAdditions.None;

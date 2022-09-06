@@ -21,7 +21,7 @@ namespace Client
                 ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
 
                 //Despawn
-                if (/*entity.Has<PoolObject>() && */entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.DespawnTag))
+                if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.DespawnTag))
                 {
                     entity.Get<StopAllMovingRequest>();
                     entity.Get<PrepareToDespawnRequest>();
@@ -47,7 +47,7 @@ namespace Client
 
                     entity.Get<StopAllMovingRequest>();
 
-                    entity.Get<Timer<TimerToSellState>>().Value = 2.0f;
+                    entity.Get<Timer<TimerToSellState>>().Value = 0.01f;
                     entity.Get<ShakeBagRequest>().ProductLineId = entity.Get<Pop>().ProductLineId;
                     entity.Get<ChangePopViewRequest>().PopBody = StaticData.PopBody.PopcornWithoutLimbs;
                     entity.Get<ChangePopEmotionRequest>().Emotion = StaticData.PopEmotions.None;

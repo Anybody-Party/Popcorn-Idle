@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeKey: EarningBag
   UpgradeName: MONEY FOR BAG
-  UpgradeDescription: Increases the cost of each full bag of popcorn
+  UpgradeDescription: Increase the cost of each full bag of popcorn = <b><color=#EC9313>{0}$</color></b>
   UpgradeSprite: {fileID: 21300000, guid: f46931d8564046c40a2f11b89af9983a, type: 3}
   JokeUpgradeName: 
   JokeUpgradeDescription: 
@@ -22,7 +22,7 @@ MonoBehaviour:
   MaxLevel: 25
   IsEpicUpgrade: 0
   BasePrice: 50
-  PriceProgressionCoef: 1.07
+  PriceProgressionCoef: 1.17
   MultiplierForLevel: 1.07
-  StartValue: 0
+  StartValue: 50
   StepValue: 0
