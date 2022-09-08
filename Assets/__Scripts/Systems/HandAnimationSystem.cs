@@ -5,14 +5,14 @@ namespace Client
 {
     public class HandAnimationSystem : IEcsRunSystem
     {
-        private EcsFilter<HandLink, AnimatorLink, ChangeHandAnimationRequest> _filter;
+        private EcsFilter<HandProvider, AnimatorProvider, ChangeHandAnimationRequest> _filter;
 
         public void Run()
         {
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
-                ref AnimatorLink entityAnimator = ref entity.Get<AnimatorLink>();
+                ref AnimatorProvider entityAnimator = ref entity.Get<AnimatorProvider>();
                 ref ChangeHandAnimationRequest changeAnimationAction = ref entity.Get<ChangeHandAnimationRequest>();
                 
                 SetAnimation(entityAnimator.Value, changeAnimationAction.Animation);

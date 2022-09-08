@@ -12,8 +12,8 @@ namespace Client
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
-                ref RigidbodyLink entityRb = ref entity.Get<RigidbodyLink>();
+                ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
+                ref RigidbodyProvider entityRb = ref entity.Get<RigidbodyProvider>();
 
                 ref LookingAt lookingAt = ref entity.Get<LookingAt>();
 

@@ -11,7 +11,7 @@ public class ObjectStackSystem : IEcsInitSystem, IEcsRunSystem
     private EcsWorld _world;
     private GameData _gameData;
 
-    private EcsFilter<ObjectStackLink> _stackFilter;
+    private EcsFilter<ObjectStackProvider> _stackFilter;
     private EcsFilter<GoToStackObject> _goToStackObjectsFilter;
     private EcsFilter<GoFromStackObject> _goFromStackObjectsFilter;
 
@@ -31,7 +31,7 @@ public class ObjectStackSystem : IEcsInitSystem, IEcsRunSystem
         foreach (var idx in _goToStackObjectsFilter)
         {
             ref EcsEntity entity = ref _goToStackObjectsFilter.GetEntity(idx);
-            ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+            ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
             ref ObjectCurrentStack entityStack = ref entity.Get<ObjectCurrentStack>();
             entity.Get<StackObject>();
 
@@ -49,7 +49,7 @@ public class ObjectStackSystem : IEcsInitSystem, IEcsRunSystem
         foreach (var idx in _goFromStackObjectsFilter)
         {
             ref EcsEntity entity = ref _goFromStackObjectsFilter.GetEntity(idx);
-            ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+            ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
             ref ObjectCurrentStack entityStack = ref entity.Get<ObjectCurrentStack>();
             ref GoFromStackObject goFromStack = ref entity.Get<GoFromStackObject>();
             entity.Get<StackObject>();
@@ -68,8 +68,8 @@ public class ObjectStackSystem : IEcsInitSystem, IEcsRunSystem
 
     private void CreateStackGrid(ref EcsEntity entity)
     {
-        ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
-        ref ObjectStackLink stack = ref entity.Get<ObjectStackLink>();
+        ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
+        ref ObjectStackProvider stack = ref entity.Get<ObjectStackProvider>();
         stack.GridPoints = new List<Transform>();
         Vector3 parentPos = entityGo.Value.transform.position;
 

@@ -17,7 +17,7 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref Pop pop = ref entity.Get<Pop>();
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
 
                 Vector3 point = Vector3.zero;
                 float distance = 100.0f;

@@ -15,7 +15,7 @@ namespace Client
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
-                ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
+                ref PopcornViewProvider popView = ref entity.Get<PopcornViewProvider>();
                 ref ChangePopEmotionRequest changePopEmotionRequest = ref entity.Get<ChangePopEmotionRequest>();
 
                 foreach (var item in popView.Emotions)

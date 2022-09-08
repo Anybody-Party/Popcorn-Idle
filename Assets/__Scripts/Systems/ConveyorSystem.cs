@@ -10,7 +10,7 @@ namespace Client
         private EcsWorld _world;
         private WorldGameUI _worldGameUi;
 
-        private EcsFilter<ConveyorLink> _filter;
+        private EcsFilter<ConveyorProvider> _filter;
         private EcsFilter<BuyConveyorRequest> _buyFilter;
 
         public void Init()
@@ -19,8 +19,8 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
 
-                ref ConveyorLink conveyor = ref entity.Get<ConveyorLink>();
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                ref ConveyorProvider conveyor = ref entity.Get<ConveyorProvider>();
+                ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
 
                 for (int i = 0; i < _gameData.SceneData.Conveyors.Count; i++)
                     if (conveyor.Id == i)
@@ -54,8 +54,8 @@ namespace Client
                 {
                     ref EcsEntity entity = ref _filter.GetEntity(idx);
 
-                    ref ConveyorLink conveyor = ref entity.Get<ConveyorLink>();
-                    ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                    ref ConveyorProvider conveyor = ref entity.Get<ConveyorProvider>();
+                    ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
 
                     for (int i = 0; i < _gameData.SceneData.Conveyors.Count; i++)
                         if (conveyor.Id == buyRequest.ConveyorId)

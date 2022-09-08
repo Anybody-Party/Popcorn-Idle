@@ -17,11 +17,11 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 entity.Get<DespawnTag>();
-                entity.Get<GameObjectLink>().Value.transform.DOComplete(); 
+                entity.Get<GameObjectProvider>().Value.transform.DOComplete(); 
                 entity.Get<ChangePopViewRequest>().PopBody = StaticData.PopBody.RawCorn;
                 entity.Get<ChangePopEmotionRequest>().Emotion = StaticData.PopEmotions.None;
                 entity.Get<ChangePopAdditionRequest>().Addition = StaticData.PopAdditions.None;
-                entity.Get<RigidbodyLink>().Value.isKinematic = false;
+                entity.Get<RigidbodyProvider>().Value.isKinematic = false;
                 entity.Del<PrepareToDespawnRequest>();
             }
         }

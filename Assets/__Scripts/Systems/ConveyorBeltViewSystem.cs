@@ -9,7 +9,7 @@ namespace Client
         private EcsWorld _world;
         private WorldGameUI _worldGameUi;
 
-        private EcsFilter<ConveyorLink> _filter;
+        private EcsFilter<ConveyorProvider> _filter;
         private EcsFilter<ChangeConveyorBeltSpeedRequest> _requestFilter;
 
         public void Init()
@@ -17,7 +17,7 @@ namespace Client
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
-                ref ConveyorLink conveyor = ref entity.Get<ConveyorLink>();
+                ref ConveyorProvider conveyor = ref entity.Get<ConveyorProvider>();
                 conveyor.BeltScroller.speedY = _gameData.RuntimeData.GetConveyorBeltSpeedView();
             }
         }
@@ -31,7 +31,7 @@ namespace Client
                 foreach (var idx in _filter)
                 {
                     ref EcsEntity entity = ref _filter.GetEntity(idx);
-                    ref ConveyorLink conveyor = ref entity.Get<ConveyorLink>();
+                    ref ConveyorProvider conveyor = ref entity.Get<ConveyorProvider>();
                     conveyor.BeltScroller.speedY = _gameData.RuntimeData.GetConveyorBeltSpeedView();
                 }
                 requestEntity.Del<ChangeConveyorBeltSpeedRequest>();

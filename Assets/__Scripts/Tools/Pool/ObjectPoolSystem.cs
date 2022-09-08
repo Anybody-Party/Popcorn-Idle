@@ -10,7 +10,7 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<ObjectPoolLink> _poolFilter;
+        private EcsFilter<ObjectPoolProvider> _poolFilter;
         private EcsFilter<SpawnPrefab, PoolObjectRequest> _requestsFilter;
 
         public void Init()
@@ -18,8 +18,8 @@ namespace Client
             foreach (var idx in _poolFilter)
             {
                 ref EcsEntity entity = ref _poolFilter.GetEntity(idx);
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
-                ref ObjectPoolLink pool = ref entity.Get<ObjectPoolLink>();
+                ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
+                ref ObjectPoolProvider pool = ref entity.Get<ObjectPoolProvider>();
 
                 pool.Pool = new Queue<EcsEntity>();
 
@@ -38,7 +38,7 @@ namespace Client
 
                     _gameData.SceneData.PrefabFactory.SpawnPrefabWithPreInitEntity(poolObjectEntity.Get<SpawnPrefab>(), ref poolObjectEntity);
                     poolObjectEntity.Del<SpawnPrefab>();
-                    ref GameObjectLink poolObjectEntityGo = ref poolObjectEntity.Get<GameObjectLink>();
+                    ref GameObjectProvider poolObjectEntityGo = ref poolObjectEntity.Get<GameObjectProvider>();
 
                     poolObjectEntityGo.Value.SetActive(false);
                     pool.Pool.Enqueue(poolObjectEntity);
@@ -56,7 +56,7 @@ namespace Client
                 foreach (var poolItem in _poolFilter)
                 {
                     ref EcsEntity poolEntity = ref _poolFilter.GetEntity(poolItem);
-                    ref ObjectPoolLink pool = ref poolEntity.Get<ObjectPoolLink>();
+                    ref ObjectPoolProvider pool = ref poolEntity.Get<ObjectPoolProvider>();
 
                     if (spawnPrefabRequest.Prefab == pool.Prefab) // in this pool
                     {
@@ -68,18 +68,18 @@ namespace Client
                         {
                             EcsEntity entity = pool.Pool.Dequeue();
 
-                            MonoEntity monoEntity = entity.Get<GameObjectLink>().Value.GetComponent<MonoEntity>();
+                            MonoEntity monoEntity = entity.Get<GameObjectProvider>().Value.GetComponent<MonoEntity>();
                             entity = _world.NewEntity();
-                            monoEntity.Make(ref entity);
+                            monoEntity.Provide(ref entity);
 
-                            ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                            ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
 
-                            entity.Get<GameObjectLink>().Value.transform.position = spawnPrefabRequest.Position;
-                            entity.Get<GameObjectLink>().Value.transform.rotation = spawnPrefabRequest.Rotation;
-                            entity.Get<GameObjectLink>().Value.transform.SetParent(null);
-                            entity.Get<GameObjectLink>().Value.transform.localScale = pool.Prefab.transform.localScale;
-                            entity.Get<GameObjectLink>().Value.transform.parent = spawnPrefabRequest.Parent;
-                            entity.Get<GameObjectLink>().Value.SetActive(true);
+                            entity.Get<GameObjectProvider>().Value.transform.position = spawnPrefabRequest.Position;
+                            entity.Get<GameObjectProvider>().Value.transform.rotation = spawnPrefabRequest.Rotation;
+                            entity.Get<GameObjectProvider>().Value.transform.SetParent(null);
+                            entity.Get<GameObjectProvider>().Value.transform.localScale = pool.Prefab.transform.localScale;
+                            entity.Get<GameObjectProvider>().Value.transform.parent = spawnPrefabRequest.Parent;
+                            entity.Get<GameObjectProvider>().Value.SetActive(true);
 
                             requestEntity.MoveTo(entity);
                             entity.Del<SpawnPrefab>();

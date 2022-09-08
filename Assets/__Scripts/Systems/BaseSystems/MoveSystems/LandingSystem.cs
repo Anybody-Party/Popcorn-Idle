@@ -15,7 +15,7 @@ namespace Client
             foreach (var landing in _landingFilter)
             {
                 ref EcsEntity landingEntity = ref _landingFilter.GetEntity(landing);
-                ref ParticleSystemLink landingPs = ref landingEntity.Get<ParticleSystemLink>();
+                ref ParticleSystemProvider landingPs = ref landingEntity.Get<ParticleSystemProvider>();
                 ref OnCollisionEnterEvent landingCollision = ref landingEntity.Get<OnCollisionEnterEvent>();
 
                 if (landingCollision.Collision != null)
@@ -32,7 +32,7 @@ namespace Client
             foreach (var landing in _landingTriggerFilter)
             {
                 ref EcsEntity landingEntity = ref _landingTriggerFilter.GetEntity(landing);
-                ref ParticleSystemLink landingPs = ref landingEntity.Get<ParticleSystemLink>();
+                ref ParticleSystemProvider landingPs = ref landingEntity.Get<ParticleSystemProvider>();
                 ref OnTriggerEnterEvent landingCollision = ref landingEntity.Get<OnTriggerEnterEvent>();
 
                 if (landingCollision.Collider)

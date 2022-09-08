@@ -15,7 +15,7 @@ namespace Client
             foreach (var movingObject in _movingFilter)
             {
                 ref EcsEntity movingEntity = ref _movingFilter.GetEntity(movingObject);
-                ref GameObjectLink movingEntityGo = ref movingEntity.Get<GameObjectLink>();
+                ref GameObjectProvider movingEntityGo = ref movingEntity.Get<GameObjectProvider>();
 
                 ref TransformMoving moving = ref movingEntity.Get<TransformMoving>();
 

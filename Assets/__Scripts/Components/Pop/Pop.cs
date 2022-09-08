@@ -6,7 +6,7 @@ namespace Client
 {
     internal struct Pop
     {
-        public ConveyorLink Conveyor;
+        public ConveyorProvider Conveyor;
         public int ConveyorId;
         public int ProductLineId;
     }

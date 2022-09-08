@@ -10,14 +10,14 @@ namespace Client
         private EcsWorld _world;
 
         private EcsFilter<Pop, ChangePopViewRequest> _filter;
-        private EcsFilter<PopcornViewLink, RandomizePopRotationViewRequest> _rotationfilter;
+        private EcsFilter<PopcornViewProvider, RandomizePopRotationViewRequest> _rotationfilter;
 
         public void Run()
         {
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
-                ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
+                ref PopcornViewProvider popView = ref entity.Get<PopcornViewProvider>();
                 ref ChangePopViewRequest changePopViewRequest = ref entity.Get<ChangePopViewRequest>();
 
                 if (changePopViewRequest.PopBody ==  StaticData.PopBody.Popcorn)

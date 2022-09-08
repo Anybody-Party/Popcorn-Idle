@@ -15,10 +15,10 @@ namespace Client
             foreach (var idx in _enterFilter)
             {
                 ref EcsEntity entity = ref _enterFilter.GetEntity(idx);
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
                 //ref ParticleSystemLink entityPs = ref entity.Get<ParticleSystemLink>();
                 ref OnTriggerEnterEvent entityCollision = ref entity.Get<OnTriggerEnterEvent>();
-                ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
+                ref PopcornViewProvider popView = ref entity.Get<PopcornViewProvider>();
 
                 //Despawn
                 if (entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.DespawnTag))
@@ -57,7 +57,7 @@ namespace Client
             foreach (var idx in _exitfilter)
             {
                 ref EcsEntity entity = ref _exitfilter.GetEntity(idx);
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
                 ref OnTriggerExitEvent entityCollision = ref entity.Get<OnTriggerExitEvent>();
 
                 if (entity.Has<Cooking>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.CookingZoneTag))

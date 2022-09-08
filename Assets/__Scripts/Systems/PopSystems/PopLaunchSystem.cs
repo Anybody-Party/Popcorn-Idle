@@ -9,16 +9,16 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<GameObjectLink, ReadyToLaunch> _filter;
+        private EcsFilter<GameObjectProvider, ReadyToLaunch> _filter;
 
         public void Run()
         {
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
-                ref RigidbodyLink entityRb = ref entity.Get<RigidbodyLink>();
-                ref PopcornViewLink entityView = ref entity.Get<PopcornViewLink>();
+                ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
+                ref RigidbodyProvider entityRb = ref entity.Get<RigidbodyProvider>();
+                ref PopcornViewProvider entityView = ref entity.Get<PopcornViewProvider>();
 
                 entityView.Bodies[(int)StaticData.PopBody.RawCorn].transform.Rotate(Vector3.up, Random.Range(0, 360.0f));
 

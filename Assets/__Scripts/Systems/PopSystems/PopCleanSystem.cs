@@ -19,7 +19,7 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref Pop pop = ref entity.Get<Pop>();
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
 
                 entity.Get<ChangePopViewRequest>().PopBody = StaticData.PopBody.PopcornWithoutLimbs;
                 entity.Get<ChangePopEmotionRequest>().Emotion = StaticData.PopEmotions.Scary;
@@ -35,7 +35,7 @@ namespace Client
             foreach (var idx in _timerDoneFilter)
             {
                 ref EcsEntity entity = ref _timerDoneFilter.GetEntity(idx);
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
 
                 entity.Get<PrepareToDespawnRequest>();
                 entity.Del<Timer<TimerForPopClean>>();

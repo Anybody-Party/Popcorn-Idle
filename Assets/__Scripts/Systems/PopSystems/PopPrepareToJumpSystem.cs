@@ -17,7 +17,7 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref Pop pop = ref entity.Get<Pop>();
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
 
                 Transform point = pop.Conveyor.JumpPoints[Random.Range(0, pop.Conveyor.JumpPoints.Count)];
                 entity.Get<LookingAt>().Target = new Vector3(point.position.x, entityGo.Value.transform.position.y, point.position.z);

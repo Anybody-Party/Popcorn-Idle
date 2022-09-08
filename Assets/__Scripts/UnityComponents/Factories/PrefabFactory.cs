@@ -17,7 +17,7 @@ public class PrefabFactory : MonoBehaviour
         if (monoEntity == null)
             return;
         EcsEntity ecsEntity = _world.NewEntity();
-        monoEntity.Make(ref ecsEntity);
+        monoEntity.Provide(ref ecsEntity);
     }
 
     public EcsEntity SpawnAndGetEntity(SpawnPrefab spawnPrefab)
@@ -25,7 +25,7 @@ public class PrefabFactory : MonoBehaviour
         GameObject _go = Instantiate(spawnPrefab.Prefab, spawnPrefab.Position, spawnPrefab.Rotation, spawnPrefab.Parent);
         var monoEntity = _go.GetComponent<MonoEntity>();
         EcsEntity ecsEntity = _world.NewEntity();
-        monoEntity.Make(ref ecsEntity);
+        monoEntity.Provide(ref ecsEntity);
         return ecsEntity;
     }
 
@@ -35,14 +35,14 @@ public class PrefabFactory : MonoBehaviour
         var monoEntity = _go.GetComponent<MonoEntity>();
         if (monoEntity == null)
             return;
-        monoEntity.Make(ref entity);
+        monoEntity.Provide(ref entity);
     }
 
     public ref EcsEntity SpawnPrefabWithPreInitEntityAndGetEntity(SpawnPrefab spawnPrefab, ref EcsEntity entity)
     {
         GameObject _go = Instantiate(spawnPrefab.Prefab, spawnPrefab.Position, spawnPrefab.Rotation, spawnPrefab.Parent);
         var monoEntity = _go.GetComponent<MonoEntity>();
-        monoEntity.Make(ref entity);
+        monoEntity.Provide(ref entity);
         return ref entity;
     }
 }

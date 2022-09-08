@@ -12,8 +12,8 @@ namespace Client
         private EcsFilter<StartTutorialRequest> _startFilter;
         private EcsFilter<CompleteTutorialEvent> _completeFilter;
 
-        private EcsFilter<TutorialLink> _tutorialFilter;
-        private EcsFilter<GameObjectLink, GoldPop, GoToJump> _goldFilter;
+        private EcsFilter<TutorialProvider> _tutorialFilter;
+        private EcsFilter<GameObjectProvider, GoldPop, GoToJump> _goldFilter;
 
         public void Init()
         {

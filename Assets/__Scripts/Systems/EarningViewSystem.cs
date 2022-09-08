@@ -10,8 +10,8 @@ namespace Client
         private EcsWorld _world;
 
         private EcsFilter<CreateEarnViewRequest> _requestFilter;
-        private EcsFilter<WorldTextLink, EarnView>.Exclude<Timer<TimerEarningView>> _initInfoFilter;
-        private EcsFilter<WorldTextLink, EarnView, TimerDoneEvent<TimerEarningView>>.Exclude<DespawnTag> _despawnInfoFilter;
+        private EcsFilter<WorldTextProvider, EarnView>.Exclude<Timer<TimerEarningView>> _initInfoFilter;
+        private EcsFilter<WorldTextProvider, EarnView, TimerDoneEvent<TimerEarningView>>.Exclude<DespawnTag> _despawnInfoFilter;
 
         public void Run()
         {
@@ -39,7 +39,7 @@ namespace Client
             {
                 ref EcsEntity entity = ref _initInfoFilter.GetEntity(idx);
                 ref EarnView entityEarnView = ref entity.Get<EarnView>();
-                ref WorldTextLink entityEarnInfoView = ref entity.Get<WorldTextLink>();
+                ref WorldTextProvider entityEarnInfoView = ref entity.Get<WorldTextProvider>();
 
                 entityEarnInfoView.Value.text = $"+{Utility.FormatMoney(entityEarnView.Value)}$";
                 entity.Get<Timer<TimerEarningView>>().Value = 1.0f;

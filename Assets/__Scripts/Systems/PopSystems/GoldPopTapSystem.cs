@@ -27,8 +27,8 @@ namespace Client
                     {
                         ref EcsEntity entity = ref _filter.GetEntity(idx);
                         ref Pop pop = ref entity.Get<Pop>();
-                        ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
-                        ref GameObjectLink popGo = ref entity.Get<GameObjectLink>();
+                        ref PopcornViewProvider popView = ref entity.Get<PopcornViewProvider>();
+                        ref GameObjectProvider popGo = ref entity.Get<GameObjectProvider>();
 
                         if (popGo.Value == raycast.GameObject)
                         {
@@ -52,7 +52,7 @@ namespace Client
             {
                 ref EcsEntity entity = ref _timerDoneFilter.GetEntity(idx);
                 ref TransformMoving moving = ref entity.Get<TransformMoving>();
-                ref PopcornViewLink popView = ref entity.Get<PopcornViewLink>();
+                ref PopcornViewProvider popView = ref entity.Get<PopcornViewProvider>();
 
                 popView.SpeedUpTrail.SetActive(false);
 

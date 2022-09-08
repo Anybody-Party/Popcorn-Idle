@@ -15,7 +15,7 @@ namespace Client
             foreach (var idx in _popFilter)
             {
                 ref EcsEntity entity = ref _popFilter.GetEntity(idx);
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
 
                 ref EcsEntity popEntity = ref entity.Get<GetMoneyForPopInSellZone>().PopEntity;
                 ref Pop pop = ref popEntity.Get<Pop>();

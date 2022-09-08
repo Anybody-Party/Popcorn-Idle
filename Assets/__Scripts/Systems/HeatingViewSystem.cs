@@ -9,7 +9,7 @@ namespace Client
         private EcsWorld _world;
 
         private EcsFilter<HeatingViewUpdateTimerContainer>.Exclude<Timer<TimerHeatingViewUpdate>> _filter;
-        private EcsFilter<ConveyorLink> _conveyorFilter;
+        private EcsFilter<ConveyorProvider> _conveyorFilter;
 
         public void Init()
         {

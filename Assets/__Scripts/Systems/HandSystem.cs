@@ -10,7 +10,7 @@ namespace Client
         private EcsWorld _world;
 
         private EcsFilter<HandTakenRequest> _takenfilter;
-        private EcsFilter<HandLink> _handsFilter;
+        private EcsFilter<HandProvider> _handsFilter;
         private EcsFilter<ShakeBagRequest> _shakeFilter;
 
         public void Init()
@@ -29,7 +29,7 @@ namespace Client
                 foreach (var hand in _handsFilter)
                 {
                     ref EcsEntity handEntity = ref _handsFilter.GetEntity(hand);
-                    ref HandLink handLink = ref handEntity.Get<HandLink>();
+                    ref HandProvider handLink = ref handEntity.Get<HandProvider>();
                     if (requset.ProductLineId == handLink.ProductLineId)
                     {
                         handEntity.Get<ChangeHandAnimationRequest>().Animation = StaticData.HandAnimations.IsTaken;
@@ -60,7 +60,7 @@ namespace Client
                 foreach (var hand in _handsFilter)
                 {
                     ref EcsEntity handEntity = ref _handsFilter.GetEntity(hand);
-                    ref HandLink handLink = ref handEntity.Get<HandLink>();
+                    ref HandProvider handLink = ref handEntity.Get<HandProvider>();
 
                     if (shakeBagRequest.ProductLineId == handLink.ProductLineId)
                     {

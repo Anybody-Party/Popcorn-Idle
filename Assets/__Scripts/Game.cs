@@ -222,13 +222,13 @@ namespace Client
             foreach (var monoEntity in _gameData.SceneData.MonoEntities)
             {
                 EcsEntity ecsEntity = _ecsWorld.NewEntity();
-                monoEntity.Make(ref ecsEntity);
+                monoEntity.Provide(ref ecsEntity);
             }
 
             foreach (var monoEntity in _gameData.SceneData.Conveyors)
             {
                 EcsEntity ecsEntity = _ecsWorld.NewEntity();
-                monoEntity.Make(ref ecsEntity);
+                monoEntity.Provide(ref ecsEntity);
             }
         }
     }

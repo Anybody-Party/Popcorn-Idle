@@ -1,4 +1,4 @@
 ﻿internal struct ObjectCurrentStack
 {
-    public ObjectStackLink Stack;
+    public ObjectStackProvider Stack;
 }

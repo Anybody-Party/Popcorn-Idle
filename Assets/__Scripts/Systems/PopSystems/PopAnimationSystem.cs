@@ -5,14 +5,14 @@ namespace Client
 {
     public class PopAnimationSystem : IEcsRunSystem
     {
-        private EcsFilter<Pop, AnimatorLink, ChangePopAnimationRequest> _filter;
+        private EcsFilter<Pop, AnimatorProvider, ChangePopAnimationRequest> _filter;
 
         public void Run()
         {
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
-                ref AnimatorLink entityAnimator = ref entity.Get<AnimatorLink>();
+                ref AnimatorProvider entityAnimator = ref entity.Get<AnimatorProvider>();
                 ref ChangePopAnimationRequest changeAnimationAction = ref entity.Get<ChangePopAnimationRequest>();
 
                 if (changeAnimationAction.Animation == StaticData.PopAnimations.IsWalking)

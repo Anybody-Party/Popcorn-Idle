@@ -15,7 +15,7 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref PoolObject poolObject = ref entity.Get<PoolObject>();
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
+                ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
 
                 poolObject.PoolLink.Pool.Enqueue(entity);
                 entityGo.Value.SetActive(false);

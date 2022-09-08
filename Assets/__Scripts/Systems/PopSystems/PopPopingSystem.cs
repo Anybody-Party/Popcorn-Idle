@@ -17,23 +17,19 @@ namespace Client
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref Pop pop = ref entity.Get<Pop>();
-                ref GameObjectLink entityGo = ref entity.Get<GameObjectLink>();
-                ref RigidbodyLink entityRb = ref entity.Get<RigidbodyLink>();
+                ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
+                ref RigidbodyProvider entityRb = ref entity.Get<RigidbodyProvider>();
 
                 entityGo.Value.transform.rotation = new Quaternion(0.0f, 180.0f, 0.0f, 0.0f);
                 entityRb.Value.freezeRotation = true;
 
                 Vector3 randomDirection = Random.onUnitSphere * 0.3f;
-                randomDirection = Vector3.zero;
 
                 entity.Get<AddingForce>() = new AddingForce
                 {
                     Direction = new Vector3(randomDirection.x, Random.Range(_gameData.BalanceData.PopingPopcornForce.x, _gameData.BalanceData.PopingPopcornForce.y), randomDirection.z),
                     ForceMode = ForceMode.Impulse
                 };
-
-                GameObject go = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                go.transform.position = entityGo.Value.transform.position + Vector3.up * 2.0f;
 
                 entity.Del<Poping>();
                 entity.Get<Landing>();

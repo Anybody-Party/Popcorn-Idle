@@ -8,15 +8,15 @@ namespace Client
         private EcsWorld _world;
         private GameData _gameData;
 
-        private EcsFilter<ConveyorLink, LaunchPop>.Exclude<Timer<TimerIntervalSpawnPop>> _filter;
+        private EcsFilter<ConveyorProvider, LaunchPop>.Exclude<Timer<TimerIntervalSpawnPop>> _filter;
 
         public void Run()
         {
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
-                ref ConveyorLink conveyor = ref entity.Get<ConveyorLink>();
-                ref GameObjectLink conveyorGo = ref entity.Get<GameObjectLink>();
+                ref ConveyorProvider conveyor = ref entity.Get<ConveyorProvider>();
+                ref GameObjectProvider conveyorGo = ref entity.Get<GameObjectProvider>();
 
                 entity.Get<Timer<TimerIntervalSpawnPop>>().Value = _gameData.RuntimeData.GetPopSpawnTime();
 

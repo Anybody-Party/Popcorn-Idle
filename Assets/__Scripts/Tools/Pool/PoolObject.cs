@@ -4,6 +4,6 @@ namespace Client
 {
     internal struct PoolObject
     {
-        public ObjectPoolLink PoolLink;
+        public ObjectPoolProvider PoolLink;
     }
 }
