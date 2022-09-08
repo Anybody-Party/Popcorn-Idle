@@ -73,6 +73,7 @@ namespace Client
                 .Add(new AudioSystem())
                 .Add(new SettingScreenSystem())
                 .Add(new CheatScreenSystem())
+                .Add(new UpgradeScreenSystem())
                 .Add(new OfflineBonusSystem())
                 .Add(new TutorialSystem())
 

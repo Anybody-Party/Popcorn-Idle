@@ -30,19 +30,26 @@ namespace Client
                 foreach (var conveyor in _conveyorFilter)
                 {
                     _conveyorFilter.Get1(conveyor).StoveMaterial.UpdateEmmision(temperatureWithMax, temperatureWithMax);
-                    if(temperature > 220.0f)
+                    if(temperature > 50.0f)
                     {
-                        if (!_conveyorFilter.Get1(conveyor).HeatSteam.activeInHierarchy)
-                            _conveyorFilter.Get1(conveyor).HeatSteam.SetActive(true);
                         if (!_conveyorFilter.Get1(conveyor).AirHeatDistortion.activeInHierarchy)
                             _conveyorFilter.Get1(conveyor).AirHeatDistortion.SetActive(true);
                     }
                     else
                     {
-                        if (_conveyorFilter.Get1(conveyor).HeatSteam.activeInHierarchy)
-                            _conveyorFilter.Get1(conveyor).HeatSteam.SetActive(false);
                         if (_conveyorFilter.Get1(conveyor).AirHeatDistortion.activeInHierarchy)
                             _conveyorFilter.Get1(conveyor).AirHeatDistortion.SetActive(false);
+                    }
+
+                    if (temperature > 25.0f)
+                    {
+                        if (!_conveyorFilter.Get1(conveyor).HeatSteam.activeInHierarchy)
+                            _conveyorFilter.Get1(conveyor).HeatSteam.SetActive(true);
+                    }
+                    else
+                    {
+                        if (_conveyorFilter.Get1(conveyor).HeatSteam.activeInHierarchy)
+                            _conveyorFilter.Get1(conveyor).HeatSteam.SetActive(false);
                     }
                 }
 

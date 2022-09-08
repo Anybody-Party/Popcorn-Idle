@@ -10,12 +10,6 @@ namespace Client
         private EcsWorld _world;
 
         private EcsFilter<UpgradeEvent> _filter;
-        private EcsFilter<ShowUpgradeScreenRequest> _showRequestFilter;
-
-        private EcsFilter<SpendGoldPopEvent> _spendGoldFilter;
-        private EcsFilter<AddGoldPopEvent> _addGoldFilter;
-        private EcsFilter<SpendMoneyEvent> _spendMoneyFilter;
-        private EcsFilter<EarnMoneyEvent> _earnMoneyFilter;
 
         public void Run()
         {
@@ -35,14 +29,6 @@ namespace Client
                 GameData.Instance.PlayerData.UpdateUpgradeDataLevel();
                 _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.BuyUpdateSound;
                 entity.Del<UpgradeEvent>();
-            }
-
-            foreach (var idx in _showRequestFilter)
-            {
-                ref EcsEntity entity = ref _showRequestFilter.GetEntity(idx);
-                _gameUi.SetShowStateUpgradeScreen(true);
-                _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.UiNavigationSound;
-                entity.Del<ShowUpgradeScreenRequest>();
             }
         }
     }

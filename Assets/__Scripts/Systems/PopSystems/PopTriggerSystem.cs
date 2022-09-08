@@ -41,7 +41,7 @@ namespace Client
                     entity.Get<CleanIt>();
                 }
 
-                if (!entity.Has<ReadyToSell>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.SellZoneTag))
+                if (!entity.Has<ReadyToSell>() && !entity.Has<CleanIt>() && entityCollision.Collider.gameObject.CompareTag(_gameData.StaticData.SellZoneTag))
                 {
                     entity.Get<GetMoneyForPopInSellZone>().PopEntity = entity;
 

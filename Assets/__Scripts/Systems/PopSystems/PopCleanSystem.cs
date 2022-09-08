@@ -27,10 +27,9 @@ namespace Client
 
                 entity.Get<Timer<TimerForPopClean>>().Value = _gameData.BalanceData.CleanTime;
                 Transform tr = entityGo.Value.transform;
-                Transform parentBefore = tr.parent;
                 tr.SetParent(null);
-                Vector3 scaleBefore = tr.localScale;
-                tr.DOScale(Vector3.zero, _gameData.BalanceData.CleanTime - 0.01f).SetEase(Ease.InOutBounce).OnComplete(() => { tr.DOScale(scaleBefore, 0.0f); tr.SetParent(parentBefore); });
+                //tr.DOScale(Vector3.zero, _gameData.BalanceData.CleanTime - 0.01f).SetEase(Ease.InOutBounce).OnComplete(() => { tr.DOScale(scaleBefore, 0.0f); tr.SetParent(parentBefore); }); TODO: Remove
+                tr.DOScale(Vector3.zero, _gameData.BalanceData.CleanTime - 0.01f).SetEase(Ease.InOutBounce);
             }
 
             foreach (var idx in _timerDoneFilter)
