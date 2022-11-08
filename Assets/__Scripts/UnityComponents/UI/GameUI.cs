@@ -9,6 +9,7 @@ public class GameUI : MonoBehaviour
     [SerializeField] public OfflineBonusScreen OfflineBonusScreen;
     [SerializeField] public GameScreen GameScreen;
     [SerializeField] public UpgradeScreen UpgradeScreen;
+    [SerializeField] public EpicUpgradeScreen LabUpgradeScreen;
     [SerializeField] public SettingScreen SettingScreen;
     [SerializeField] public CheatScreen CheatScreen;
 
@@ -24,7 +25,8 @@ public class GameUI : MonoBehaviour
         foreach (var screen in screens)
         {
             screen.gameObject.SetActive(true);
-            screen.Init(ecsWorld);
+            screen.InjectEcsWorld(ecsWorld);
+            screen.Init();
             screen.gameObject.SetActive(false);
         }
     }
@@ -32,6 +34,7 @@ public class GameUI : MonoBehaviour
     public void SetShowStateLevelCompleteScreen(bool isShow) => LevelCompleteScreen.SetShowState(isShow);
     public void SetShowStateGameScreen(bool isShow) => GameScreen.SetShowState(isShow);
     public void SetShowStateUpgradeScreen(bool isShow) => UpgradeScreen.SetShowState(isShow);
+    public void SetShowStateLabUpgradeScreen(bool isShow) => LabUpgradeScreen.SetShowState(isShow);
     public void SetShowStateSettingScreen(bool isShow) => SettingScreen.SetShowState(isShow);
     public void SetShowStateCheatScreen(bool isShow) => CheatScreen.SetShowState(isShow);
 

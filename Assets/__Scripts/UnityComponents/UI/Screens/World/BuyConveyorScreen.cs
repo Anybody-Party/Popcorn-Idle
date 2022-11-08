@@ -10,13 +10,14 @@ public class BuyConveyorScreen : BaseScreen
     [SerializeField] private int productLineId;
 
     [SerializeField] private ActionButton buyButton;
+
     [SerializeField] private TextMeshProUGUI priceText;
 
-    private void Start()
+    protected override void ManualStart()
     {
         buyButton.OnClickEvent.AddListener(() =>
-        EcsWorld.NewEntity()
-        .Get<BuyConveyorRequest>().ConveyorId = conveyorId);
+            EcsWorld.NewEntity()
+                .Get<BuyConveyorRequest>().ConveyorId = conveyorId);
 
         UpdateButtonView();
     }

@@ -24,17 +24,9 @@ public class PlayerData : BaseDataSO
     public int CurrentLevelIndex;
     public float CurrentLevelProgress;
 
-    [Header("Heating"), BoxGroup("Common")] public UpgradeLevelData HeatingMaxTemperatureUpgrade;
-    [BoxGroup("Common")] public UpgradeLevelData HeatingSpeedUpgrade;
-    [BoxGroup("Common")] public UpgradeLevelData HeatingMinTemperatureUpgrade;
-
-    [Header("Conveyor"), BoxGroup("Common")] public UpgradeLevelData SpawnSpeedUpgrade;
-    [BoxGroup("Common")] public UpgradeLevelData ConveyorSpeedUpgrade;
-    [BoxGroup("Common")] public UpgradeLevelData BagSizeUpgrade;
-
-    [Header("Earning"), BoxGroup("Common")] public UpgradeLevelData EarnForPopUpgrade;
-    [BoxGroup("Common")] public UpgradeLevelData EarnForBagUpgrade;
-    [BoxGroup("Common")] public UpgradeLevelData EarnOfflineUpgrade;
+    [Header("Heating")] public UpgradeLevelData HeatingPowerUpgrade;
+    [Header("SpawnSpeed")] public UpgradeLevelData SpawnSpeedUpgrade;
+    [Header("Earning")] public UpgradeLevelData EarnUpgrade;
 
     [BoxGroup("Epic")] public UpgradeLevelData RepairStoveUpgrade;
     [BoxGroup("Epic")] public UpgradeLevelData LuckyBoyUpgrade;
@@ -59,17 +51,9 @@ public class PlayerData : BaseDataSO
         CurrentLevelIndex = 0;
         CurrentLevelProgress = 0.0f;
 
-        HeatingMaxTemperatureUpgrade.Level = 0;
-        HeatingSpeedUpgrade.Level = 0;
-        HeatingMinTemperatureUpgrade.Level = 0;
-
+        HeatingPowerUpgrade.Level = 0;
         SpawnSpeedUpgrade.Level = 0;
-        ConveyorSpeedUpgrade.Level = 0;
-        BagSizeUpgrade.Level = 0;
-
-        EarnForPopUpgrade.Level = 0;
-        EarnForBagUpgrade.Level = 0;
-        EarnOfflineUpgrade.Level = 0;
+        EarnUpgrade.Level = 0;
 
         RepairStoveUpgrade.Level = 0;
         LuckyBoyUpgrade.Level = 0;
@@ -81,7 +65,7 @@ public class PlayerData : BaseDataSO
         for (int i = 1; i < ProductLineBuyed.Count; i++)
             ConveyorBuyed[i] = false;
 
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 3; i++)
             CommonUpgradeLevels[i].Level = 0;
 
         for (int i = 0; i < 3; i++)
@@ -121,7 +105,7 @@ public class PlayerData : BaseDataSO
                 if (itemIn.UpgradeKey == itemOut.UpgradeKey)
                     itemIn.Level = itemOut.Level;
 
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 3; i++)
             CommonUpgradeLevels[i].Level = 0;
 
         for (int i = 0; i < 3; i++)
@@ -130,17 +114,9 @@ public class PlayerData : BaseDataSO
         for (int i = 0; i < 4; i++)
             TutrorialStates[i] = false;
 
-        HeatingMaxTemperatureUpgrade.Level = 0;
-        HeatingSpeedUpgrade.Level = 0;
-        HeatingMinTemperatureUpgrade.Level = 0;
-
+        HeatingPowerUpgrade.Level = 0;
         SpawnSpeedUpgrade.Level = 0;
-        ConveyorSpeedUpgrade.Level = 0;
-        BagSizeUpgrade.Level = 0;
-
-        EarnForPopUpgrade.Level = 0;
-        EarnForBagUpgrade.Level = 0;
-        EarnOfflineUpgrade.Level = 0;
+        EarnUpgrade.Level = 0;
 
         RepairStoveUpgrade.Level = 0;
         LuckyBoyUpgrade.Level = 0;
@@ -159,26 +135,12 @@ public class PlayerData : BaseDataSO
     {
         for (int i = 0; i < GameData.Instance.BalanceData.CommonUpgradeData.Count; i++)
         {
-            if (HeatingMaxTemperatureUpgrade.UpgradeKey == GameData.Instance.BalanceData.CommonUpgradeData[i].UpgradeKey)
-                HeatingMaxTemperatureUpgrade.Level = GameData.Instance.BalanceData.CommonUpgradeData[i].Level;
-            if (HeatingSpeedUpgrade.UpgradeKey == GameData.Instance.BalanceData.CommonUpgradeData[i].UpgradeKey)
-                HeatingSpeedUpgrade.Level = GameData.Instance.BalanceData.CommonUpgradeData[i].Level;
-            if (HeatingMinTemperatureUpgrade.UpgradeKey == GameData.Instance.BalanceData.CommonUpgradeData[i].UpgradeKey)
-                HeatingMinTemperatureUpgrade.Level = GameData.Instance.BalanceData.CommonUpgradeData[i].Level;
-
+            if (HeatingPowerUpgrade.UpgradeKey == GameData.Instance.BalanceData.CommonUpgradeData[i].UpgradeKey)
+                HeatingPowerUpgrade.Level = GameData.Instance.BalanceData.CommonUpgradeData[i].Level;
             if (SpawnSpeedUpgrade.UpgradeKey == GameData.Instance.BalanceData.CommonUpgradeData[i].UpgradeKey)
                 SpawnSpeedUpgrade.Level = GameData.Instance.BalanceData.CommonUpgradeData[i].Level;
-            if (ConveyorSpeedUpgrade.UpgradeKey == GameData.Instance.BalanceData.CommonUpgradeData[i].UpgradeKey)
-                ConveyorSpeedUpgrade.Level = GameData.Instance.BalanceData.CommonUpgradeData[i].Level;
-            if (BagSizeUpgrade.UpgradeKey == GameData.Instance.BalanceData.CommonUpgradeData[i].UpgradeKey)
-                BagSizeUpgrade.Level = GameData.Instance.BalanceData.CommonUpgradeData[i].Level;
-
-            if (EarnForPopUpgrade.UpgradeKey == GameData.Instance.BalanceData.CommonUpgradeData[i].UpgradeKey)
-                EarnForPopUpgrade.Level = GameData.Instance.BalanceData.CommonUpgradeData[i].Level;
-            if (EarnForBagUpgrade.UpgradeKey == GameData.Instance.BalanceData.CommonUpgradeData[i].UpgradeKey)
-                EarnForBagUpgrade.Level = GameData.Instance.BalanceData.CommonUpgradeData[i].Level;
-            if (EarnOfflineUpgrade.UpgradeKey == GameData.Instance.BalanceData.CommonUpgradeData[i].UpgradeKey)
-                EarnOfflineUpgrade.Level = GameData.Instance.BalanceData.CommonUpgradeData[i].Level;
+            if (EarnUpgrade.UpgradeKey == GameData.Instance.BalanceData.CommonUpgradeData[i].UpgradeKey)
+                EarnUpgrade.Level = GameData.Instance.BalanceData.CommonUpgradeData[i].Level;
         }
 
         for (int i = 0; i < GameData.Instance.BalanceData.EpicUpgradeData.Count; i++)

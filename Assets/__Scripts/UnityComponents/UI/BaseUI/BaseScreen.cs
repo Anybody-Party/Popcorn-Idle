@@ -9,17 +9,24 @@ using UnityEngine.UI;
 
 public abstract class BaseScreen : UIElement
 {
-    protected bool ScreenIsShow;
+    protected bool IsScreenShow;
 
     [HideInInspector] public EcsWorld EcsWorld;
 
     [HideInInspector] public UnityEvent OnHideScreen;
     [HideInInspector] public UnityEvent OnShowScreen;
 
-    public void Init(EcsWorld ecsWorld)
+    protected abstract void ManualStart();
+    
+    public void InjectEcsWorld(EcsWorld ecsWorld)
     {
         EcsWorld = ecsWorld;
-        ScreenIsShow = false;
+    }
+
+    public void Init()
+    {
+        ManualStart();
+        IsScreenShow = false;
     }
 
     public override void SetShowState(bool _isShow) // [System.Runtime.CompilerServices.CallerMemberName] string memberName = "" - WHO
@@ -28,12 +35,12 @@ public abstract class BaseScreen : UIElement
         if (_isShow)
         {
             OnShowScreen?.Invoke();
-            ScreenIsShow = true;
+            IsScreenShow = true;
         }
         else
         {
             OnHideScreen?.Invoke();
-            ScreenIsShow = false;
+            IsScreenShow = false;
         }
     }
 }

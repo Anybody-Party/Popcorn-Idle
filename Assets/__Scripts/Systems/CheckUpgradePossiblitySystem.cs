@@ -30,10 +30,6 @@ namespace Client
         {
             bool canBuyUpgrade = false;
 
-            for (int i = 0; i < GameData.Instance.BalanceData.CommonUpgradeData.Count; i++)
-                if (GameData.Instance.BalanceData.CommonUpgradeData[i].CanBuyIt())
-                    canBuyUpgrade = true;
-
             for (int i = 0; i < GameData.Instance.BalanceData.EpicUpgradeData.Count; i++)
                 if (GameData.Instance.BalanceData.EpicUpgradeData[i].CanBuyIt())
                     canBuyUpgrade = true;

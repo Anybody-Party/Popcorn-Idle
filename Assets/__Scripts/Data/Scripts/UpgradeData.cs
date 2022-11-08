@@ -18,10 +18,6 @@ public class UpgradeData : BaseDataSO
     public string UpgradeDescription;
     public Sprite UpgradeSprite;
 
-    [Header("Joke")]
-    public string JokeUpgradeName;
-    public string JokeUpgradeDescription;
-
     [Header("Data")]
     public int Level;
     public int MaxLevel;

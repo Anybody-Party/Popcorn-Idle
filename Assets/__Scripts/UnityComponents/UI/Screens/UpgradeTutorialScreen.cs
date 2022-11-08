@@ -10,12 +10,12 @@ public class UpgradeTutorialScreen : BaseScreen
 {
     [SerializeField] private ActionButton completeTutorialButton;
 
-    private void Start()
+    protected override void ManualStart()
     {
         completeTutorialButton.OnClickEvent.AddListener(() =>
         {
             EcsWorld.NewEntity().Get<CompleteTutorialEvent>().Tutorial = StaticData.Tutorials.Upgrade;
-            EcsWorld.NewEntity().Get<ShowUpgradeScreenRequest>();
+            EcsWorld.NewEntity().Get<ShowLabUpgradeScreenRequest>();
             SetShowState(false);
         });
     }

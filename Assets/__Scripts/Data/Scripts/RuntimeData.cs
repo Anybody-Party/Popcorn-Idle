@@ -7,7 +7,6 @@ public class RuntimeData : BaseData
 {
     public float Temperature;
 
-    public bool IsHeatButtonPressed;
     public bool IsTapSpeedUpWorking;
     public List<int> ReadyToSellCounter;
 
@@ -24,26 +23,26 @@ public class RuntimeData : BaseData
 
     public float GetHeatingSpeed()
     {
-        float value = GameData.Instance.BalanceData.BaseHeatingSpeed * Mathf.Pow(GameData.Instance.BalanceData.HeatingSpeedMultiplierForLevel, GameData.Instance.PlayerData.HeatingSpeedUpgrade.Level);
+        float value = GameData.Instance.BalanceData.BaseHeatingSpeed * Mathf.Pow(GameData.Instance.BalanceData.HeatingSpeedMultiplierForLevel, GameData.Instance.PlayerData.HeatingPowerUpgrade.Level);
         return value;
     }
 
     public float GetMaxTemperature()
     {
-        float value = GameData.Instance.BalanceData.CurrentTemperatureCap.y + GameData.Instance.PlayerData.HeatingMaxTemperatureUpgrade.Level * GameData.Instance.BalanceData.TemperatureUpgradeStep;
+        float value = GameData.Instance.BalanceData.CurrentTemperatureCap.y + GameData.Instance.PlayerData.HeatingPowerUpgrade.Level * GameData.Instance.BalanceData.TemperatureUpgradeStep;
         return value;
     }
 
     public float GetMinTemperature()
     {
-        float value = GameData.Instance.BalanceData.CurrentTemperatureCap.x + GameData.Instance.PlayerData.HeatingMinTemperatureUpgrade.Level * GameData.Instance.BalanceData.TemperatureUpgradeStep;
+        float value = GameData.Instance.BalanceData.CurrentTemperatureCap.x + GameData.Instance.PlayerData.HeatingPowerUpgrade.Level * GameData.Instance.BalanceData.TemperatureUpgradeStep;
         return value;
     }
 
     public float GetPopSpeed()
     {
         float value = GameData.Instance.RuntimeData.IsTapSpeedUpWorking ? GameData.Instance.BalanceData.BasePopcornSpeed * GameData.Instance.BalanceData.TapSpeedUpSpeedCoef : GameData.Instance.BalanceData.BasePopcornSpeed;
-        value += GameData.Instance.PlayerData.ConveyorSpeedUpgrade.Level * GameData.Instance.BalanceData.ConveyerSpeedUpgradeBase;
+        value += GameData.Instance.PlayerData.SpawnSpeedUpgrade.Level * GameData.Instance.BalanceData.ConveyerSpeedUpgradeBase;
         return value;
     }
 
@@ -61,19 +60,19 @@ public class RuntimeData : BaseData
 
     public double GetPopEarning()
     {
-        double value = (GameData.Instance.BalanceData.BasePopSellReward * GameData.Instance.BalanceData.PopSellRewardMultiplier) * Mathf.Pow(GameData.Instance.BalanceData.EarningPopMultiplierForLevel, GameData.Instance.PlayerData.EarnForPopUpgrade.Level);
+        double value = (GameData.Instance.BalanceData.BasePopSellReward * GameData.Instance.BalanceData.PopSellRewardMultiplier) * Mathf.Pow(GameData.Instance.BalanceData.EarningPopMultiplierForLevel, GameData.Instance.PlayerData.EarnUpgrade.Level);
         return value;
     }
 
     public int InBigBagPopcornAmount()
     {
-        int value = GameData.Instance.BalanceData.BasePopcornsInBigBag + GameData.Instance.PlayerData.BagSizeUpgrade.Level;
+        int value = GameData.Instance.BalanceData.BasePopcornsInBigBag + GameData.Instance.PlayerData.EarnUpgrade.Level;
         return value;
     }
 
     public double GetBagEarning()
     {
-        double value = ((GameData.Instance.BalanceData.BaseBagSellReward * InBigBagPopcornAmount()) * GameData.Instance.BalanceData.BagSellRewardMultiplier) * Mathf.Pow(GameData.Instance.BalanceData.EarningBagMultiplierForLevel, GameData.Instance.PlayerData.EarnForBagUpgrade.Level);
+        double value = ((GameData.Instance.BalanceData.BaseBagSellReward * InBigBagPopcornAmount()) * GameData.Instance.BalanceData.BagSellRewardMultiplier) * Mathf.Pow(GameData.Instance.BalanceData.EarningBagMultiplierForLevel, GameData.Instance.PlayerData.EarnUpgrade.Level);
         return value;
     }
 
@@ -97,7 +96,7 @@ public class RuntimeData : BaseData
 
     public float GetConveyorBeltSpeedView()
     {
-        float value = GameData.Instance.BalanceData.BaseConveyorBeltSpeed + GameData.Instance.PlayerData.ConveyorSpeedUpgrade.Level * 0.005f;
+        float value = GameData.Instance.BalanceData.BaseConveyorBeltSpeed + GameData.Instance.PlayerData.SpawnSpeedUpgrade.Level * 0.005f;
        return value;
     }
 

@@ -24,7 +24,7 @@ MonoBehaviour:
   SpeedUpTime: 2
   CleanTime: 1
   BaseSpawnPopTime: 8
-  BaseCookingTime: 10
+  BaseCookingTime: 14
   BaseGetGoldPopTime: 2
   OfflineTimeHourCap: {x: 1, y: 5}
   StartMoney: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b118d12617fdb5e44937d78525731435, type: 2}
   - {fileID: 11400000, guid: a4e9d1ca81fd98544bc2abd47a5fe6b2, type: 2}
   TemperatureUpgradeStep: 2.5
-  ConveyerSpeedUpgradeBase: 0.0003
+  ConveyerSpeedUpgradeBase: 0.0001
   SpawnTimePopMultiplierForLevel: 0.9
   CookingTimePopMultiplierForLevel: 0.9
   EarningPopMultiplierForLevel: 1.16

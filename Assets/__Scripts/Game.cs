@@ -54,6 +54,7 @@ namespace Client
                 .Add(new ConveyorBeltViewSystem())
                 .Add(new HeatingSystem())
                 .Add(new HeatingViewSystem())
+                .Add(new PopTapSystem())
                 .Add(spawnSystems)
                 .Add(inputSystems)
                 .Add(popSystems)
@@ -80,6 +81,7 @@ namespace Client
                 .OneFrame<MovingCompleteEvent>()
                 .OneFrame<ChangeGameStateRequest>()
                 .OneFrame<PopCookingDoneEvent>()
+                .OneFrame<TapPopButtonEvent>()
 
                 .Inject(_gameData)
                 .Inject(_gameUi)

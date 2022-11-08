@@ -8,7 +8,7 @@ public class OfflineBonusScreen : BaseScreen
     [SerializeField] private ActionButton hideScreenButton;
     [SerializeField] private TextMeshProUGUI rewardMoneyText;
 
-    private void Start()
+    protected override void ManualStart()
     {
         getRewardButton.OnClickEvent.AddListener(() =>
         EcsWorld.NewEntity()

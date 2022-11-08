@@ -17,7 +17,7 @@ public class SettingScreen : BaseScreen
     [SerializeField] private Sprite soundOffSprite;
     [SerializeField] private Image soundStateImage;
 
-    private void Start()
+    protected override void ManualStart()
     {
         vibrationStateImage.sprite = GameData.Instance.PlayerData.IsVibrationOn ? vibrationOnSprite : vibrationOffSprite;
         soundStateImage.sprite = GameData.Instance.PlayerData.IsSoundOn ? soundOnSprite : soundOffSprite;

@@ -8,6 +8,10 @@ public class LevelCompleteScreen : BaseScreen
     [SerializeField] private ActionButton hideScreenButton;
     [SerializeField] private TextMeshProUGUI rewardMoneyText;
 
+    protected override void ManualStart()
+    {
+    }
+
     private void Start()
     {
         //getRewardButton.OnClickEvent.AddListener(() =>

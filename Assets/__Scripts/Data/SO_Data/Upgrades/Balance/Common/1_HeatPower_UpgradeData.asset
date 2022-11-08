@@ -10,20 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9636022511e84a84490e2074e104a2ad, type: 3}
-  m_Name: 4_SpawnSpeed_UpgradeData
+  m_Name: 1_HeatPower_UpgradeData
   m_EditorClassIdentifier: 
-  UpgradeKey: SpawnSpeed
-  UpgradeName: SPAWN SPEED
-  UpgradeDescription: Reduce time between corn production = <b><color=#EC9313>{0}
-    sec</color></b>
-  UpgradeSprite: {fileID: 21300000, guid: 9f78a14eb2bc0b04885942c0ccf4a7cd, type: 3}
-  JokeUpgradeName: 
-  JokeUpgradeDescription: 
-  Level: 0
+  UpgradeKey: HeatPower
+  UpgradeName: HEATING
+  UpgradeDescription: Heating rate from your finger = <b><color=#EC9313>{0}</color></b>
+  UpgradeSprite: {fileID: 21300000, guid: fb5f1863f8664c449af57a2913e10c62, type: 3}
+  Level: 1
   MaxLevel: 25
   IsEpicUpgrade: 0
-  BasePrice: 120
-  PriceProgressionCoef: 1.03
-  MultiplierForLevel: 0.9
-  StartValue: 8
+  BasePrice: 10
+  PriceProgressionCoef: 1.56
+  MultiplierForLevel: 1.07
+  StartValue: 1.25
   StepValue: 0

@@ -22,32 +22,14 @@ MonoBehaviour:
   PopcornAmount: 1
   CurrentLevelIndex: 0
   CurrentLevelProgress: 0
-  HeatingMaxTemperatureUpgrade:
-    UpgradeKey: MaxTemp
-    Level: 0
-  HeatingSpeedUpgrade:
-    UpgradeKey: HeatSpeed
-    Level: 0
-  HeatingMinTemperatureUpgrade:
-    UpgradeKey: MinTemp
+  HeatingPowerUpgrade:
+    UpgradeKey: HeatPower
     Level: 0
   SpawnSpeedUpgrade:
     UpgradeKey: SpawnSpeed
     Level: 0
-  ConveyorSpeedUpgrade:
-    UpgradeKey: ConveyorSpeed
-    Level: 0
-  BagSizeUpgrade:
-    UpgradeKey: BagSize
-    Level: 0
-  EarnForPopUpgrade:
-    UpgradeKey: EarinigPop
-    Level: 0
-  EarnForBagUpgrade:
-    UpgradeKey: EarningBag
-    Level: 0
-  EarnOfflineUpgrade:
-    UpgradeKey: EarningOffline
+  EarnUpgrade:
+    UpgradeKey: Earn
     Level: 0
   RepairStoveUpgrade:
     UpgradeKey: RepairStoveSystems
@@ -59,23 +41,11 @@ MonoBehaviour:
     UpgradeKey: MilkyChoco
     Level: 0
   CommonUpgradeLevels:
-  - UpgradeKey: MaxTemp
-    Level: 0
-  - UpgradeKey: HeatSpeed
-    Level: 0
-  - UpgradeKey: MinTemp
+  - UpgradeKey: HeatPower
     Level: 0
   - UpgradeKey: SpawnSpeed
     Level: 0
-  - UpgradeKey: ConveyorSpeed
-    Level: 0
-  - UpgradeKey: BagSize
-    Level: 0
-  - UpgradeKey: EarinigPop
-    Level: 0
-  - UpgradeKey: EarningBag
-    Level: 0
-  - UpgradeKey: EarningOffline
+  - UpgradeKey: Earn
     Level: 0
   EpicUpgradeLevels:
   - UpgradeKey: RepairStoveSystems

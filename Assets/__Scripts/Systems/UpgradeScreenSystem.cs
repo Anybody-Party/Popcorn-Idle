@@ -8,7 +8,7 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
 
-        private EcsFilter<ShowUpgradeScreenRequest> _showRequestFilter;
+        private EcsFilter<ShowLabUpgradeScreenRequest> _showRequestFilter;
 
         public void Run()
         {
@@ -16,9 +16,9 @@ namespace Client
             foreach (var idx in _showRequestFilter)
             {
                 ref EcsEntity entity = ref _showRequestFilter.GetEntity(idx);
-                _gameUi.SetShowStateUpgradeScreen(true);
+                _gameUi.SetShowStateLabUpgradeScreen(true);
                 _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.UiNavigationSound;
-                entity.Del<ShowUpgradeScreenRequest>();
+                entity.Del<ShowLabUpgradeScreenRequest>();
             }
         }
     }

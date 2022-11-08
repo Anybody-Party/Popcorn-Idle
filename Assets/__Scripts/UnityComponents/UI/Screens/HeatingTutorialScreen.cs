@@ -10,7 +10,7 @@ public class HeatingTutorialScreen : BaseScreen
 {
     [SerializeField] private ActionButton completeTutorialButton;
 
-    private void Start()
+    protected override void ManualStart()
     {
         completeTutorialButton.OnClickEvent.AddListener(() =>
         {

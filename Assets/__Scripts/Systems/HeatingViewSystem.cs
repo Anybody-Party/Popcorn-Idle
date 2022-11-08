@@ -23,9 +23,8 @@ namespace Client
             {
                 float temperature = _gameData.RuntimeData.Temperature / _gameData.RuntimeData.GetMaxTemperature();
                 float temperatureWithMax = _gameData.RuntimeData.Temperature / _gameData.BalanceData.MaxTemperature;
-                _gameUi.GameScreen.UpdateTemperatureProgressBar(temperature);
-                _gameUi.GameScreen.UpdateHeatingButtonColor(temperatureWithMax);
-                _gameUi.GameScreen.UpdateTemperatureText(_gameData.RuntimeData.Temperature);
+                //_gameUi.GameScreen.UpdateTemperatureProgressBar(temperature);
+                //_gameUi.GameScreen.UpdateTemperatureText(_gameData.RuntimeData.Temperature);
 
                 foreach (var conveyor in _conveyorFilter)
                 {

@@ -12,7 +12,7 @@ public class CheatScreen : BaseScreen
     [SerializeField] private ActionButton resetPlayerDataButton;
     [SerializeField] private ActionButton hideScreenButton;
 
-    private void Start()
+    protected override void ManualStart()
     {
         getMoneyButton.OnClickEvent.AddListener(() => CheatGetMoney());
         getGoldButton.OnClickEvent.AddListener(() => CheatGetGold());
@@ -36,17 +36,9 @@ public class CheatScreen : BaseScreen
     private void CheatGoToMidGame()
     {
 
-        GameData.Instance.PlayerData.HeatingMaxTemperatureUpgrade.Level = 12;
-        GameData.Instance.PlayerData.HeatingSpeedUpgrade.Level = 12;
-        GameData.Instance.PlayerData.HeatingMinTemperatureUpgrade.Level = 12;
-
+        GameData.Instance.PlayerData.HeatingPowerUpgrade.Level = 12;
         GameData.Instance.PlayerData.SpawnSpeedUpgrade.Level = 12;
-        GameData.Instance.PlayerData.ConveyorSpeedUpgrade.Level = 12;
-        GameData.Instance.PlayerData.BagSizeUpgrade.Level = 12;
-
-        GameData.Instance.PlayerData.EarnForPopUpgrade.Level = 12;
-        GameData.Instance.PlayerData.EarnForBagUpgrade.Level = 12;
-        GameData.Instance.PlayerData.EarnOfflineUpgrade.Level = 12;
+        GameData.Instance.PlayerData.EarnUpgrade.Level = 12;
 
         GameData.Instance.PlayerData.RepairStoveUpgrade.Level = 12;
         GameData.Instance.PlayerData.LuckyBoyUpgrade.Level = 12;
@@ -58,17 +50,9 @@ public class CheatScreen : BaseScreen
 
     private void CheatGoToLateGame()
     {
-        GameData.Instance.PlayerData.HeatingMaxTemperatureUpgrade.Level = 25;
-        GameData.Instance.PlayerData.HeatingSpeedUpgrade.Level = 25;
-        GameData.Instance.PlayerData.HeatingMinTemperatureUpgrade.Level = 25;
-
+        GameData.Instance.PlayerData.HeatingPowerUpgrade.Level = 25;
         GameData.Instance.PlayerData.SpawnSpeedUpgrade.Level = 25;
-        GameData.Instance.PlayerData.ConveyorSpeedUpgrade.Level = 25;
-        GameData.Instance.PlayerData.BagSizeUpgrade.Level = 25;
-
-        GameData.Instance.PlayerData.EarnForPopUpgrade.Level = 25;
-        GameData.Instance.PlayerData.EarnForBagUpgrade.Level = 25;
-        GameData.Instance.PlayerData.EarnOfflineUpgrade.Level = 25;
+        GameData.Instance.PlayerData.EarnUpgrade.Level = 25;
 
         GameData.Instance.PlayerData.RepairStoveUpgrade.Level = 25;
         GameData.Instance.PlayerData.LuckyBoyUpgrade.Level = 25;

@@ -16,7 +16,8 @@ public class WorldGameUI : MonoBehaviour
         foreach (var screen in screens)
         {
             screen.gameObject.SetActive(true);
-            screen.Init(ecsWorld);
+            screen.InjectEcsWorld(ecsWorld);
+            screen.Init();
             screen.gameObject.SetActive(false);
         }
     }
