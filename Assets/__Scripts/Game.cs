@@ -1,5 +1,6 @@
 using Leopotam.Ecs;
 using System.Collections;
+using Client.Analytics.AnalyticManager;
 using UnityEngine;
 
 namespace Client
@@ -19,6 +20,7 @@ namespace Client
 
         [Header("Audio")]
         [SerializeField] private AudioManager _audioManager;
+        [SerializeField] private AnalyticService _analyticService;
 
         private IEnumerator Start()
         {
@@ -33,10 +35,11 @@ namespace Client
 #endif
 
             SetTargetFrameRate();
-            _gameUi.InjectEcsWorld(_ecsWorld);
-            _worldGameUi.InjectEcsWorld(_ecsWorld);
+            _gameUi.InjectEcsWorld(_ecsWorld, _gameData);
+            _worldGameUi.InjectEcsWorld(_ecsWorld, _gameData);
             ProvideMonoEntitiesFromScene();
-
+            _analyticService = new AnalyticService();
+            
             EcsSystems inputSystems = InputSystems();
             EcsSystems spawnSystems = SpawnSystems();
             EcsSystems moveSystems = MoveSystems();
@@ -46,6 +49,7 @@ namespace Client
             //.Add(characterSystems)
             _updateSystems
                 .Add(new InitGameSystem())
+                .Add(new ShortcutCheatSystem())
                 //.Add(new DebugSystem())
                 .Add(timerSystems)
                 .Add(new RaycastSystem())
@@ -87,6 +91,7 @@ namespace Client
                 .Inject(_gameUi)
                 .Inject(_worldGameUi)
                 .Inject(_audioManager)
+                .Inject(_analyticService)
 
                 .Init();
 

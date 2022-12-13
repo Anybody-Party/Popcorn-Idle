@@ -1,4 +1,6 @@
-﻿using Leopotam.Ecs;
+﻿using System.Collections.Generic;
+using Client.Analytics.AnalyticManager;
+using Leopotam.Ecs;
 using UnityEngine;
 
 namespace Client
@@ -8,6 +10,7 @@ namespace Client
         private GameData _gameData;
         private GameUI _gameUi;
         private EcsWorld _world;
+        private AnalyticService _analyticService;
 
         private EcsFilter<HandTakenRequest> _takenfilter;
         private EcsFilter<HandProvider> _handsFilter;
@@ -46,6 +49,14 @@ namespace Client
                             Position = handLink.EarnMoneyPoint.position
                         };
                         handLink.EarnMoneyPS.Play();
+                        _gameData.PlayerData.BagSold++;
+                        
+                        Dictionary<string, object> param = new Dictionary<string, object>
+                        {
+                            {"soldBagCounter", _gameData.PlayerData.BagSold}
+                        };
+                        _analyticService.LogEvent("popcorn_bag_sold", param);
+                        
                         _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.SellBagSound;
                         entity.Del<HandTakenRequest>();
                     }

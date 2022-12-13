@@ -1,4 +1,6 @@
-﻿using Leopotam.Ecs;
+﻿using System.Collections.Generic;
+using Client.Analytics.AnalyticManager;
+using Leopotam.Ecs;
 using UnityEngine;
 
 namespace Client
@@ -8,27 +10,29 @@ namespace Client
         private GameData _gameData;
         private GameUI _gameUi;
         private EcsWorld _world;
+        private AnalyticService _analyticService;
 
-        private EcsFilter<UpgradeEvent> _filter;
+        private EcsFilter<UpgradeRequest> _filter;
 
         public void Run()
         {
             foreach (var idx in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
-                ref UpgradeEvent upgrade = ref entity.Get<UpgradeEvent>();
+                ref UpgradeRequest upgrade = ref entity.Get<UpgradeRequest>();
 
-                foreach (var item in GameData.Instance.PlayerData.CommonUpgradeLevels)
-                    if (item.UpgradeKey == upgrade.Key)
-                        item.Level = upgrade.Level;
+                _gameData.PlayerData.UpgradeLevels[upgrade.UpgradeType]++;
 
-                foreach (var item in GameData.Instance.PlayerData.EpicUpgradeLevels)
-                    if (item.UpgradeKey == upgrade.Key)
-                        item.Level = upgrade.Level;
-
-                GameData.Instance.PlayerData.UpdateUpgradeDataLevel();
-                _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.BuyUpdateSound;
-                entity.Del<UpgradeEvent>();
+                _world.NewEntity().Get<UpgradeEvent>().UpgradeType = upgrade.UpgradeType;
+                
+                Dictionary<string, object> param = new Dictionary<string, object>
+                {
+                    {upgrade.UpgradeType.ToString(), _gameData.PlayerData.UpgradeLevels[upgrade.UpgradeType]}
+                };
+                _analyticService.LogEvent("upgrade", param);
+                
+                //_world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.BuyUpdateSound;
+                entity.Del<UpgradeRequest>();
             }
         }
     }

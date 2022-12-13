@@ -10,8 +10,8 @@ using UnityEngine.UI;
 [Serializable]
 public class UpgradeData : BaseDataSO
 {
-    public string UpgradeKey;
-
+    public StaticData.UpgradeType UpgradeType;
+    
     [Header("View")]
     public string UpgradeName;
     [NaughtyAttributes.ResizableTextArea]
@@ -19,7 +19,6 @@ public class UpgradeData : BaseDataSO
     public Sprite UpgradeSprite;
 
     [Header("Data")]
-    public int Level;
     public int MaxLevel;
     public bool IsEpicUpgrade;
     public double BasePrice;
@@ -30,12 +29,15 @@ public class UpgradeData : BaseDataSO
     public float StartValue;
     public float StepValue;
 
+    private GameData _gameDataService;
+    public void Inject(GameData gameDataService) => _gameDataService = gameDataService;
+    
     public bool CanBuyIt()
     {
-        double price = BasePrice * Mathf.Pow(PriceProgressionCoef, Level);
+        double price = BasePrice * Mathf.Pow(PriceProgressionCoef, _gameDataService.PlayerData.UpgradeLevels[UpgradeType]);
         double currency = IsEpicUpgrade ? GameData.Instance.PlayerData.GoldPopcornAmount : GameData.Instance.PlayerData.Money;
 
-        return currency >= price && Level < MaxLevel;
+        return currency >= price && _gameDataService.PlayerData.UpgradeLevels[UpgradeType] < MaxLevel;
     }
 
     public float GetValue()
@@ -43,9 +45,9 @@ public class UpgradeData : BaseDataSO
         float value = 0;
 
         if (MultiplierForLevel != 0)
-            value = StartValue * Mathf.Pow(MultiplierForLevel, Level);
+            value = StartValue * Mathf.Pow(MultiplierForLevel, _gameDataService.PlayerData.UpgradeLevels[UpgradeType]);
         if(StepValue != 0)
-            value = StartValue + StepValue * Level;
+            value = StartValue + StepValue * _gameDataService.PlayerData.UpgradeLevels[UpgradeType];
 
         return value;
     }

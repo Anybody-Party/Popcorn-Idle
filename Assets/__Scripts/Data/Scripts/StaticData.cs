@@ -49,7 +49,17 @@ public class StaticData : BaseDataSO
         Happy = 2,
         Scary = 3
     }
-
+    
+    public enum UpgradeType
+    {
+        Heat = 0,
+        Speed = 1,
+        Earn = 2,
+        HeatPower = 3,
+        LuckyBoy = 4,
+        Chocolate = 5
+    }
+    
     public enum PopBody
     {
         RawCorn = 0,

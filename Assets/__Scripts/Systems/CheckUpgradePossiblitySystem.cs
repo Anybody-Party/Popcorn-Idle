@@ -20,7 +20,8 @@ namespace Client
 
         public void Run()
         {
-            if (_spendGoldFilter.IsEmpty() && _addGoldFilter.IsEmpty() && _spendMoneyFilter.IsEmpty() && _earnMoneyFilter.IsEmpty())
+            if (_spendGoldFilter.IsEmpty() && _addGoldFilter.IsEmpty() && _spendMoneyFilter.IsEmpty() &&
+                _earnMoneyFilter.IsEmpty())
                 return;
 
             CheckCanUpgrade();
@@ -30,9 +31,14 @@ namespace Client
         {
             bool canBuyUpgrade = false;
 
-            for (int i = 0; i < GameData.Instance.BalanceData.EpicUpgradeData.Count; i++)
-                if (GameData.Instance.BalanceData.EpicUpgradeData[i].CanBuyIt())
-                    canBuyUpgrade = true;
+            for (int i = 0; i < GameData.Instance.BalanceData.UpgradeData.Count; i++)
+                if ((GameData.Instance.BalanceData.UpgradeData[i].UpgradeType == StaticData.UpgradeType.Chocolate &&
+                     GameData.Instance.BalanceData.UpgradeData[i].CanBuyIt())
+                    || (GameData.Instance.BalanceData.UpgradeData[i].UpgradeType == StaticData.UpgradeType.HeatPower &&
+                        GameData.Instance.BalanceData.UpgradeData[i].CanBuyIt())
+                        || (GameData.Instance.BalanceData.UpgradeData[i].UpgradeType ==
+                            StaticData.UpgradeType.LuckyBoy && GameData.Instance.BalanceData.UpgradeData[i].CanBuyIt()))
+            canBuyUpgrade = true;
 
             _gameUi.GameScreen.SetCanBuyUpgradeIndicator(canBuyUpgrade);
 

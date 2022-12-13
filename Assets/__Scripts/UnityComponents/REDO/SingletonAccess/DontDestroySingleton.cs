@@ -1,25 +1,27 @@
 using UnityEngine;
 
-
-public class DontDestroySingleton<T> : MonoBehaviour where T : MonoBehaviour
+namespace __Scripts.UnityComponents.REDO.SingletonAccess
 {
-    public static T Instance { get; private set; }
-
-    private void Awake()
+    public class DontDestroySingleton<T> : MonoBehaviour where T : MonoBehaviour
     {
-        if (Instance == null)
-        {
-            Instance = this as T;
-            DontDestroyOnLoad(this);
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
+        public static T Instance { get; private set; }
 
-    private void OnDestroy()
-    {
-        Instance = null;
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this as T;
+                DontDestroyOnLoad(this);
+            }
+            else if (Instance != this)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            Instance = null;
+        }
     }
 }

@@ -11,7 +11,7 @@ public class UpgradeScreen : BaseScreen
     protected override void ManualStart()
     {
         for (int i = 0; i < upgradeButtons.Count; i++)
-            upgradeButtons[i].InitData(upgradeDatas[i], EcsWorld);
+            upgradeButtons[i].InitData(upgradeDatas[i], EcsWorld, GameData);
     }
 
     private void Update()

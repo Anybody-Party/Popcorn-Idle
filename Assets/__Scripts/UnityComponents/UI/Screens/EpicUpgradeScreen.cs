@@ -12,7 +12,7 @@ public class EpicUpgradeScreen : BaseScreen
     protected override void ManualStart()
     {
         for (int i = 0; i < labUpgradeButtons.Count; i++)
-            labUpgradeButtons[i].InitData(labUpgradeDatas[i], EcsWorld);
+            labUpgradeButtons[i].InitData(labUpgradeDatas[i], EcsWorld, GameData);
 
         epicHideScreenButton.OnClickEvent.AddListener(() => SetShowState(false));
 

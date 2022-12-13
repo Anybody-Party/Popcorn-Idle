@@ -1,25 +1,28 @@
 using System;
 
-public abstract class Singleton<TSelf> where TSelf : Singleton<TSelf>
+namespace __Scripts.UnityComponents.REDO.SingletonAccess
 {
-    public static TSelf Instance { get; private set; }
-
-    protected Singleton()
+    public abstract class Singleton<TSelf> where TSelf : Singleton<TSelf>
     {
-        if (Instance != null)
-            throw new Exception($"[Singleton] - {typeof(TSelf).Name} already instantiated.");
+        public static TSelf Instance { get; private set; }
 
-        Instance = this as TSelf;
+        protected Singleton()
+        {
+            if (Instance != null)
+                throw new Exception($"[Singleton] - {typeof(TSelf).Name} already instantiated.");
+
+            Instance = this as TSelf;
+        }
+
+        public static void DestroyInstance()
+        {
+            if (Instance == null)
+                throw new Exception($"[Singleton] - {typeof(TSelf).Name} try to destroy without Instance.");
+
+            Instance.PrepareToDestroy();
+            Instance = null;
+        }
+
+        protected virtual void PrepareToDestroy() { }
     }
-
-    public static void DestroyInstance()
-    {
-        if (Instance == null)
-            throw new Exception($"[Singleton] - {typeof(TSelf).Name} try to destroy without Instance.");
-
-        Instance.PrepareToDestroy();
-        Instance = null;
-    }
-
-    protected virtual void PrepareToDestroy() { }
 }

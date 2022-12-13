@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using __Scripts.UnityComponents.REDO.SingletonAccess;
 using UnityEditor;
 
 public class GameData : MonoBehaviourSingleton<GameData>
@@ -20,7 +21,7 @@ public class GameData : MonoBehaviourSingleton<GameData>
         RuntimeData = new RuntimeData();
         RuntimeData.Init();
         PlayerData.Init();
-
+        BalanceData.InjectEcsWorld(this);
         LoadData();
 
         PlayerData.IsGameLaunchedBefore = true;

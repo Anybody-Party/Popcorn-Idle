@@ -16,7 +16,7 @@ namespace Client
         public void Init()
         {
             int sec = (int)Mathf.Clamp(TimeManager.Offline.LoadOfflineBonus().Second, 60 * 60, 60 * 60 * _gameData.BalanceData.OfflineTimeHourCap.y);
-            reward = sec * _gameData.PlayerData.MoneyInSec * Mathf.Pow(GameData.Instance.BalanceData.EarningOfflineMultiplierForLevel, _gameData.PlayerData.EarnUpgrade.Level);
+            reward = sec * _gameData.PlayerData.MoneyInSec * Mathf.Pow(GameData.Instance.BalanceData.EarningOfflineMultiplierForLevel, _gameData.PlayerData.UpgradeLevels[StaticData.UpgradeType.Earn]);
 
             if (sec > 60 * 60 * _gameData.BalanceData.OfflineTimeHourCap.x)
                 _gameUi.SetShowStateOfflineBonusScreen(true, reward);

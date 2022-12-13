@@ -19,35 +19,34 @@ public class UpgradeButtonView : MonoBehaviour
     public Sprite moneySprite;
     public Sprite goldPopcornSprite;
 
-    public void InitData(UpgradeData upgradeData, EcsWorld _world)
+    private GameData _gameDataService;
+    
+    public void InitData(UpgradeData upgradeData, EcsWorld _world, GameData _gameData)
     {
+        _gameDataService = _gameData;
         upgradeNameText.text = upgradeData.UpgradeName;
+        int level = _gameDataService.PlayerData.UpgradeLevels[upgradeData.UpgradeType];
         if (upgradeData.IsEpicUpgrade)
             upgradeDescriptionText.text = string.Format(upgradeData.UpgradeDescription, upgradeData.GetValue());
         else
-            upgradeDescriptionText.text = $"LEVEL {upgradeData.Level}";
+            upgradeDescriptionText.text = $"LEVEL {level + 1}";
         currencyImage.sprite = upgradeData.IsEpicUpgrade ? goldPopcornSprite : moneySprite;
         buyText.text = "BUY";
         upgradeImage.sprite = upgradeData.UpgradeSprite;
 
         upgradeButton.OnClickEvent.AddListener(() =>
         {
-            double price = upgradeData.BasePrice * Mathf.Pow(upgradeData.PriceProgressionCoef, upgradeData.Level);
+            double price = upgradeData.BasePrice * Mathf.Pow(upgradeData.PriceProgressionCoef, level);
 
             if (upgradeData.IsEpicUpgrade)
                 _world.NewEntity().Get<SpendGoldPopEvent>().Value = price;
             else
                 _world.NewEntity().Get<SpendMoneyEvent>().Value = price;
 
-            upgradeData.Level += 1;
             UpdateInfo(upgradeData);
 
             EcsEntity entity = _world.NewEntity();
-            entity.Get<UpgradeEvent>() = new UpgradeEvent
-            {
-                Key = upgradeData.UpgradeKey,
-                Level = upgradeData.Level
-            };
+            entity.Get<UpgradeRequest>().UpgradeType = upgradeData.UpgradeType;
         });
 
         UpdateInfo(upgradeData);
@@ -55,21 +54,22 @@ public class UpgradeButtonView : MonoBehaviour
 
     public void UpdateInfo(UpgradeData upgradeData)
     {
-        double price = upgradeData.BasePrice * Mathf.Pow(upgradeData.PriceProgressionCoef, upgradeData.Level);
+        int level = _gameDataService.PlayerData.UpgradeLevels[upgradeData.UpgradeType];
+        double price = upgradeData.BasePrice * Mathf.Pow(upgradeData.PriceProgressionCoef, level);
         double currency = upgradeData.IsEpicUpgrade
             ? GameData.Instance.PlayerData.GoldPopcornAmount
             : GameData.Instance.PlayerData.Money;
-        upgradeCounterText.text = $"{upgradeData.Level}/{upgradeData.MaxLevel}";
+        upgradeCounterText.text = $"{level}/{upgradeData.MaxLevel}";
         if (upgradeData.IsEpicUpgrade)
             upgradeDescriptionText.text = string.Format(upgradeData.UpgradeDescription, upgradeData.GetValue());
         else
-            upgradeDescriptionText.text = $"LEVEL {upgradeData.Level}";
+            upgradeDescriptionText.text = $"LEVEL {level + 1}";
         buyPriceText.text = $"<sprite=0> {Utility.FormatMoney(price)}"; // money sprite
-        upgradeProgressBarFill.fillAmount = (float)upgradeData.Level / (float)upgradeData.MaxLevel;
+        upgradeProgressBarFill.fillAmount = (float)level / (float)upgradeData.MaxLevel;
         if (upgradeButton)
-            upgradeButton.SetInteractable(currency >= price && upgradeData.Level < upgradeData.MaxLevel);
+            upgradeButton.SetInteractable(currency >= price && level < upgradeData.MaxLevel);
 
-        if (upgradeData.Level == upgradeData.MaxLevel)
+        if (level == upgradeData.MaxLevel)
         {
             buyText.text = "MAX";
             buyPriceText.text = $"";

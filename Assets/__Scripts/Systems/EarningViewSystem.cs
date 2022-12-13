@@ -10,8 +10,8 @@ namespace Client
         private EcsWorld _world;
 
         private EcsFilter<CreateEarnViewRequest> _requestFilter;
-        private EcsFilter<WorldTextProvider, EarnView>.Exclude<Timer<TimerEarningView>> _initInfoFilter;
-        private EcsFilter<WorldTextProvider, EarnView, TimerDoneEvent<TimerEarningView>>.Exclude<DespawnTag> _despawnInfoFilter;
+        private EcsFilter<WorldTextProvider, EarnView, InUseTag>.Exclude<Timer<TimerEarningView>> _initInfoFilter;
+        private EcsFilter<WorldTextProvider, EarnView, InUseTag, TimerDoneEvent<TimerEarningView>>.Exclude<DespawnTag> _despawnInfoFilter;
 
         public void Run()
         {
@@ -32,6 +32,7 @@ namespace Client
                 };
 
                 entity.Get<PoolObjectRequest>();
+                entity.Get<InUseTag>();
                 entity.Del<CreateEarnViewRequest>();
             }
 
@@ -46,7 +47,14 @@ namespace Client
             }
 
             foreach (var idx in _despawnInfoFilter)
+            {
                 _despawnInfoFilter.GetEntity(idx).Get<DespawnTag>();
+                _despawnInfoFilter.GetEntity(idx).Del<InUseTag>();
+            }
         }
+    }
+
+    public struct InUseTag
+    {
     }
 }

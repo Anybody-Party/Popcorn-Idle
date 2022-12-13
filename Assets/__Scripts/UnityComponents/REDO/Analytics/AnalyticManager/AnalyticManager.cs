@@ -3,6 +3,7 @@
 //using GameAnalyticsSDK;
 using System.Collections;
 using System.Collections.Generic;
+using __Scripts.UnityComponents.REDO.SingletonAccess;
 using UnityEngine;
 
 public class AnalyticManager : MonoBehaviourSingleton<AnalyticManager>

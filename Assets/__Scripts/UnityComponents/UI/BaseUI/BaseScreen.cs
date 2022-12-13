@@ -12,6 +12,7 @@ public abstract class BaseScreen : UIElement
     protected bool IsScreenShow;
 
     [HideInInspector] public EcsWorld EcsWorld;
+    [HideInInspector] public GameData GameData;
 
     [HideInInspector] public UnityEvent OnHideScreen;
     [HideInInspector] public UnityEvent OnShowScreen;
@@ -23,8 +24,9 @@ public abstract class BaseScreen : UIElement
         EcsWorld = ecsWorld;
     }
 
-    public void Init()
+    public void Init(GameData gameData)
     {
+        GameData = gameData;
         ManualStart();
         IsScreenShow = false;
     }

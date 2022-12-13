@@ -1,5 +1,6 @@
 ﻿using MoreMountains.NiceVibrations;
 using System;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -18,6 +19,12 @@ public class ActionButton : UIElement
         unityButton = GetComponent<Button>();
         unityButton.onClick.AddListener(() => OnClickEvent.Invoke());
         OnClickEvent.AddListener(OnClickEventReaction);
+    }
+    [Button()]
+    public void ManualClick()
+    {
+        OnClickEvent.Invoke();
+        OnClickEventReaction();
     }
 
     private void OnClickEventReaction()

@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9636022511e84a84490e2074e104a2ad, type: 3}
   m_Name: 1_RepairStoveSystems_UpgradeData
   m_EditorClassIdentifier: 
-  UpgradeKey: RepairStoveSystems
+  UpgradeType: 3
   UpgradeName: REPAIR STOVE SYSTEMS
   UpgradeDescription: Eliminate heat leakage = <b><color=#EC9313>{0}%</color></b>
   UpgradeSprite: {fileID: 21300000, guid: 474c115799c863e419126338b8cd1714, type: 3}
-  JokeUpgradeName: 
-  JokeUpgradeDescription: 
-  Level: 0
   MaxLevel: 10
   IsEpicUpgrade: 1
   BasePrice: 5

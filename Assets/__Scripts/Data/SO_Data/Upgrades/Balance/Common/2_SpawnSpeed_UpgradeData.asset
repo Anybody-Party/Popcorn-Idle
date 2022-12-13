@@ -12,16 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9636022511e84a84490e2074e104a2ad, type: 3}
   m_Name: 2_SpawnSpeed_UpgradeData
   m_EditorClassIdentifier: 
-  UpgradeKey: SpawnSpeed
+  UpgradeType: 1
   UpgradeName: SPEED
   UpgradeDescription: Reduce time between corn production = <b><color=#EC9313>{0}
     sec</color></b>
   UpgradeSprite: {fileID: 21300000, guid: 9f78a14eb2bc0b04885942c0ccf4a7cd, type: 3}
-  Level: 1
   MaxLevel: 25
   IsEpicUpgrade: 0
-  BasePrice: 120
-  PriceProgressionCoef: 1.67
+  BasePrice: 60
+  PriceProgressionCoef: 1.89
   MultiplierForLevel: 0.9
   StartValue: 8
   StepValue: 0

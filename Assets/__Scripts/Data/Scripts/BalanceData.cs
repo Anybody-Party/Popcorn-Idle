@@ -56,11 +56,8 @@ public class BalanceData : BaseDataSO
     [MinMaxSlider(0.0f, 3.0f)]
     public Vector2 CookingShakePopcornForce;
 
-    [Header("Common Upgrade Data")]
-    public List<UpgradeData> CommonUpgradeData;
-
-    [Header("Epic Upgrade Data")]
-    public List<UpgradeData> EpicUpgradeData;
+    [Header("Upgrade Data")]
+    public List<UpgradeData> UpgradeData;
 
     [Header("Upgrades Balance")]
     public float TemperatureUpgradeStep; // 2.5f //
@@ -72,6 +69,11 @@ public class BalanceData : BaseDataSO
     public float EarningOfflineMultiplierForLevel; // 1.07f //
     public float HeatingSpeedMultiplierForLevel; // 1.07f //
 
+    public void InjectEcsWorld(GameData gameData)
+    {
+        foreach (var data in UpgradeData)
+            data.Inject(gameData);
+    }
     public override void ResetData()
     {
     }

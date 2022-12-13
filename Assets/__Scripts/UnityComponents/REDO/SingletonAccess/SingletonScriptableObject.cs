@@ -1,12 +1,14 @@
 using UnityEngine;
 
-
-public class SingletonScriptableObject<T> : ScriptableObject where T : ScriptableObject
+namespace __Scripts.UnityComponents.REDO.SingletonAccess
 {
-    public static T Instance;
-
-    public void CreateInstance()
+    public class SingletonScriptableObject<T> : ScriptableObject where T : ScriptableObject
     {
-        Instance = this as T;
+        public static T Instance;
+
+        public void CreateInstance()
+        {
+            Instance = this as T;
+        }
     }
 }

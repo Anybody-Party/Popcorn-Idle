@@ -17,8 +17,9 @@ public class GameUI : MonoBehaviour
     [SerializeField] public UpgradeTutorialScreen UpgradeTutorialScreen;
 
     private List<BaseScreen> screens;
+    private bool showAllScreenState;
 
-    public void InjectEcsWorld(EcsWorld ecsWorld)
+    public void InjectEcsWorld(EcsWorld ecsWorld, GameData gameData)
     {
         screens = new List<BaseScreen>();
         screens.AddRange(GetComponentsInChildren<BaseScreen>(true));
@@ -26,9 +27,17 @@ public class GameUI : MonoBehaviour
         {
             screen.gameObject.SetActive(true);
             screen.InjectEcsWorld(ecsWorld);
-            screen.Init();
+            screen.Init(gameData);
             screen.gameObject.SetActive(false);
         }
+        showAllScreenState = true;
+    }
+    
+    public void TriggerShowStateAllScreen()
+    {
+        showAllScreenState = !showAllScreenState;
+        foreach (var screen in screens)
+            screen.gameObject.SetActive(showAllScreenState);
     }
 
     public void SetShowStateLevelCompleteScreen(bool isShow) => LevelCompleteScreen.SetShowState(isShow);

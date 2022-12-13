@@ -1,5 +1,4 @@
 ﻿public struct UpgradeEvent
 {
-    public string Key;
-    public int Level;
+    public StaticData.UpgradeType UpgradeType;
 }

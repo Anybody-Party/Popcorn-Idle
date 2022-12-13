@@ -36,27 +36,12 @@ public class CheatScreen : BaseScreen
     private void CheatGoToMidGame()
     {
 
-        GameData.Instance.PlayerData.HeatingPowerUpgrade.Level = 12;
-        GameData.Instance.PlayerData.SpawnSpeedUpgrade.Level = 12;
-        GameData.Instance.PlayerData.EarnUpgrade.Level = 12;
-
-        GameData.Instance.PlayerData.RepairStoveUpgrade.Level = 12;
-        GameData.Instance.PlayerData.LuckyBoyUpgrade.Level = 12;
-        GameData.Instance.PlayerData.MilkyChocoUpgrade.Level = 12;
-
         for (int i = 1; i < 2; i++)
             EcsWorld.NewEntity().Get<BuyConveyorRequest>().ConveyorId = i;
     }
 
     private void CheatGoToLateGame()
     {
-        GameData.Instance.PlayerData.HeatingPowerUpgrade.Level = 25;
-        GameData.Instance.PlayerData.SpawnSpeedUpgrade.Level = 25;
-        GameData.Instance.PlayerData.EarnUpgrade.Level = 25;
-
-        GameData.Instance.PlayerData.RepairStoveUpgrade.Level = 25;
-        GameData.Instance.PlayerData.LuckyBoyUpgrade.Level = 25;
-        GameData.Instance.PlayerData.MilkyChocoUpgrade.Level = 25;
 
         for (int i = 1; i < 4; i++)
             EcsWorld.NewEntity().Get<BuyConveyorRequest>().ConveyorId = i;

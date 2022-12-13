@@ -1,4 +1,6 @@
-﻿using Leopotam.Ecs;
+﻿using System.Collections.Generic;
+using Client.Analytics.AnalyticManager;
+using Leopotam.Ecs;
 using UnityEngine;
 
 namespace Client
@@ -9,6 +11,7 @@ namespace Client
         private GameUI _gameUi;
         private EcsWorld _world;
         private WorldGameUI _worldGameUi;
+        private AnalyticService _analyticService;
 
         private EcsFilter<ConveyorProvider> _filter;
         private EcsFilter<BuyConveyorRequest> _buyFilter;
@@ -68,6 +71,12 @@ namespace Client
                             _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.BuildNewConveyorSound;
                             entityGo.Value.SetActive(true);
                             entity.Get<LaunchPop>();
+                            
+                            Dictionary<string, object> param = new Dictionary<string, object>
+                            {
+                                {"conveyorId", buyRequest.ConveyorId}
+                            };
+                            _analyticService.LogEvent("buy_conveyor", param);
                         }
                 }
                 SetZoomForConveyors();

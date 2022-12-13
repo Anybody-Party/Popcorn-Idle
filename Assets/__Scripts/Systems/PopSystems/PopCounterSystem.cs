@@ -1,4 +1,6 @@
-﻿using DG.Tweening;
+﻿using System.Collections.Generic;
+using Client.Analytics.AnalyticManager;
+using DG.Tweening;
 using Leopotam.Ecs;
 
 namespace Client
@@ -8,6 +10,7 @@ namespace Client
         private EcsWorld _world;
         private GameData _gameData;
         private GameUI _gameUi;
+        private AnalyticService _analyticService;
 
         private EcsFilter<AddPopEvent> _filter;
         private EcsFilter<AddGoldPopEvent> _goldFilter;
@@ -35,6 +38,12 @@ namespace Client
                 _gameUi.GameScreen.UpdateGoldPopcornAmountText(_gameData.PlayerData.GoldPopcornAmount);
                 _gameUi.GameScreen.BounceGoldPopcron();
                 _goldFilter.GetEntity(idx).Del<AddGoldPopEvent>();
+                
+                Dictionary<string, object> param = new Dictionary<string, object>
+                {
+                    {"goldPopcornAmount", _gameData.PlayerData.GoldPopcornAmount}
+                };
+                _analyticService.LogEvent("gold_tap", param);
             }
 
             foreach (var idx in _spendGoldFilter)
