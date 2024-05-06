@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a7a529b5b6e0454a98f18e36d2cef78, type: 3}
   m_Name: BalanceData
   m_EditorClassIdentifier: 
-  BasePopcornSpeed: 0.002
+  BasePopcornSpeed: 0.005
   BaseConveyorBeltSpeed: 0.05
   TapSpeedUpSpeedCoef: 2
   BaseHeatingSpeed: 1.1
@@ -28,7 +28,7 @@ MonoBehaviour:
   BaseGetGoldPopTime: 2
   OfflineTimeHourCap: {x: 1, y: 5}
   StartMoney: 0
-  BasePopSellReward: 5
+  BasePopSellReward: 15
   PopSellRewardMultiplier: 1
   BaseBagSellReward: 50
   BagSellRewardMultiplier: 1

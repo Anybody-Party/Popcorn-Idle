@@ -3,7 +3,6 @@
 //using GameAnalyticsSDK;
 
 using System.Collections.Generic;
-using Firebase.Analytics;
 
 namespace Client.Analytics.AnalyticManager
 {
@@ -61,7 +60,7 @@ namespace Client.Analytics.AnalyticManager
 
         public void LogEvent(string _event, Dictionary<string, object> _params)
         {
-            AppMetrica.Instance.ReportEvent(_event, _params);
+           // AppMetrica.Instance.ReportEvent(_event, _params);
             /*foreach (var _param in _params)
                 FirebaseAnalytics.LogEvent(_event, _param.Key, (int)_param.Value);*/
         }

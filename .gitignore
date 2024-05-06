@@ -1,6 +1,6 @@
 # This .gitignore file should be placed at the root of your Unity project directory
 #
-# Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
+# Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
 /[Ll]ibrary/
 /[Tt]emp/
@@ -17,12 +17,6 @@
 # Recordings can get excessive in size
 /[Rr]ecordings/
 
-# Screenshots from Screenshot Companion
-/[Ss]creenshots/
-
-# Asset meta data should only be ignored when the corresponding asset is also ignored
-!/[Aa]ssets/**/*.meta
-
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
 
@@ -31,6 +25,7 @@
 
 # Visual Studio cache directory
 .vs/
+.vsconfig
 
 # Gradle cache directory
 .gradle/
@@ -52,6 +47,8 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
+*.idea
+ProjectSettings/RiderScriptEditorPersistedState.asset
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -63,7 +60,9 @@ sysinfo.txt
 
 # Builds
 *.apk
+*.aab
 *.unitypackage
+*.app
 
 # Crashlytics generated file
 crashlytics-build.properties
@@ -75,6 +74,20 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-# Exceptions
-!*.dll
-!*.obj
+# Odin
+# Ignore the auto-generated AOT compatibility dll.
+/Assets/Plugins/Sirenix/Assemblies/AOT/*
+
+# Ignore all unpacked demos.
+/Assets/Plugins/Sirenix/Demos/*
+
+# But keep the demo packages themselves.
+!/Assets/Plugins/Sirenix/Demos/*.unitypackage 
+
+/[Ss]creenshots/
+/Store/
+
+Assets/Save.json
+Assets/Save.json.meta
+Assets/*.keystore
+Assets/*.keystore.meta
