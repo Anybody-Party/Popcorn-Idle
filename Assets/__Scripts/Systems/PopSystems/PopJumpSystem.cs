@@ -34,6 +34,11 @@ namespace Client
                 entity.Get<InJump>();
                 entity.Get<ChangePopEmotionRequest>().Emotion = StaticData.PopEmotions.Happy;
                 entity.Del<ReadyToJump>();
+                entity.Del<VelocityMoving>();
+                entity.Del<TransformMoving>();
+                entity.Del<LookingAt>();
+                entity.Del<GoToJump>();
+                entity.Del<StopAllMovingRequest>();
 
                 _world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.JumpSound;
             }

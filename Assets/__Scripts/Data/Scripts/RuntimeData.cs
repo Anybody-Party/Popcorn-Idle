@@ -48,7 +48,7 @@ public class RuntimeData : BaseData
 
     public float GetPopSpawnTime()
     {
-        float value = GameData.Instance.BalanceData.BaseSpawnPopTime * Mathf.Pow(GameData.Instance.BalanceData.SpawnTimePopMultiplierForLevel, GameData.Instance.PlayerData.UpgradeLevels[StaticData.UpgradeType.Speed]);
+        float value = 6.2f - (GameData.Instance.BalanceData.BaseSpawnPopTime + GameData.Instance.PlayerData.UpgradeLevels[StaticData.UpgradeType.Speed] * 0.1f);
         return value;
     }
 

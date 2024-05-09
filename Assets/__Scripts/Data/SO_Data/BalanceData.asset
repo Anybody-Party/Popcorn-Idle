@@ -20,10 +20,10 @@ MonoBehaviour:
   CurrentTemperatureCap: {x: 1, y: 15}
   MaxTemperature: 75
   BasePopcornsInBigBag: 10
-  GlodPopcornsChance: 0.01
+  GlodPopcornsChance: 0.1
   SpeedUpTime: 2
   CleanTime: 1
-  BaseSpawnPopTime: 12
+  BaseSpawnPopTime: 1
   BaseCookingTime: 20
   BaseGetGoldPopTime: 2
   OfflineTimeHourCap: {x: 1, y: 5}
@@ -50,7 +50,7 @@ MonoBehaviour:
   ConveyerSpeedUpgradeBase: 0.0001
   SpawnTimePopMultiplierForLevel: 0.9
   CookingTimePopMultiplierForLevel: 0.9
-  EarningPopMultiplierForLevel: 1.16
-  EarningBagMultiplierForLevel: 1.07
+  EarningPopMultiplierForLevel: 1.12
+  EarningBagMultiplierForLevel: 1.2
   EarningOfflineMultiplierForLevel: 1.16
   HeatingSpeedMultiplierForLevel: 1.01

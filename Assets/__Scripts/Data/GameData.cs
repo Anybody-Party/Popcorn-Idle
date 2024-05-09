@@ -23,13 +23,12 @@ public class GameData : MonoBehaviourSingleton<GameData>
         PlayerData.Init();
         BalanceData.InjectEcsWorld(this);
         LoadData();
-
-        PlayerData.IsGameLaunchedBefore = true;
     }
 
     private void SaveData()
     {
         PlayerData.SaveData();
+        PlayerData.IsGameLaunchedBefore = true;
     }
 
     private void LoadData()

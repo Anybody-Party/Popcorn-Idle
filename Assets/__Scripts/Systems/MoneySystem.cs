@@ -13,7 +13,8 @@ namespace Client
 
         public void Init()
         {
-            _gameData.PlayerData.Money = _gameData.BalanceData.StartMoney;
+            if (!_gameData.PlayerData.IsGameLaunchedBefore)
+                _gameData.PlayerData.Money = _gameData.BalanceData.StartMoney;
             _gameUi.GameScreen.UpdateMoneyText(_gameData.PlayerData.Money);
         }
 

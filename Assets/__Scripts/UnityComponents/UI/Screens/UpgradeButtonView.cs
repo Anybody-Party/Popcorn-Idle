@@ -20,7 +20,7 @@ public class UpgradeButtonView : MonoBehaviour
     public Sprite goldPopcornSprite;
 
     private GameData _gameDataService;
-    
+
     public void InitData(UpgradeData upgradeData, EcsWorld _world, GameData _gameData)
     {
         _gameDataService = _gameData;
@@ -47,6 +47,21 @@ public class UpgradeButtonView : MonoBehaviour
 
             EcsEntity entity = _world.NewEntity();
             entity.Get<UpgradeRequest>().UpgradeType = upgradeData.UpgradeType;
+
+            upgradeButton.OnClickEvent.RemoveAllListeners();
+            upgradeButton.OnClickEvent.AddListener(() =>
+            {
+                double price = upgradeData.BasePrice * Mathf.Pow(upgradeData.PriceProgressionCoef, level);
+                if (upgradeData.IsEpicUpgrade)
+                    _world.NewEntity().Get<SpendGoldPopEvent>().Value = price;
+                else
+                    _world.NewEntity().Get<SpendMoneyEvent>().Value = price;
+
+                UpdateInfo(upgradeData);
+
+                EcsEntity entity = _world.NewEntity();
+                entity.Get<UpgradeRequest>().UpgradeType = upgradeData.UpgradeType;
+            });
         });
 
         UpdateInfo(upgradeData);
@@ -66,6 +81,7 @@ public class UpgradeButtonView : MonoBehaviour
             upgradeDescriptionText.text = $"LEVEL {level + 1}";
         buyPriceText.text = $"<sprite=0> {Utility.FormatMoney(price)}"; // money sprite
         upgradeProgressBarFill.fillAmount = (float)level / (float)upgradeData.MaxLevel;
+       
         if (upgradeButton)
             upgradeButton.SetInteractable(currency >= price && level < upgradeData.MaxLevel);
 

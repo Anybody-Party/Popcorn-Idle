@@ -17,10 +17,10 @@ MonoBehaviour:
   UpgradeDescription: Reduce time between corn production = <b><color=#EC9313>{0}
     sec</color></b>
   UpgradeSprite: {fileID: 21300000, guid: 9f78a14eb2bc0b04885942c0ccf4a7cd, type: 3}
-  MaxLevel: 25
+  MaxLevel: 50
   IsEpicUpgrade: 0
   BasePrice: 20
-  PriceProgressionCoef: 1.89
-  MultiplierForLevel: 1.2
-  StartValue: 20
-  StepValue: 1
+  PriceProgressionCoef: 1.39
+  MultiplierForLevel: 0
+  StartValue: 1
+  StepValue: 0.1
