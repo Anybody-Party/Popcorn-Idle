@@ -11,6 +11,10 @@ public class BalanceData : BaseDataSO
     public float BasePopcornSpeed;
     public float BaseConveyorBeltSpeed;
     public float TapSpeedUpSpeedCoef;
+    public float BaseLevelCompleteReward;
+    public float MultiplierLevelCompleteReward;
+    public float BaseNeededExpByLevel;
+    public float MultiplierNeededExpByLevel;
 
     public float BaseHeatingSpeed;
     public float BaseColdingSpeed;

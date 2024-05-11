@@ -2,6 +2,7 @@
 using Leopotam.Ecs;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -10,6 +11,9 @@ public class UpgradeButtonView : MonoBehaviour
     public ActionButton upgradeButton;
     public TextMeshProUGUI upgradeNameText;
     public TextMeshProUGUI upgradeDescriptionText;
+    public LocalizeStringEvent upgradeDescriptionTextLocalizeStringEvent;
+    public LocalizeStringEvent upgradeNameTextLocalizeStringEvent;
+    public DynamicString dynamicUpgradeDescriptionText;
     public TextMeshProUGUI upgradeCounterText;
     public TextMeshProUGUI buyPriceText;
     public TextMeshProUGUI buyText;
@@ -24,14 +28,22 @@ public class UpgradeButtonView : MonoBehaviour
     public void InitData(UpgradeData upgradeData, EcsWorld _world, GameData _gameData)
     {
         _gameDataService = _gameData;
+        
         upgradeNameText.text = upgradeData.UpgradeName;
+        
         int level = _gameDataService.PlayerData.UpgradeLevels[upgradeData.UpgradeType];
         if (upgradeData.IsEpicUpgrade)
+        {
             upgradeDescriptionText.text = string.Format(upgradeData.UpgradeDescription, upgradeData.GetValue());
+            dynamicUpgradeDescriptionText.UpdateString(upgradeData.GetValue());
+        }
         else
+        {
             upgradeDescriptionText.text = $"LEVEL {level + 1}";
+            dynamicUpgradeDescriptionText.UpdateString(level + 1);
+        }
+        
         currencyImage.sprite = upgradeData.IsEpicUpgrade ? goldPopcornSprite : moneySprite;
-        buyText.text = "BUY";
         upgradeImage.sprite = upgradeData.UpgradeSprite;
 
         upgradeButton.OnClickEvent.AddListener(() =>
@@ -76,10 +88,17 @@ public class UpgradeButtonView : MonoBehaviour
             : GameData.Instance.PlayerData.Money;
         upgradeCounterText.text = $"{level}/{upgradeData.MaxLevel}";
         if (upgradeData.IsEpicUpgrade)
+        {
             upgradeDescriptionText.text = string.Format(upgradeData.UpgradeDescription, upgradeData.GetValue());
+            dynamicUpgradeDescriptionText.UpdateString(upgradeData.GetValue());
+        }
         else
+        {
             upgradeDescriptionText.text = $"LEVEL {level + 1}";
+            dynamicUpgradeDescriptionText.UpdateString(level + 1);
+        }
         buyPriceText.text = $"<sprite=0> {Utility.FormatMoney(price)}"; // money sprite
+
         upgradeProgressBarFill.fillAmount = (float)level / (float)upgradeData.MaxLevel;
        
         if (upgradeButton)

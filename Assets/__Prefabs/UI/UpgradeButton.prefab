@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5435682165837362959}
   - component: {fileID: 2676763321348884394}
   - component: {fileID: 3780188556017919480}
+  - component: {fileID: 2788552062090828396}
+  - component: {fileID: 7183457671404081191}
   m_Layer: 5
   m_Name: UpgradeNameText
   m_TagString: Untagged
@@ -135,6 +137,46 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2788552062090828396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224912904722301467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &7183457671404081191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224912904722301467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1be6613a78dbd444b332a1b2e78e0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &257495259460914926
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +264,9 @@ GameObject:
   - component: {fileID: 4678838882900945816}
   - component: {fileID: 108035151399494581}
   - component: {fileID: 7111110861850549761}
+  - component: {fileID: 7152382148163609806}
+  - component: {fileID: 489360794012810627}
+  - component: {fileID: 8041739283144271349}
   m_Layer: 5
   m_Name: UpgradeDescriptionText
   m_TagString: Untagged
@@ -244,8 +289,8 @@ RectTransform:
   m_Father: {fileID: 7860547726586736314}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.26496798, y: 0.40062153}
-  m_AnchorMax: {x: 0.76792264, y: 0.5904885}
+  m_AnchorMin: {x: 0.26496798, y: 0.32837802}
+  m_AnchorMax: {x: 0.7679226, y: 0.646312}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -304,8 +349,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -346,6 +391,59 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7152382148163609806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3134604087387127497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &489360794012810627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3134604087387127497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ceea5f6aeccf504a803f244ab7b2748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 0
+--- !u!114 &8041739283144271349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3134604087387127497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d2606e2880d224fbe6c147e5f7ea14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3401297571239629101
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,7 +653,7 @@ MonoBehaviour:
       m_Calls: []
 --- !u!95 &911076322286418358
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -572,7 +670,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &3219511534633910185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,6 +702,9 @@ MonoBehaviour:
   upgradeButton: {fileID: 2317099119788788651}
   upgradeNameText: {fileID: 3780188556017919480}
   upgradeDescriptionText: {fileID: 7111110861850549761}
+  upgradeDescriptionTextLocalizeStringEvent: {fileID: 7152382148163609806}
+  upgradeNameTextLocalizeStringEvent: {fileID: 2788552062090828396}
+  dynamicUpgradeDescriptionText: {fileID: 489360794012810627}
   upgradeCounterText: {fileID: 5247171258169803654}
   buyPriceText: {fileID: 6055012665838958001}
   buyText: {fileID: 8569314573646014448}
@@ -622,6 +724,8 @@ GameObject:
   - component: {fileID: 451696410301809802}
   - component: {fileID: 6042515726260019383}
   - component: {fileID: 8569314573646014448}
+  - component: {fileID: 5517423573288039540}
+  - component: {fileID: 2577111403786614375}
   m_Layer: 5
   m_Name: BuyText
   m_TagString: Untagged
@@ -746,6 +850,46 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5517423573288039540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845135649647195014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:6408fe699f8f7f64194229b1f8641778
+    m_TableEntryReference:
+      m_KeyId: 202912758032052224
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &2577111403786614375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845135649647195014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1be6613a78dbd444b332a1b2e78e0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6038724235137428580
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,7 +977,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 11400000, guid: 56eaa243bf3c258489eff791876e35ec, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: 6051db3e1393d7f458ed06fc4148a11b, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -1147,7 +1291,7 @@ MonoBehaviour:
       m_Calls: []
 --- !u!95 &5956925854311038473
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1164,7 +1308,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2317099119788788651
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -129,7 +129,7 @@ MonoBehaviour:
       m_Calls: []
 --- !u!95 &2937920567981798466
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,7 +146,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &6505778344765899232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,6 +494,8 @@ GameObject:
   - component: {fileID: 8947078843446398657}
   - component: {fileID: 3005453160524442364}
   - component: {fileID: 901429676770946491}
+  - component: {fileID: 3878605527540266510}
+  - component: {fileID: 3463647361488969784}
   m_Layer: 5
   m_Name: BuyText
   m_TagString: Untagged
@@ -617,6 +620,46 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3878605527540266510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3130213223306082765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:6408fe699f8f7f64194229b1f8641778
+    m_TableEntryReference:
+      m_KeyId: 202912758032052224
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &3463647361488969784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3130213223306082765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1be6613a78dbd444b332a1b2e78e0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3435245902692869629
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,7 +927,7 @@ MonoBehaviour:
       m_Calls: []
 --- !u!95 &8559685543384085501
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -901,7 +944,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &6251232810388076002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -932,6 +976,9 @@ MonoBehaviour:
   upgradeButton: {fileID: 6505778344765899232}
   upgradeNameText: {fileID: 5628156784127717299}
   upgradeDescriptionText: {fileID: 1783823574639105098}
+  upgradeDescriptionTextLocalizeStringEvent: {fileID: 2596374788022082761}
+  upgradeNameTextLocalizeStringEvent: {fileID: 3706366097082515898}
+  dynamicUpgradeDescriptionText: {fileID: 4698723839870458786}
   upgradeCounterText: {fileID: 3656753320934705613}
   buyPriceText: {fileID: 3344325420840435706}
   buyText: {fileID: 901429676770946491}
@@ -966,6 +1013,9 @@ GameObject:
   - component: {fileID: 4215444690906538451}
   - component: {fileID: 8867876656744688126}
   - component: {fileID: 1783823574639105098}
+  - component: {fileID: 2596374788022082761}
+  - component: {fileID: 4698723839870458786}
+  - component: {fileID: 6069843966901498956}
   m_Layer: 5
   m_Name: UpgradeDescriptionText
   m_TagString: Untagged
@@ -1090,6 +1140,59 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2596374788022082761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903812838838809730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &4698723839870458786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903812838838809730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ceea5f6aeccf504a803f244ab7b2748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 
+--- !u!114 &6069843966901498956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903812838838809730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d2606e2880d224fbe6c147e5f7ea14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6151074516223253350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,6 +1282,7 @@ GameObject:
   - component: {fileID: 3531309815856610628}
   - component: {fileID: 6866601569020366305}
   - component: {fileID: 5628156784127717299}
+  - component: {fileID: 3706366097082515898}
   m_Layer: 5
   m_Name: UpgradeNameText
   m_TagString: Untagged
@@ -1303,6 +1407,34 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3706366097082515898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751015967591303248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &8789928210781504677
 GameObject:
   m_ObjectHideFlags: 0

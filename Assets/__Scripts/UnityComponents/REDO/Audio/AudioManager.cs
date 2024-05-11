@@ -38,6 +38,7 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
     private bool checkMusic;
     private bool checkSFX;
+    public bool Enabled;
 
     [HideInInspector]
     public AudioSource musicTrack;
@@ -95,9 +96,27 @@ public class AudioManager : MonoBehaviour
     public void ToggleAudio(bool _on)
     {
         if (_on)
+        {
+            Enabled = true;
             masterMixer.SetFloat("AudioVolume", -5f);
+        }
         else
+        {
+            Enabled = false;
             masterMixer.SetFloat("AudioVolume", -80f);
+        }
+    }
+    
+    public void AdsToggleAudio(bool _on)
+    {
+        if (_on)
+        {
+            masterMixer.SetFloat("AudioVolume", -5f);
+        }
+        else
+        {
+            masterMixer.SetFloat("AudioVolume", -80f);
+        }
     }
 }
 

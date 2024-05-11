@@ -21,6 +21,8 @@ public class PlayerData : BaseDataSO
     public double GoldPopcornAmount;
     public double PopcornAmount;
     public int BagSold;
+    public int Level;
+    public float LevelProgress;
 
     [Header("Level")]
     public int CurrentLevelIndex;
@@ -40,7 +42,8 @@ public class PlayerData : BaseDataSO
         MoneyInSec = 0;
         GoldPopcornAmount = 0;
         PopcornAmount = 0;
-
+        Level = 0;
+        LevelProgress = 0.0f;
         CurrentLevelIndex = 0;
         CurrentLevelProgress = 0.0f;
 

@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: String Table Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Default
+  m_TableCollectionNameGuidString: 6408fe699f8f7f64194229b1f8641778
+  m_Entries:
+  - m_Id: 202884667725393920
+    m_Key: LevelText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202899681563717632
+    m_Key: 'MoneyInSecText
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202900051614576640
+    m_Key: NoThanks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202902915888001024
+    m_Key: GetAdReward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202906248816177152
+    m_Key: LevelCompleteText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202906327614566400
+    m_Key: OfflineBonusText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202907199136411648
+    m_Key: LabHeaderText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202908702161055744
+    m_Key: HEATING
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202908762420621312
+    m_Key: HEATING_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202912758032052224
+    m_Key: BuyText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202913181329600512
+    m_Key: SPEED
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202913231204069376
+    m_Key: SPEED_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202913923591385088
+    m_Key: EARN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202913986308812800
+    m_Key: EARN_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202914109180948480
+    m_Key: REPAIR STOVE SYSTEMS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202914189225046016
+    m_Key: REPAIR STOVE SYSTEMS_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202914299434577920
+    m_Key: LUCKY BOY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202914346263982080
+    m_Key: LUCKY BOY_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202914419370700800
+    m_Key: MILKY CHOCOLATE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202914480372658176
+    m_Key: MILKY CHOCOLATE_D
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202915025846087680
+    m_Key: Tutorial1Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 202915222407950336
+    m_Key: Tutorial2Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 203542843634298880
+    m_Key: NewConveyor
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 3723093226992697440
+  references:
+    version: 2
+    RefIds:
+    - rid: 3723093226992697440
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1666870684502

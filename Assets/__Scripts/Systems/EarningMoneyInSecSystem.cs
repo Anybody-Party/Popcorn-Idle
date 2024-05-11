@@ -42,7 +42,7 @@ namespace Client
                 _gameData.PlayerData.MoneyInSec *= conveyorCounter;
                 _gameData.PlayerData.MoneyInSec *= 0.1f;
 
-                _gameUi.GameScreen.UpdateMoneyInSecText(_gameData.PlayerData.MoneyInSec);
+                _gameUi.GameScreen.UpdateMoneyInSecText(_gameData.PlayerData.MoneyInSec * 60);
 
                 _filter.GetEntity(idx).Get<Timer<TimerUpdateMoneyInSec>>().Value = 1.0f;
             }

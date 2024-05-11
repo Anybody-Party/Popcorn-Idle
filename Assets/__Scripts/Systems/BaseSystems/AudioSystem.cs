@@ -16,7 +16,7 @@ namespace Client
         {
             _audioManager.ToggleAudio(_gameData.PlayerData.IsSoundOn);
             _audioManager.Play(StaticData.AudioSound.MusicSound);
-            _audioManager.Play(StaticData.AudioSound.ConveyorSound);
+                //_audioManager.Play(StaticData.AudioSound.ConveyorSound);
         }
 
         public void Run()

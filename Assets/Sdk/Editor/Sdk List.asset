@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269ffa514d1181a4aa72584ca94d6cee, type: 3}
+  m_Name: Sdk List
+  m_EditorClassIdentifier: 
+  _configurations:
+  - <Define>k__BackingField: FACEBOOK
+    <Name>k__BackingField: Facebook
+  - <Define>k__BackingField: GAME_ANALYTICS
+    <Name>k__BackingField: Game Analytics
+  - <Define>k__BackingField: ADJUST
+    <Name>k__BackingField: Adjust
+  - <Define>k__BackingField: APPLOVIN_MAX
+    <Name>k__BackingField: Applovin Max
+  - <Define>k__BackingField: BYTE_BREW
+    <Name>k__BackingField: Byte Brew
+  - <Define>k__BackingField: LION_ANALYTICS
+    <Name>k__BackingField: Lion Analytics
+  - <Define>k__BackingField: APP_METRICA
+    <Name>k__BackingField: AppMetrica
+  - <Define>k__BackingField: CRAZY_GAMES
+    <Name>k__BackingField: Crazy Games
+  - <Define>k__BackingField: GAME_DISTRIBUTION
+    <Name>k__BackingField: Game Distribution
+  - <Define>k__BackingField: YANDEX
+    <Name>k__BackingField: Yandex
+  - <Define>k__BackingField: VK
+    <Name>k__BackingField: VK
+  - <Define>k__BackingField: GAME_MONETIZE
+    <Name>k__BackingField: Game Monetize
+  - <Define>k__BackingField: GAME_PIX
+    <Name>k__BackingField: GamePix

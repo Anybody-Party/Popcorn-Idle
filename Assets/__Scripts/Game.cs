@@ -20,6 +20,7 @@ namespace Client
 
         [Header("Audio")]
         [SerializeField] private AudioManager _audioManager;
+        [SerializeField] private AdsManager _adsManager;
         [SerializeField] private AnalyticService _analyticService;
 
         private IEnumerator Start()
@@ -39,6 +40,7 @@ namespace Client
             _worldGameUi.InjectEcsWorld(_ecsWorld, _gameData);
             ProvideMonoEntitiesFromScene();
             _analyticService = new AnalyticService();
+            _adsManager.EcsWorld = _ecsWorld;
             
             EcsSystems inputSystems = InputSystems();
             EcsSystems spawnSystems = SpawnSystems();
@@ -91,6 +93,7 @@ namespace Client
                 .Inject(_gameUi)
                 .Inject(_worldGameUi)
                 .Inject(_audioManager)
+                .Inject(_adsManager)
                 .Inject(_analyticService)
 
                 .Init();

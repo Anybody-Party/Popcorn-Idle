@@ -15,6 +15,10 @@ MonoBehaviour:
   BasePopcornSpeed: 0.005
   BaseConveyorBeltSpeed: 0.05
   TapSpeedUpSpeedCoef: 2
+  BaseLevelCompleteReward: 1000
+  MultiplierLevelCompleteReward: 1.2
+  BaseNeededExpByLevel: 10
+  MultiplierNeededExpByLevel: 1.1
   BaseHeatingSpeed: 1.1
   BaseColdingSpeed: 0.7
   CurrentTemperatureCap: {x: 1, y: 15}

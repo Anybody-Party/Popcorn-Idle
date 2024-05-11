@@ -12,7 +12,7 @@ namespace Client
 
         public void Init()
         {
-            Handheld.Vibrate();
+            //Handheld.Vibrate();
         }
 
         public void Run()

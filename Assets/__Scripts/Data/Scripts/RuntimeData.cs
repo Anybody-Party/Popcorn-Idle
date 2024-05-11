@@ -26,6 +26,18 @@ public class RuntimeData : BaseData
         float value = GameData.Instance.BalanceData.BaseHeatingSpeed * Mathf.Pow(GameData.Instance.BalanceData.HeatingSpeedMultiplierForLevel, GameData.Instance.PlayerData.UpgradeLevels[StaticData.UpgradeType.Heat]);
         return value;
     }
+    
+    public float GetLevelCompleteReward()
+    {
+        float value = GameData.Instance.BalanceData.BaseLevelCompleteReward * Mathf.Pow(GameData.Instance.BalanceData.MultiplierLevelCompleteReward, GameData.Instance.PlayerData.Level);
+        return value;
+    }
+    
+    public float GetNeededExp()
+    {
+        float value = GameData.Instance.BalanceData.BaseNeededExpByLevel * Mathf.Pow(GameData.Instance.BalanceData.MultiplierNeededExpByLevel, GameData.Instance.PlayerData.Level);
+        return value;
+    }
 
     public float GetMaxTemperature()
     {

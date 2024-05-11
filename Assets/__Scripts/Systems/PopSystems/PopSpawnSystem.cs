@@ -19,7 +19,6 @@ namespace Client
                 ref GameObjectProvider conveyorGo = ref entity.Get<GameObjectProvider>();
 
                 entity.Get<Timer<TimerIntervalSpawnPop>>().Value = _gameData.RuntimeData.GetPopSpawnTime();
-                Debug.Log($"GetPopSpawnTime {_gameData.RuntimeData.GetPopSpawnTime()}");
                 bool isGold = _gameData.RuntimeData.GetGoldPopcornChance();
 
                 EcsEntity popEntity = _world.NewEntity();
