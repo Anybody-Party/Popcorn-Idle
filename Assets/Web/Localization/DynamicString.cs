@@ -51,7 +51,6 @@ public class DynamicString : MonoBehaviour
     public void UpdateString(string value)
     {
         LocalizedString localizedString = _localizeStringEvent.StringReference;
-        Debug.Log($"key: {key}, value: {value}");
         dictionaryString[key] = value;
         localizedString.Arguments = new List<object> { dictionaryString };
         localizedString.RefreshString();

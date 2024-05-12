@@ -54,6 +54,7 @@ namespace Client
                 {
                     _gameData.PlayerData.LevelProgress = 0.0f;
                     _gameData.PlayerData.Level += 1;
+                    _gameUi.GameScreen.UpdateProgressBar(0.0f);
                     _gameUi.GameScreen.UpdateLevelText(_gameData.PlayerData.Level);
                     _gameUi.LevelCompleteScreen.UpdateRewardText(_gameData.RuntimeData.GetLevelCompleteReward());
                     _gameUi.SetShowStateLevelCompleteScreen(true);

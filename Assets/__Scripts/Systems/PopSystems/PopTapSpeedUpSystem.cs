@@ -10,8 +10,8 @@ namespace Client
         private EcsWorld _world;
 
         private EcsFilter<RaycastEvent> _tapFilter;
-        private EcsFilter<Pop, GoToJump, TransformMoving>.Exclude<IsSpeedUpMarker, Timer<TimerSpeedUp>> _filter;
-        private EcsFilter<Pop, IsSpeedUpMarker, TimerDoneEvent<TimerSpeedUp>> _timerDoneFilter;
+        private EcsFilter<Pop, GoToJump, TransformMoving>.Exclude<IsSpeedUpMarker, Timer<TimerSpeedUp>, InJump> _filter;
+        private EcsFilter<Pop, IsSpeedUpMarker, TimerDoneEvent<TimerSpeedUp>>.Exclude<InJump> _timerDoneFilter;
 
         public void Run()
         {

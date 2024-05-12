@@ -834,6 +834,28 @@ namespace Leopotam.Ecs {
                 };
             }
         }
+        
+        public class Exclude<Exc1, Exc2, Exc3> : EcsFilter<Inc1, Inc2, Inc3>
+            where Exc1 : struct
+            where Exc2 : struct
+            where Exc3 : struct
+        {
+#if UNITY_2019_1_OR_NEWER
+            [UnityEngine.Scripting.Preserve]
+#endif
+            protected Exclude (EcsWorld world) : base (world) {
+                ExcludedTypeIndices = new[] {
+                    EcsComponentType<Exc1>.TypeIndex,
+                    EcsComponentType<Exc2>.TypeIndex,
+                    EcsComponentType<Exc3>.TypeIndex
+                };
+                ExcludedTypes = new[] {
+                    EcsComponentType<Exc1>.Type,
+                    EcsComponentType<Exc2>.Type,
+                    EcsComponentType<Exc3>.Type
+                };
+            }
+        }
     }
 
 #if ENABLE_IL2CPP
