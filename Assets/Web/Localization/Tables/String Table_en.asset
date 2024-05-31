@@ -119,6 +119,10 @@ MonoBehaviour:
     m_Localized: NEW CONVEYOR
     m_Metadata:
       m_Items: []
+  - m_Id: 203973264205492224
+    m_Localized: NEW PRODUCT LINE
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

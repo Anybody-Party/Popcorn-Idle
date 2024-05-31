@@ -948,7 +948,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:6408fe699f8f7f64194229b1f8641778
     m_TableEntryReference:
-      m_KeyId: 203542843634298880
+      m_KeyId: 203973264205492224
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -4717,7 +4717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistanceForTap: 40
   maxDurationForTap: 0.4
-  useMouse: 0
+  useMouse: 1
   mouseScrollSpeed: 0
   controlCamera: 1
   cam: {fileID: 1687258584}
@@ -7145,6 +7145,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6828870694000990265, guid: 3ef978bc01e1cdc44a73ab7f5b228791, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 16.600098
+      objectReference: {fileID: 0}
     - target: {fileID: 7830966517147674254, guid: 3ef978bc01e1cdc44a73ab7f5b228791, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7279,7 +7283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8554084340731774043, guid: 3ef978bc01e1cdc44a73ab7f5b228791, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 382396.34
+      value: 959832.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ef978bc01e1cdc44a73ab7f5b228791, type: 3}

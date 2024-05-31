@@ -109,6 +109,10 @@ MonoBehaviour:
     m_Key: NewConveyor
     m_Metadata:
       m_Items: []
+  - m_Id: 203973264205492224
+    m_Key: NewProductLine
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

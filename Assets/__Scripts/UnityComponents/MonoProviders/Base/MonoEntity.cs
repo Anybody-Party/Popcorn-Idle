@@ -1,9 +1,9 @@
 ﻿using Leopotam.Ecs;
-using Leopotam.Ecs.UnityIntegration;
 using NaughtyAttributes;
 using UnityEditor;
 using UnityEngine;
 #if UNITY_EDITOR
+using Leopotam.Ecs.UnityIntegration;
 #endif
 
     public class MonoEntity : MonoProviderBase
