@@ -23,6 +23,7 @@ namespace Client
                 entityView.Bodies[(int)StaticData.PopBody.RawCorn].transform.Rotate(Vector3.up, Random.Range(0, 360.0f));
 
                 Utility.ResetRigibodyVelocity(entityRb.Value);
+                entityRb.Value.sleepThreshold = -1;
                 entity.Get<AddingForce>().Direction = entityGo.Value.transform.up * Random.Range(_gameData.BalanceData.LaunchPopcornForce.x, _gameData.BalanceData.LaunchPopcornForce.y);
                 entity.Get<AddingForce>().ForceMode = ForceMode.Impulse;
                 entity.Get<Landing>();

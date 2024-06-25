@@ -18,7 +18,10 @@ namespace Client
                 ref EcsEntity entity = ref _filter.GetEntity(idx);
                 ref Pop pop = ref entity.Get<Pop>();
                 ref GameObjectProvider entityGo = ref entity.Get<GameObjectProvider>();
+                ref Rigidbody entityRb = ref entity.Get<RigidbodyProvider>().Value;
 
+                entityRb.freezeRotation = false;
+                
                 Vector3 point = Vector3.zero;
                 float distance = 100.0f;
                 for (int i = 0; i < pop.Conveyor.JumpPoints.Count; i++)

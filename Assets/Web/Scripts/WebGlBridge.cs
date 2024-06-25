@@ -21,6 +21,7 @@ namespace _Scripts.Web
             GameMonetize.Instance.ShowAd();
             print("Inter showed");
 #else
+            closeFunction?.Invoke();
             print("Inter showed");
 #endif
         }

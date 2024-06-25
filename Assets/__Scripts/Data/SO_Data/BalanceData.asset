@@ -54,7 +54,7 @@ MonoBehaviour:
   ConveyerSpeedUpgradeBase: 0.0001
   SpawnTimePopMultiplierForLevel: 0.9
   CookingTimePopMultiplierForLevel: 0.9
-  EarningPopMultiplierForLevel: 1.29
+  EarningPopMultiplierForLevel: 1.02
   EarningBagMultiplierForLevel: 1.2
   EarningOfflineMultiplierForLevel: 1.16
   HeatingSpeedMultiplierForLevel: 1.01

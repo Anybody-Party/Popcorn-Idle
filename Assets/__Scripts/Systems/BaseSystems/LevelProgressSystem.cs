@@ -49,6 +49,7 @@ namespace Client
             {
                 ref EcsEntity entity = ref _expFilter.GetEntity(idx);
                 _gameData.PlayerData.LevelProgress += 1;
+                Debug.Log($"_gameData.PlayerData.LevelProgress {_gameData.PlayerData.Level}");
                 _gameUi.GameScreen.UpdateProgressBar(_gameData.PlayerData.LevelProgress / _gameData.RuntimeData.GetNeededExp());
                 if (_gameData.PlayerData.LevelProgress >= _gameData.RuntimeData.GetNeededExp())
                 {

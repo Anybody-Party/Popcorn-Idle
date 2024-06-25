@@ -24,7 +24,7 @@ namespace Client
 
                 movingEntityGo.Value.transform.position = Vector3.MoveTowards(movingEntityGo.Value.transform.position, moving.Target, moving.Speed);
 
-                if (Vector3.Distance(movingEntityGo.Value.transform.position, moving.Target) < moving.Accuracy)
+                if (movingEntityGo.Value.transform.position.z - moving.Target.z < moving.Accuracy)
                 {
                     movingEntity.Del<TransformMoving>();
                     //moving.CompleteAction?.Invoke();

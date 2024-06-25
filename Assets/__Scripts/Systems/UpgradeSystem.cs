@@ -30,7 +30,7 @@ namespace Client
                     {upgrade.UpgradeType.ToString(), _gameData.PlayerData.UpgradeLevels[upgrade.UpgradeType]}
                 };
                 _analyticService.LogEvent("upgrade", param);
-                
+                _gameData.PlayerData.SaveData();
                 //_world.NewEntity().Get<PlaySoundRequest>().SoundName = StaticData.AudioSound.BuyUpdateSound;
                 entity.Del<UpgradeRequest>();
             }

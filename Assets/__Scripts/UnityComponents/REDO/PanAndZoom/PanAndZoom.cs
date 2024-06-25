@@ -54,8 +54,6 @@ public class PanAndZoom : MonoBehaviour
     [Header("Desktop debug")]
     [Tooltip("Use the mouse on desktop?")]
     public bool useMouse = true;
-    [Tooltip("The simulated pinch speed using the scroll wheel")]
-    public float mouseScrollSpeed = 2;
 
     [Header("Camera control")]
     [Tooltip("Does the script control camera movement?")]
@@ -164,10 +162,11 @@ public class PanAndZoom : MonoBehaviour
             cameraControlEnabled = true;
         }
 
+        /*
         if (Input.mouseScrollDelta.y != 0)
         {
             OnPinch(Input.mousePosition, 1, Input.mouseScrollDelta.y < 0 ? (1 / mouseScrollSpeed) : mouseScrollSpeed, Vector2.right);
-        }
+        }*/
     }
 
     void UpdateWithTouch()

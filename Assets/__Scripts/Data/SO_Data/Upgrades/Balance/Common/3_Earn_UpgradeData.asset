@@ -19,7 +19,7 @@ MonoBehaviour:
   MaxLevel: 100
   IsEpicUpgrade: 0
   BasePrice: 10
-  PriceProgressionCoef: 1.19
+  PriceProgressionCoef: 1.22
   MultiplierForLevel: 1.1
   StartValue: 5
   StepValue: 0

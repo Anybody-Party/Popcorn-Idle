@@ -24,10 +24,12 @@ public class UpgradeButtonView : MonoBehaviour
     public Sprite goldPopcornSprite;
 
     private GameData _gameDataService;
+    private EcsWorld _world;
 
-    public void InitData(UpgradeData upgradeData, EcsWorld _world, GameData _gameData)
+    public void InitData(UpgradeData upgradeData, EcsWorld world, GameData _gameData)
     {
         _gameDataService = _gameData;
+        _world = world;
         
         upgradeNameText.text = upgradeData.UpgradeName;
         
@@ -48,30 +50,32 @@ public class UpgradeButtonView : MonoBehaviour
 
         upgradeButton.OnClickEvent.AddListener(() =>
         {
+            int level = _gameDataService.PlayerData.UpgradeLevels[upgradeData.UpgradeType];
             double price = upgradeData.BasePrice * Mathf.Pow(upgradeData.PriceProgressionCoef, level);
 
             if (upgradeData.IsEpicUpgrade)
-                _world.NewEntity().Get<SpendGoldPopEvent>().Value = price;
+                world.NewEntity().Get<SpendGoldPopEvent>().Value = price;
             else
-                _world.NewEntity().Get<SpendMoneyEvent>().Value = price;
+                world.NewEntity().Get<SpendMoneyEvent>().Value = price;
 
             UpdateInfo(upgradeData);
 
-            EcsEntity entity = _world.NewEntity();
+            EcsEntity entity = world.NewEntity();
             entity.Get<UpgradeRequest>().UpgradeType = upgradeData.UpgradeType;
 
             upgradeButton.OnClickEvent.RemoveAllListeners();
             upgradeButton.OnClickEvent.AddListener(() =>
             {
+                int level = _gameDataService.PlayerData.UpgradeLevels[upgradeData.UpgradeType];
                 double price = upgradeData.BasePrice * Mathf.Pow(upgradeData.PriceProgressionCoef, level);
                 if (upgradeData.IsEpicUpgrade)
-                    _world.NewEntity().Get<SpendGoldPopEvent>().Value = price;
+                    world.NewEntity().Get<SpendGoldPopEvent>().Value = price;
                 else
-                    _world.NewEntity().Get<SpendMoneyEvent>().Value = price;
+                    world.NewEntity().Get<SpendMoneyEvent>().Value = price;
 
                 UpdateInfo(upgradeData);
 
-                EcsEntity entity = _world.NewEntity();
+                EcsEntity entity = world.NewEntity();
                 entity.Get<UpgradeRequest>().UpgradeType = upgradeData.UpgradeType;
             });
         });
