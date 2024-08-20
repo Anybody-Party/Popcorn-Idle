@@ -23,7 +23,7 @@ MonoBehaviour:
   BaseColdingSpeed: 0.7
   CurrentTemperatureCap: {x: 1, y: 15}
   MaxTemperature: 75
-  BasePopcornsInBigBag: 10
+  BasePopcornsInBigBag: 5
   GlodPopcornsChance: 0.1
   SpeedUpTime: 2
   CleanTime: 1
@@ -34,7 +34,7 @@ MonoBehaviour:
   StartMoney: 0
   BasePopSellReward: 15
   PopSellRewardMultiplier: 1
-  BaseBagSellReward: 50
+  BaseBagSellReward: 10
   BagSellRewardMultiplier: 1
   BaseConveyorPrice: 100
   ConveyorPriceMultiplierForNumber: 10
@@ -52,9 +52,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a4e9d1ca81fd98544bc2abd47a5fe6b2, type: 2}
   TemperatureUpgradeStep: 2.5
   ConveyerSpeedUpgradeBase: 0.0001
-  SpawnTimePopMultiplierForLevel: 0.9
-  CookingTimePopMultiplierForLevel: 0.9
+  SpawnTimePopMultiplierForLevel: 1.02
+  CookingTimePopMultiplierForLevel: 1.02
   EarningPopMultiplierForLevel: 1.02
-  EarningBagMultiplierForLevel: 1.2
+  EarningBagMultiplierForLevel: 1.12
   EarningOfflineMultiplierForLevel: 1.16
   HeatingSpeedMultiplierForLevel: 1.01

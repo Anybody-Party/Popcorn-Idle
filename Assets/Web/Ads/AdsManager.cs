@@ -19,13 +19,14 @@ public class AdsManager : MonoBehaviourSingleton<AdsManager>
     private void Start()
     {
         _turnOnMusic = TurnOnMusic;
-        if (_music.Enabled)
+        /*if (_music.Enabled)
         {
             _musicNeedsTurnOn = true;
             _music.AdsToggleAudio(false);
-        }
+        }*/
 
-        WebGlBridge.ShowInterstitialAd(gameObject, _turnOnMusic, _turnOnMusic);
+        //WebGlBridge.ShowInterstitialAd(gameObject, _turnOnMusic, _turnOnMusic);
+        _music.ToggleAudio(true);
         StartCoroutine(ShowInterstitials());
     }
     
