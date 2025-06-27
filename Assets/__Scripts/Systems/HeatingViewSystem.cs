@@ -29,7 +29,7 @@ namespace Client
                 foreach (var conveyor in _conveyorFilter)
                 {
                     _conveyorFilter.Get1(conveyor).StoveMaterial.UpdateEmmision(temperatureWithMax, temperatureWithMax);
-                    if(temperature > 50.0f)
+                    /*if(temperature > 50.0f)
                     {
                         if (!_conveyorFilter.Get1(conveyor).AirHeatDistortion.activeInHierarchy)
                             _conveyorFilter.Get1(conveyor).AirHeatDistortion.SetActive(true);
@@ -38,7 +38,7 @@ namespace Client
                     {
                         if (_conveyorFilter.Get1(conveyor).AirHeatDistortion.activeInHierarchy)
                             _conveyorFilter.Get1(conveyor).AirHeatDistortion.SetActive(false);
-                    }
+                    }*/
 
                     if (temperature > 25.0f)
                     {

@@ -1,7 +1,6 @@
-﻿using FlatKit;
-using Leopotam.Ecs;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using LIM_4087.Scripts;
 using UnityEngine;
 
 [Serializable]
@@ -14,7 +13,7 @@ public struct ConveyorProvider
 
     public BlendMaterialController StoveMaterial;
     public GameObject HeatSteam;
-    public GameObject AirHeatDistortion;
+    //public GameObject AirHeatDistortion;
     public UvScroller BeltScroller;
 
     public ParticleSystem BuildDustPS;

@@ -23,11 +23,11 @@ namespace Client
                 moving.Speed = moving.Speed == 0 ? 2 : moving.Speed;
                 moving.Accuracy = moving.Accuracy == 0 ? 0.1f : moving.Accuracy;
 
-                movingEntityRb.Value.velocity = (moving.Target - movingEntityGo.Value.transform.position).normalized * moving.Speed;
+                movingEntityRb.Value.linearVelocity = (moving.Target - movingEntityGo.Value.transform.position).normalized * moving.Speed;
 
                 if (Vector3.Distance(movingEntityGo.Value.transform.position, moving.Target) < moving.Accuracy)
                 {
-                    movingEntityRb.Value.velocity = Vector3.zero;
+                    movingEntityRb.Value.linearVelocity = Vector3.zero;
                     movingEntity.Del<VelocityMoving>();
                     //moving.CompleteAction?.Invoke();
                     movingEntity.Get<MovingCompleteEvent>();
